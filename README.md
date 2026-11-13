@@ -206,7 +206,7 @@ is unaffected. Submitting the sitemap directly in Search Console is the reliable
 a custom domain is bound, `robots.txt` sits at the real root and the `Sitemap:` directive is
 picked up automatically.
 
-### Ownership verification — DONE ✅
+### Ownership verification — deployed
 
 Search Console asked for the HTML verification file to be uploaded to
 `https://scumicrowave.github.io/homepage/`. It is committed at the repo root and live:

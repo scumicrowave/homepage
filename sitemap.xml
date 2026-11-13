@@ -3,17 +3,17 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://scumicrowave.github.io/homepage/</loc>
+    <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://scumicrowave.github.io/homepage/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://scumicrowave.github.io/homepage/zh/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://scumicrowave.github.io/homepage/"/>
-    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://scumicrowave.github.io/homepage/zh/</loc>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://scumicrowave.github.io/homepage/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://scumicrowave.github.io/homepage/zh/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://scumicrowave.github.io/homepage/"/>
-    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://scumicrowave.github.io/homepage/papers/2025%20IEEE%20TPE%20A_Reconfigurable_Circuit_Strategy_and_Its_Application_in_Low-Power_Rectifier_for_Ambient_Energy_Harvesting.pdf</loc>

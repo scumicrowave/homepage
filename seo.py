@@ -46,13 +46,16 @@ def main():
     )
     (ROOT / "robots.txt").write_text(robots, encoding="utf-8")
 
+    # sitemaps.org schema is an ordered sequence: loc, lastmod, changefreq,
+    # priority, then extension-namespace elements. Keep xhtml:link AFTER the
+    # standard elements so strict parsers (and Search Console) accept the file.
     urls = []
     for loc, priority in ((EN_URL, "1.0"), (ZH_URL, "0.9")):
         urls.append(
             "  <url>\n"
             "    <loc>%s</loc>\n" % escape(loc, quote=True)
-            + hreflang_links()
             + "    <priority>%s</priority>\n" % priority
+            + hreflang_links()
             + "  </url>"
         )
 

@@ -10,7 +10,7 @@ Static, dependency-free English academic homepage for **GitHub Pages**. Publicat
 > | Chinese | https://scumicrowave.github.io/homepage/zh/ |
 > | PDFs | https://scumicrowave.github.io/homepage/papers/... (116 files) |
 >
-> Published through the GitHub Git Data API: 134 files / 211.8 MB in one commit, with all 116 PDFs under `papers/`. `base_tree` preserves remote-only files (220 blobs total), so nothing was deleted. A single repo now serves both languages — no second host, no duplicated PDF copies.
+> Published through the GitHub Git Data API: the whole site plus all 116 PDFs under `papers/` (~212 MB) in one commit. `base_tree` preserves remote-only files, so nothing was deleted. A single repo now serves both languages — no second host, no duplicated PDF copies.
 
 > **Legacy mirror.** The Chinese edition was also published on Tencent/WorkBuddy free hosting at https://wbapp-8qepa8vil4cd5d2qpy9kii.apps.workbuddy.host/?sharecode=2RJXT4VKJN . That host needs a `sharecode`, returns 403 without it, and **cannot be indexed by Google** — it is kept only as a fallback. The canonical Chinese site is the GitHub Pages `/zh/` URL above.
 
@@ -30,8 +30,8 @@ Static, dependency-free English academic homepage for **GitHub Pages**. Publicat
 | `zh/index.html`, `zh/assets/` | Generated Chinese site + copied assets. Do not edit by hand. |
 | `publications.json` | **Single source of truth** — `profile` (English), `profile_zh` (Chinese), publications, PDF library, and optional `google_site_verification`. Edit this. |
 | `build.py` | Regenerates `index.html` (`python build.py`) or `zh/index.html` (`python build.py --lang zh`). Standard library only. |
-| `seo.py` | Generates `robots.txt` and `sitemap.xml` (2 pages + 116 PDFs) from `site_url`. Re-run after a domain change. |
-| `robots.txt`, `sitemap.xml` | Crawl directives + URL inventory for search engines. |
+| `seo.py` | Generates `robots.txt`, `sitemap.xml` and the fallback `sitemap-simple.xml` (2 pages + 116 PDFs) from `site_url`. Re-run after a domain change. |
+| `robots.txt`, `sitemap.xml`, `sitemap-simple.xml` | Crawl directives + URL inventory (+ a strict-minimal fallback sitemap). |
 | `bind_domain.py` | Optional custom-domain binder (dry-run by default; `--apply` writes `CNAME`, updates URLs, rebuilds everything). |
 | `deploy_api.py` | Uploads the whole site in one commit via the GitHub Git Data API. |
 | `deploy.sh` | Alternative git-push deployer. |
@@ -56,7 +56,7 @@ Static, dependency-free English academic homepage for **GitHub Pages**. Publicat
    python build.py            # English -> index.html
    python build.py --lang zh  # Chinese  -> zh/index.html (copies assets into zh/assets)
    python seo.py              # robots.txt + sitemap.xml
-   python deploy_api.py       # one commit, all 134 files
+   python deploy_api.py       # one commit, all site files
    ```
    Publication titles/authors/venues stay in English on both sites so they remain searchable and DOI-matchable; only the surrounding UI text and the profile are translated. The Chinese site points its PDF links at the same repo's `papers/` folder via `PDF_BASE`, so the 211 MB library is stored only once.
 3. `deploy_api.py` now finds the token automatically (`GITHUB_TOKEN` → first CLI arg → Git Credential Manager), so no PAT needs to be pasted into the chat.
@@ -88,7 +88,7 @@ Target: the existing GitHub Pages repo **`scumicrowave/homepage`**, currently li
 
 ### Recommended: REST API (`deploy_api.py`)
 
-`git fetch/push` can stall behind proxies when uploading large binary files. The API deployer uploads blobs directly and creates one commit — 134 files / 211.8 MB in about two minutes:
+`git fetch/push` can stall behind proxies when uploading large binary files. The API deployer uploads blobs directly and creates one commit — the whole site plus 116 PDFs (~212 MB) in about two minutes:
 
 ```bash
 python deploy_api.py                    # uses the credential saved by Git Credential Manager
@@ -193,6 +193,7 @@ Both editions are set up for indexing. Everything that can be done from this wor
 |---|---|
 | `robots.txt` (`Allow: /` + Sitemap directive) | `https://scumicrowave.github.io/homepage/robots.txt` |
 | `sitemap.xml` (2 HTML pages + 116 PDFs, hreflang annotations) | `https://scumicrowave.github.io/homepage/sitemap.xml` |
+| `sitemap-simple.xml` (same 118 URLs, `<loc>` only — compatibility fallback) | `https://scumicrowave.github.io/homepage/sitemap-simple.xml` |
 | `rel=canonical` | English → `/homepage/`, Chinese → `/homepage/zh/` |
 | `hreflang=en` / `zh-Hans` / `x-default` | In both pages **and** in the sitemap |
 | schema.org `Person` JSON-LD with `url`, `inLanguage`, `alternateName` | Both pages |
@@ -205,6 +206,33 @@ cannot be controlled from this repository. A 404 robots.txt means "no restrictio
 is unaffected. Submitting the sitemap directly in Search Console is the reliable path — and once
 a custom domain is bound, `robots.txt` sits at the real root and the `Sitemap:` directive is
 picked up automatically.
+
+### Sitemap troubleshooting — fixed 2026-11-13
+
+Search Console initially reported the sitemap as **`Couldn't fetch` / `Type: Unknown` /
+`Last read` empty**. That message means Google never retrieved the file at all — it is *not* a
+"file was read but rejected" error. Two causes were found and fixed:
+
+1. **Invalid child order.** The generated `<url>` put the `xhtml:link` extension elements
+   *before* `<priority>`. The sitemaps.org schema is an **ordered sequence**
+   (`loc` → `lastmod` → `changefreq` → `priority` → extension elements), and a strict parser
+   can reject the whole document. `seo.py` now emits `loc` → `priority` → `xhtml:link`.
+   Verified: 118 URLs, 0 duplicates, 0 order violations, 0 bare `&`, 0 non-ASCII characters,
+   no BOM, served as `application/xml`, HTTP 200 for both browser and Googlebot user agents.
+2. **Pages rebuild window.** Several commits were pushed in a short period; every push
+   rebuilds GitHub Pages, and a fetch landing in that window gets a transient 404/503.
+   Deploy **once**, wait for `status: built`, then submit — do not re-deploy while a
+   submission is pending.
+
+Also generated **`sitemap-simple.xml`**, a strict-minimal fallback with only `<loc>` entries
+and no extension namespace. Both files list the same 118 URLs; keep both. If the main
+sitemap is still refused, submit
+`https://scumicrowave.github.io/homepage/sitemap-simple.xml` instead.
+
+**Submit the full absolute URL**, not `sitemap.xml` or a path — a relative value is a common
+cause of `Couldn't fetch`. If a submitted sitemap still shows `Couldn't fetch`, use
+**⋯ → Remove** and re-add it after the Pages build is `built`; Google does not retry a
+failed fetch immediately.
 
 ### Ownership verification — deployed
 
@@ -241,7 +269,10 @@ to your Google account):
 1. In https://search.google.com/search-console, open the **URL-prefix property**
    `https://scumicrowave.github.io/homepage/` and click **Verify** on the HTML-file method.
    The file is already live, so verification should succeed immediately.
-2. **Sitemaps → Add** `https://scumicrowave.github.io/homepage/sitemap.xml` → **Submit**.
+2. **Sitemaps → Add** the **full absolute URL**
+   `https://scumicrowave.github.io/homepage/sitemap.xml` → **Submit**. A partial value such as
+   `sitemap.xml` causes `Couldn't fetch`. If it is still refused, remove it and submit
+   `https://scumicrowave.github.io/homepage/sitemap-simple.xml` instead (see troubleshooting above).
 3. Optionally **URL Inspection → Request Indexing** for the two homepage URLs
    (quota is limited; the sitemap covers the other 116 PDF URLs).
 4. Inspect `/homepage/zh/` too, and confirm the hreflang cluster is recognised under

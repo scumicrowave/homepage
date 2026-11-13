@@ -2,9 +2,17 @@
 
 Static, dependency-free English academic homepage for **GitHub Pages**. Publications are grouped by year in reverse chronological order, each with a PDF download button, and the full-text PDFs are hosted on the site itself.
 
-> **Current status — deployed.** Live at https://scumicrowave.github.io/homepage/ (2026-11-13). Published through the GitHub Git Data API: 127 files / 211.6 MB in a single commit, with all 116 PDFs under `papers/`. Remote-only files were preserved (75 old files kept), so nothing was deleted.
+> **Current status — BOTH language editions are served by GitHub Pages** (commit `568238c0`, 2026-11-13).
+>
+> | Edition | URL |
+> |---|---|
+> | English | https://scumicrowave.github.io/homepage/ |
+> | Chinese | https://scumicrowave.github.io/homepage/zh/ |
+> | PDFs | https://scumicrowave.github.io/homepage/papers/... (116 files) |
+>
+> Published through the GitHub Git Data API: 134 files / 211.8 MB in one commit, with all 116 PDFs under `papers/`. `base_tree` preserves remote-only files (220 blobs total), so nothing was deleted. A single repo now serves both languages — no second host, no duplicated PDF copies.
 
-> **Chinese edition — deployed on Tencent's free web hosting (WorkBuddy App Publishing).** Live at https://wbapp-8qepa8vil4cd5d2qpy9kii.apps.workbuddy.host/?sharecode=2RJXT4VKJN (2026-11-13). Built with `python build.py --lang zh` into `zh/`; it shares the same `publications.json` data, uses `profile_zh` for Chinese UI text, and links PDF downloads to the already-published English GitHub Pages site instead of duplicating the 211 MB of PDFs.
+> **Legacy mirror.** The Chinese edition was also published on Tencent/WorkBuddy free hosting at https://wbapp-8qepa8vil4cd5d2qpy9kii.apps.workbuddy.host/?sharecode=2RJXT4VKJN . That host needs a `sharecode`, returns 403 without it, and **cannot be indexed by Google** — it is kept only as a fallback. The canonical Chinese site is the GitHub Pages `/zh/` URL above.
 
 ## What is on the page
 
@@ -19,9 +27,14 @@ Static, dependency-free English academic homepage for **GitHub Pages**. Publicat
 | Path | Purpose |
 |---|---|
 | `index.html` | Generated English site. Do not edit by hand. |
-| `zh/index.html` | Generated Chinese site (deployed to Tencent free hosting). Do not edit by hand. |
-| `publications.json` | **Single source of truth** — `profile` (English), `profile_zh` (Chinese), publications and the PDF library. Edit this. |
-| `build.py` | Regenerates `index.html` (`python build.py`) or `zh/index.html` (`python build.py --lang zh`) from `publications.json` (Python standard library only). |
+| `zh/index.html`, `zh/assets/` | Generated Chinese site + copied assets. Do not edit by hand. |
+| `publications.json` | **Single source of truth** — `profile` (English), `profile_zh` (Chinese), publications, PDF library, and optional `google_site_verification`. Edit this. |
+| `build.py` | Regenerates `index.html` (`python build.py`) or `zh/index.html` (`python build.py --lang zh`). Standard library only. |
+| `seo.py` | Generates `robots.txt` and `sitemap.xml` (2 pages + 116 PDFs) from `site_url`. Re-run after a domain change. |
+| `robots.txt`, `sitemap.xml` | Crawl directives + URL inventory for search engines. |
+| `bind_domain.py` | Optional custom-domain binder (dry-run by default; `--apply` writes `CNAME`, updates URLs, rebuilds everything). |
+| `deploy_api.py` | Uploads the whole site in one commit via the GitHub Git Data API. |
+| `deploy.sh` | Alternative git-push deployer. |
 | `assets/style.css` | Styles. |
 | `assets/app.js` | Search / filters for publications and the PDF repository (progressive enhancement). |
 | `assets/photo.jpg` | Optional portrait. If absent, a monogram is shown. |
@@ -37,13 +50,15 @@ Static, dependency-free English academic homepage for **GitHub Pages**. Publicat
    ```
    - `type`: `journal` \| `conference` \| `magazine` \| `patent` \| `editorial` \| `book`
    - `doi` / `pdf` / `local` / `selected` are optional.
-2. Regenerate both editions:
+2. Regenerate both editions **and** the SEO files, then deploy everything in one commit:
    ```bash
    python build.py            # English -> index.html
    python build.py --lang zh  # Chinese  -> zh/index.html (copies assets into zh/assets)
+   python seo.py              # robots.txt + sitemap.xml
+   python deploy_api.py       # one commit, all 134 files
    ```
-   Publication titles/authors/venues stay in English on both sites so they remain searchable and DOI-matchable; only the surrounding UI text and the profile are translated. The Chinese site keeps PDF links pointed at the published English site (`PDF_BASE` in `build.py`), so no PDF copies are needed in `zh/`.
-3. Commit and push to GitHub for the English site; re-publish the `zh/` directory through the Tencent/WorkBuddy App Publishing tool for the Chinese site.
+   Publication titles/authors/venues stay in English on both sites so they remain searchable and DOI-matchable; only the surrounding UI text and the profile are translated. The Chinese site points its PDF links at the same repo's `papers/` folder via `PDF_BASE`, so the 211 MB library is stored only once.
+3. `deploy_api.py` now finds the token automatically (`GITHUB_TOKEN` → first CLI arg → Git Credential Manager), so no PAT needs to be pasted into the chat.
 
 ## Self-host a PDF
 
@@ -72,13 +87,14 @@ Target: the existing GitHub Pages repo **`scumicrowave/homepage`**, currently li
 
 ### Recommended: REST API (`deploy_api.py`)
 
-`git fetch/push` can stall behind proxies when uploading large binary files. The API deployer uploads blobs directly and creates one commit — 127 files / 211.6 MB in about two minutes:
+`git fetch/push` can stall behind proxies when uploading large binary files. The API deployer uploads blobs directly and creates one commit — 134 files / 211.8 MB in about two minutes:
 
 ```bash
-GITHUB_TOKEN=ghp_xxx python deploy_api.py
+python deploy_api.py                    # uses the credential saved by Git Credential Manager
+GITHUB_TOKEN=ghp_xxx python deploy_api.py   # or pass one explicitly
 ```
 
-It uses `base_tree` so remote-only files are preserved, and caches uploaded blob SHAs so an interrupted run can be resumed. Needs a repo-scoped PAT or a fine-grained token with **Contents: read + write** on `scumicrowave/homepage`.
+It uses `base_tree` so remote-only files are preserved, and caches uploaded blob SHAs so an interrupted run can be resumed. Needs a repo-scoped PAT or a fine-grained token with **Contents: read + write** on `scumicrowave/homepage`. The token is never written to disk or printed.
 
 ### Alternative: git push (`deploy.sh`)
 
@@ -110,12 +126,12 @@ If you create a fresh `<USERNAME>.github.io` repo instead, the site appears at `
 
 ## Bind a custom domain
 
-> **Not supported on the free Tencent/WorkBuddy hosting.** The Chinese edition currently lives at
-> `https://wbapp-8qepa8vil4cd5d2qpy9kii.apps.workbuddy.host/?sharecode=2RJXT4VKJN`, a
-> platform-assigned subdomain. That free one-click host (CloudStudio sandbox) has **no
-> custom-domain option**; `domainPrefix` only requests a friendlier first segment when an app
-> is first created, and re-publishing keeps the same link. Tencent **EdgeOne Pages** does support
-> custom domains, but requires a Tencent Cloud account and an **ICP-filed (备案) domain**.
+> **Why GitHub Pages:** the free Tencent/WorkBuddy one-click host (CloudStudio sandbox) has
+> **no custom-domain option** — `domainPrefix` only requests a friendlier first segment when an
+> app is first created, re-publishing keeps the same link, and that sharecode URL cannot be
+> indexed by Google. Tencent **EdgeOne Pages** does support custom domains but requires a
+> Tencent Cloud account and an **ICP-filed (备案) domain**. GitHub Pages is free, needs no
+> ICP filing, and now serves both languages from one repo.
 
 The cheapest permanent route is the GitHub Pages repo you already have
 (`scumicrowave/homepage`): custom domains are free, stable and need no ICP filing. Bind one
@@ -129,9 +145,9 @@ domain and both language editions get friendly URLs:
 
 Steps:
 
-1. Own a domain. Possible candidate from the profile: `mwpt.tech` (MWPT group) — confirm you
-   control its DNS; a subdomain such as `cn.mwpt.tech` is fine. It did not resolve from this
-   machine, so verify before use.
+1. Own a domain you control DNS for. **`mwpt.tech` is expired / does not resolve** — do not use
+   it until it is renewed and its DNS is under your control. A fresh domain or a subdomain of
+   one you own is fine.
 2. Add DNS records at your registrar (exact GitHub Pages values):
    - apex `@` → `A` `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
    - apex `@` → `AAAA` `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`
@@ -140,14 +156,80 @@ Steps:
 3. In the repo, add a one-line `CNAME` file containing the chosen domain at the **root**, or let
    GitHub create it when you enter the domain under **Settings → Pages → Custom domain → Save**.
    Then enable **Enforce HTTPS**.
-4. Keep the generated `zh/` directory in the repo so the Chinese site is served at `/zh/`.
-   Update `profile.site_url`, optionally point `PDF_BASE` in `build.py` at the new domain, and
-   rebuild both editions (`python build.py` and `python build.py --lang zh`).
-5. Push with `GITHUB_TOKEN=ghp_xxx python deploy_api.py` (the GitHub connector is read-only).
+4. `python bind_domain.py <domain> --apply` does the local work for you: writes `CNAME`,
+   updates `profile.site_url` / `profile_zh.site_url_zh`, rebuilds both editions and
+   regenerates `robots.txt` + `sitemap.xml` with the new canonical URLs. Keep `zh/` in the repo
+   so the Chinese site stays at `/zh/`. The Chinese page's PDF links remain on the stable
+   `github.io` absolute URL, which keeps working through GitHub's redirect.
+5. Push with `python deploy_api.py`, then re-submit the new sitemap URL in Search Console.
 
-**Pending before this can be finished:** the domain name, whether it is ICP-filed (decides
-GitHub Pages vs EdgeOne Pages), and GitHub write authorization. DNS records must be added by
-the domain owner at their registrar — that step cannot be done from here.
+### Current decision: no custom domain yet
+
+`mwpt.tech` (the old Chinese MWPT group site) **no longer resolves and appears expired**.
+Writing a `CNAME` for a domain you do not control makes GitHub Pages serve 404s and creates a
+takeover risk if the name is re-registered by someone else — so **`CNAME` is deliberately
+absent** from the repo. Both language editions already work on the free, stable `github.io`
+URLs listed at the top of this file, and both are indexed from there.
+
+`bind_domain.py` is ready and now also regenerates `robots.txt` / `sitemap.xml`, so binding a
+future domain is one command:
+
+```bash
+python bind_domain.py your-domain.com            # preview
+python bind_domain.py your-domain.com --apply   # CNAME + site_url + rebuild + SEO
+python deploy_api.py                            # push
+```
+
+GitHub write authorization is **no longer a blocker** — `deploy_api.py` reuses the credential
+in Git Credential Manager. The only remaining external step is adding the DNS records at the
+registrar, which requires the domain owner's login.
+
+## Google Search / SEO
+
+Both editions are set up for indexing. Everything that can be done from this workspace is done:
+
+| Signal | Where |
+|---|---|
+| `robots.txt` (`Allow: /` + Sitemap directive) | `https://scumicrowave.github.io/homepage/robots.txt` |
+| `sitemap.xml` (2 HTML pages + 116 PDFs, hreflang annotations) | `https://scumicrowave.github.io/homepage/sitemap.xml` |
+| `rel=canonical` | English → `/homepage/`, Chinese → `/homepage/zh/` |
+| `hreflang=en` / `zh-Hans` / `x-default` | In both pages **and** in the sitemap |
+| schema.org `Person` JSON-LD with `url`, `inLanguage`, `alternateName` | Both pages |
+| `og:locale`, `description`, visible cross-language links | Both pages |
+
+**Note on project sites:** this is a project page (`scumicrowave.github.io/homepage/`), so
+`robots.txt` lives under `/homepage/`, not at the host root (`scumicrowave.github.io/robots.txt`,
+which returns 404). That root file belongs to the account-level `<username>.github.io` repo and
+cannot be controlled from this repository. A 404 robots.txt means "no restrictions", so crawling
+is unaffected. Submitting the sitemap directly in Search Console is the reliable path — and once
+a custom domain is bound, `robots.txt` sits at the real root and the `Sitemap:` directive is
+picked up automatically.
+
+**The one step that needs your Google account** (cannot be automated from here):
+
+1. Open https://search.google.com/search-console and add a **URL-prefix property**:
+   `https://scumicrowave.github.io/homepage/`.
+2. Verify ownership. **Use the HTML tag method** — it is the only one that works for a project
+   site. Copy the `content` value from
+   `<meta name="google-site-verification" content="...">`, add it to `publications.json` as
+   `"google_site_verification": "..."` — `build.py` already reads that key and injects the tag
+   into **both** pages. Then rebuild and deploy:
+   ```bash
+   python build.py && python build.py --lang zh && python deploy_api.py
+   ```
+   The **HTML file** method does NOT work here: Google looks for
+   `https://scumicrowave.github.io/googleXXXX.html` (the host root), which belongs to a
+   possible `<username>.github.io` account repo, not `scumicrowave/homepage`. The **DNS TXT**
+   method needs a Domain property with an apex domain you control — `mwpt.tech` is expired, so
+   it is not available today. It becomes an option after `bind_domain.py --apply`.
+3. **Sitemaps → Add** `https://scumicrowave.github.io/homepage/sitemap.xml` → Submit.
+4. Optionally use **URL Inspection → Request Indexing** for the two homepage URLs
+   (quota is limited; the sitemap handles the remaining 116 PDF URLs).
+5. Verify the Chinese page with URL Inspection on `/homepage/zh/` and confirm the hreflang
+   cluster is recognised under **International Targeting**.
+
+Google's sitemap "ping" endpoint has been retired and the Indexing API only accepts
+`JobPosting` / `BroadcastEvent` types, so Search Console is the only supported submission route.
 
 ## Content sources
 
@@ -160,4 +242,4 @@ Profile and publication list compiled from the existing Google Sites homepage, I
 - The publication list covers 2015–2025 (no 2016 entries on the source page); IEEE Xplore shows work up to 2026 — add newer papers.
 - The PDF library contains 116 files (~211 MB); every file is under 18 MB, within GitHub's 100 MB per-file limit and 1 GB soft repo limit.
 - **Verify every hosted PDF is legally shareable** (publisher copyright / open-access / accepted-manuscript status) before making the repository public.
-- Deployed 2026-11-13 with a one-off PAT. **Revoke that token** after use; future updates can use either deployer.
+- The 2026-11-13 deployments used a one-off PAT first and then the credential stored in Git Credential Manager. **Revoke the one-off PAT** if it is still active; future updates just run `python deploy_api.py`.

@@ -52,7 +52,7 @@ API = "https://api.github.com/repos/%s/%s" % (OWNER, REPO)
 CACHE = Path(tempfile.gettempdir()) / "homepage_blob_cache.json"
 SKIP = {".git", ".workbuddy", "_matches.json", "_blob_cache.json", "deploy.log",
         ".DS_Store", "Thumbs.db"}
-MESSAGE = "Add Chinese edition, sitemap/robots and hreflang SEO metadata"
+MESSAGE = "Sync deployment docs for bilingual GitHub Pages rollout"
 
 
 def api(method, path, payload=None, timeout=180):

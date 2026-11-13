@@ -1,0 +1,1454 @@
+{
+ "_readme": "Single source of truth. Edit publications/profile/full_pdf_library, then run `python build.py` to regenerate index.html. full_pdf_library is generated from papers/*.pdf; year_source marks whether a year comes from a publication record, a filename, or the PDF file date.",
+ "profile": {
+  "name": "Changjun Liu",
+  "name_zh": "刘长军",
+  "title": "Professor",
+  "affiliation": "School of Electronics and Information Engineering, Sichuan University",
+  "location": "Chengdu, Sichuan 610065, China",
+  "extra_role": "Executive Deputy Director, Key Laboratory of Wireless Power Transfer, Ministry of Education, China",
+  "email": "cjliu@scu.edu.cn",
+  "email_alt": "cjliu@ieee.org",
+  "phone": "+86-28-8546-3882",
+  "orcid": "0000-0003-0079-6793",
+  "site_url": "https://scumicrowave.github.io/homepage/",
+  "drive_folder": "https://drive.google.com/drive/folders/18b5WzqsXi_nJspJD2Nlvid2EVwWiCH8B",
+  "bio": [
+   "Dr. Changjun Liu received the B.S. degree in Applied Physics from Hebei University, China, in 1994, and the M.S. degree in Radio Physics (1997) and Ph.D. degree in Biomedical Engineering (2000) from Sichuan University, China. He was a post-doctoral researcher at Seoul National University, Korea (2001–2002) and a visiting scholar at Ulm University, Germany (2006–2007).",
+   "Since 1997 he has been with Sichuan University, where he became an Associate Professor in 2000, a full Professor in 2004, and a Ph.D. supervisor in 2005. He currently serves as Executive Deputy Director of the Key Laboratory of Wireless Power Transfer of the Ministry of Education, China, and as Head of the Radio Physics Division.",
+   "He has authored two books and more than 200 articles, and holds over ten patents. His group works on microwave and millimeter-wave wireless power transmission from S-band to X-band, over distances from meters to kilometers, including wireless power transmission inside closed cavities and high-efficiency microwave rectification with wide dynamic power ranges."
+  ],
+  "interests": [
+   "Microwave & millimeter-wave wireless power transmission (MWPT)",
+   "High-efficiency microwave rectifiers and rectennas",
+   "RF / electromagnetic energy harvesting",
+   "High-power magnetron sources and coherent power combining",
+   "Space solar power stations",
+   "Microwave heating and industrial applications",
+   "Antennas, frequency-selective surfaces and microwave circuits"
+  ],
+  "service": [
+   "Associate Editor, IEEE Microwave and Wireless Technology Letters",
+   "Topic Editor, IEEE Journal of Microwaves",
+   "Editor-in-Chief, Microwave (MDPI)",
+   "Member, IEEE MTT-S TC-25 Wireless Power Transfer and Energy Conversion",
+   "Vice Chair, MTT-S China AdHoc Committee (Promotion and Membership Development)",
+   "Senior Member, IEEE; Senior Member, Chinese Institute of Electronics (CIE)",
+   "Outstanding Reviewer, IEEE Transactions on Microwave Theory and Techniques (2006–2010)"
+  ],
+  "honors": [
+   "2023 — Academic and Technology Leader of Sichuan Province",
+   "2019 — First Prize, Sichuan Province Technology Invention Award",
+   "2018 — Outstanding Contribution Expert of Sichuan Province",
+   "2017 — Sichuan University Excellence in Teaching Award",
+   "2013 — New Century Excellent Talents in University, Ministry of Education",
+   "2009 — Outstanding Young Academic Leader of Sichuan Province"
+  ],
+  "books": [
+   "Principles and Technologies of Microwave Wireless Power Transmission (《微波无线能量传输原理与技术》)",
+   "RF Communication Circuit Design (《射频通信电路设计》), Science Press, 2005; 2nd edition"
+  ],
+  "stats": [
+   [
+    "200+",
+    "Journal & conference articles"
+   ],
+   [
+    "138",
+    "IEEE Xplore publications"
+   ],
+   [
+    "2,043",
+    "IEEE Xplore citations"
+   ],
+   [
+    "10+",
+    "Granted patents"
+   ]
+  ],
+  "links": [
+   [
+    "Google Scholar",
+    "https://scholar.google.com/citations?user=_6js4T4AAAAJ&hl=en"
+   ],
+   [
+    "IEEE Xplore",
+    "https://ieeexplore.ieee.org/author/37539150600"
+   ],
+   [
+    "ORCID",
+    "https://orcid.org/0000-0003-0079-6793"
+   ],
+   [
+    "ResearchGate",
+    "https://www.researchgate.net/profile/Changjun-Liu"
+   ],
+   [
+    "IEEE MTT-S Profile",
+    "https://mtt.org/profile/changjun-liu/"
+   ],
+   [
+    "MWPT Group",
+    "https://www.mwpt.tech/"
+   ],
+   [
+    "Previous Homepage",
+    "https://sites.google.com/view/changjunliu/home"
+   ],
+   [
+    "Sichuan University EIE",
+    "https://eie.scu.edu.cn/"
+   ]
+  ]
+ },
+ "publications": [
+  {
+   "year": 2025,
+   "type": "journal",
+   "authors": "Z. He, H. He, L. Yan, and C. Liu",
+   "title": "A Reconfigurable Circuit Strategy and Its Application in Low-Power Rectifier for Ambient Energy Harvesting",
+   "venue": "IEEE Transactions on Power Electronics, 2025",
+   "doi": "10.1109/TPEL.2025.3589183",
+   "pdf": "https://drive.google.com/file/d/1uIsN0NdoKodw8-v_yvOpGmuBWB6bWJBW/view?usp=drive_link",
+   "local": "papers/2025 IEEE TPE A_Reconfigurable_Circuit_Strategy_and_Its_Application_in_Low-Power_Rectifier_for_Ambient_Energy_Harvesting.pdf"
+  },
+  {
+   "year": 2025,
+   "type": "journal",
+   "authors": "H. He, C. Liao, Z. He, L. Yan, and C. Liu",
+   "title": "An Arbitrary-Frequency Dual-Band High-Efficiency Rectifier Employing a Novel Frequency-Selective Power Allocation Network",
+   "venue": "IEEE Transactions on Power Electronics, 2025",
+   "pdf": "https://www.mwpt.tech/statics/cite/2025/An%20Arbitrary-Frequency%20Dual-Band%20High-Efficiency%20Rectifier%20Employing%20a%20Novel%20Frequency-Selective%20Power%20Allocation%20Network.pdf"
+  },
+  {
+   "year": 2025,
+   "type": "journal",
+   "authors": "H. He, Y. Zhou, Z. He, Y. Feng, and C. Liu",
+   "title": "High-Efficiency Octave Bandwidth Rectifier for Electromagnetic Energy Harvesting",
+   "venue": "IEEE Microwave and Wireless Technology Letters, 2025",
+   "pdf": "https://www.mwpt.tech/statics/cite/2025/High-Efficiency%20Octave%20Bandwidth%20Rectifier%20for%20Electromagnetic%20Energy%20Harvesting.pdf"
+  },
+  {
+   "year": 2025,
+   "type": "journal",
+   "authors": "P. Wu, H. Wu, Y.-D. Chen, Z.-H. Ren, Y. Cheng, and C. Liu",
+   "title": "Harmonic-Recycling Rectification Based on Novel Compact Dual-Band Resonator",
+   "venue": "IEEE Microwave and Wireless Technology Letters, 2025",
+   "pdf": "https://www.mwpt.tech/statics/cite/2025/Harmonic-Recycling%20Rectification%20Based%20on%20Novel%20Compact%20Dual-Band%20Resonator.pdf"
+  },
+  {
+   "year": 2025,
+   "type": "magazine",
+   "authors": "C. Liu and X. Jing",
+   "title": "Wireless Power Transmission in a Closed Environment",
+   "venue": "IEEE Microwave Magazine, vol. 26, no. 7, pp. 47–64, 2025",
+   "pdf": "https://drive.google.com/file/d/1HIdakEvqfTBfnUBFI5RcmPtPhINfy3gO/view?usp=drive_link",
+   "local": "papers/Wireless_Power_Transmission_in_a_Closed_Environment.pdf"
+  },
+  {
+   "year": 2025,
+   "type": "journal",
+   "authors": "Y. Zhou, R. Fan, and C. Liu",
+   "title": "Low-Power Rectennas in Microwave Wireless Power Transmission",
+   "venue": "Microwave, vol. 1, no. 1, art. 5, 2025",
+   "pdf": "https://www.mdpi.com/3042-5697/1/1/5/pdf?version=1750218207"
+  },
+  {
+   "year": 2025,
+   "type": "editorial",
+   "authors": "C. Liu",
+   "title": "Microwave — A New Open Access Journal for Microwave Technologies",
+   "venue": "Microwave, vol. 1, no. 1, art. 1, 2025",
+   "pdf": "https://www.mdpi.com/3042-5697/1/1/1/pdf?version=1736408811"
+  },
+  {
+   "year": 2025,
+   "type": "journal",
+   "authors": "C. Liao, W. Zhang, Y. Peng, and C. Liu",
+   "title": "Study on Height Measurement for Polyethylene Terephthalate (PET) Materials Based on Residual Networks",
+   "venue": "Sensors, vol. 25, art. 4030, 2025",
+   "pdf": "https://www.mdpi.com/1424-8220/25/13/4030/pdf"
+  },
+  {
+   "year": 2024,
+   "type": "journal",
+   "authors": "Z. He, L. Yan, and C. Liu",
+   "title": "An Adaptive Power Division Strategy for Nonlinear Components in Rectification",
+   "venue": "IEEE Transactions on Power Electronics, vol. 39, no. 12, pp. 15436–15440, Dec. 2024",
+   "pdf": "https://drive.google.com/file/d/1N0CYn72pU0g7L1jDzljWGc97HVhdNDGZ/view?usp=drive_link",
+   "selected": true,
+   "local": "papers/An Adaptive Power Division Strategy for Nonlinear Components in Rectification.pdf"
+  },
+  {
+   "year": 2024,
+   "type": "journal",
+   "authors": "S. Wang, Y. Zhao, X. Chen, and C. Liu",
+   "title": "A Novel Stability Improvement Method of S-Band Magnetron Systems Based on Its Anode Current Feature",
+   "venue": "IEEE Transactions on Microwave Theory and Techniques, 2024",
+   "local": "papers/A Novel Stability Improvement Method of S-Band Magnetron Systems Based on Its Anode Current Feature.pdf"
+  },
+  {
+   "year": 2024,
+   "type": "journal",
+   "authors": "H. Huang, B. Yang, N. Shinohara, and C. Liu",
+   "title": "Coherent Power Combining of Four-Way Injection-Locked 5.8-GHz Magnetrons Based on a Five-Port Hybrid Waveguide Combiner",
+   "venue": "IEEE Transactions on Microwave Theory and Techniques, 2024",
+   "local": "papers/Coherent Power Combining of Four-Way Injection-Locked 5.8-GHz Magnetrons Based on a Five-Port Hybrid Waveguide Combiner.pdf"
+  },
+  {
+   "year": 2024,
+   "type": "journal",
+   "authors": "S. Xiao, C. Liu, H. He, Y. Feng, and W. Che",
+   "title": "A Novel Class-F 2.45/5.8 GHz Dual-Band Rectifier for Wireless Power Transmission",
+   "venue": "IEEE Microwave and Wireless Technology Letters, vol. 34, no. 1, pp. 107–110, Jan. 2024",
+   "pdf": "https://drive.google.com/file/d/1z3qlXmlYis37q0qHikKP8329kYPk-UVw/view?usp=drive_link",
+   "local": "papers/A Novel Class-F 2.45-5.8 GHz Dual-Band Rectifier for Wireless Power Transmission.pdf"
+  },
+  {
+   "year": 2024,
+   "type": "journal",
+   "authors": "R. Fan, J. Mi, and C. Liu",
+   "title": "Terrestrial Transparent Green Energy Receiving System Designed for Space Solar Power Station",
+   "venue": "Space Solar Power and Wireless Transmission, 2024",
+   "local": "papers/Terrestrial transparent green energy receiving system designed for Space Solar Power Station.pdf"
+  },
+  {
+   "year": 2024,
+   "type": "journal",
+   "authors": "C. Liao, Z. He, R. Tang, W. Zhang, C. Liu, and C. Wang",
+   "title": "The Research on Microwave Drying Characteristics of Polyethylene Terephthalate Materials Based on Frequency and Power Tuning Technology",
+   "venue": "Processes, vol. 12, no. 7, art. 1488, 2024"
+  },
+  {
+   "year": 2024,
+   "type": "journal",
+   "authors": "J. Mi, R. Fan, J. Jing, L. Yan, and C. Liu",
+   "title": "Radio-Frequency Energy Harvester for a Hybrid Power Supply with Constant Voltage Output to a Water Meter",
+   "venue": "Progress in Electromagnetics Research Letters, vol. 118, 2024",
+   "local": "papers/2024/Radio-Frequency Energy Harvester for a Hybrid Power Supply with Constant Voltage Output to a Water Meter.pdf"
+  },
+  {
+   "year": 2024,
+   "type": "journal",
+   "authors": "R. Fan, J. Mi, J. Jing, L. Yan, and C. Liu",
+   "title": "Conformal Flexible Omnidirectional Rectenna Array Designed for Application in IoT Smart Water Meters",
+   "venue": "Progress in Electromagnetics Research C, vol. 139, pp. 159–166, 2024",
+   "local": "papers/2024/Conformal Flexible Omnidirectional Rectenna Array Designed for Application in IoT Smart Water Meters.pdf"
+  },
+  {
+   "year": 2024,
+   "type": "conference",
+   "authors": "S. Wang, X. Chen, Y. Zhao, Z. He, H. He, H. Huang, L. Yan, and C. Liu",
+   "title": "Experimental Study of Realizing a Low-Noise Injection-Locked Magnetron Based on a Switch-Mode Power Supply",
+   "venue": "2024 IEEE Wireless Power Technology Conference and Expo (WPTCE), pp. 296–299",
+   "local": "papers/Experimental Study of Realizing a Low-Noise Injection-Locked Magnetron Based on a Switch-Mode Power Supply.pdf"
+  },
+  {
+   "year": 2024,
+   "type": "conference",
+   "authors": "J. Jing, L. Yan, and C. Liu",
+   "title": "All-Polarized Wideband Rectenna Array for Omnidirectional Wireless Energy Harvesting",
+   "venue": "2024 IEEE Wireless Power Technology Conference and Expo (WPTCE), pp. 429–432",
+   "local": "papers/All-Polarized Wideband Rectenna Array for Omnidirectional Wireless Energy Harvesting.pdf"
+  },
+  {
+   "year": 2024,
+   "type": "journal",
+   "authors": "X. Jing, J. Jing, L. Yan, and C. Liu",
+   "title": "Microwave Wireless Power Transmission Inside a Closed Cavity Based on Novel Frequency Controlling",
+   "venue": "Acta Electronica Sinica, vol. 52, no. 7, pp. 2257–2261, 2024"
+  },
+  {
+   "year": 2024,
+   "type": "journal",
+   "authors": "Y. Zhao, S. Wang, Z. He, L. Yan, and C. Liu",
+   "title": "Experimental Study of Magnetron's Power-Pulled Characteristic to Realize a Quasi-Dual-Frequency Microwave Output",
+   "venue": "Electronics, vol. 13, no. 7, art. 1323, 2024",
+   "local": "papers/2024/Experimental Study of Magnetron’s Power-Pulled Characteristic to Realize a Quasi-Dual-Frequency Microwave Output.pdf"
+  },
+  {
+   "year": 2024,
+   "type": "journal",
+   "authors": "J. Li, L. Yan, C. Liu, H. Bai, and W. Cui",
+   "title": "Design and Implementation of C-Band Large-Power Planar Butler Matrix in SRS",
+   "venue": "Sensors, vol. 24, no. 7, art. 2132, 2024"
+  },
+  {
+   "year": 2024,
+   "type": "journal",
+   "authors": "L. Tang, C. Wang, L. Yan, R.-X.-K. Gao, X. Zhao, and C. Liu",
+   "title": "Optically Transparent and Angularly Stable Broad-Stopband Frequency Selective Surface for Millimeter Wave Electromagnetic Interference Mitigation",
+   "venue": "Microwave and Optical Technology Letters, vol. 66, no. 2, e34078, 2024",
+   "doi": "10.1002/mop.34078",
+   "pdf": "https://drive.google.com/file/d/1cvAE82rqt-hYQWo1eNjAPJFEcEwmYeaJ/view?usp=drive_link"
+  },
+  {
+   "year": 2023,
+   "type": "journal",
+   "authors": "D. Che, C. Liu, H. He, Z.-H. Ren, and P. Wu",
+   "title": "Second- and Third-Harmonic Backscatter Through a Bandstop Filter Using Defected Ground Structure",
+   "venue": "IEEE Transactions on Circuits and Systems II: Express Briefs, vol. 70, no. 11, pp. 4171–4175, Nov. 2023",
+   "pdf": "https://drive.google.com/file/d/12jY11P1fuJ3Yvh5erd9UCP-4FRP1YZeq/view?usp=sharing",
+   "local": "papers/Second- and Third-Harmonic Backscatter Through a Bandstop Filter Using Defected Ground Structure.pdf"
+  },
+  {
+   "year": 2023,
+   "type": "journal",
+   "authors": "S. Wang, Y. Shen, C. Liao, J. Jing, and C. Liu",
+   "title": "A Novel Injection-Locked S-Band Oven Magnetron System Without Waveguide Isolators",
+   "venue": "IEEE Transactions on Electron Devices, vol. 70, no. 4, pp. 1886–1893, Apr. 2023",
+   "pdf": "https://drive.google.com/file/d/1Zpqv3uyCpCtHcMPsvr0UFxvaJLZY2jWA/view?usp=sharing",
+   "local": "papers/A Novel Injection-Locked S-Band Oven Magnetron System Without Waveguide Isolators.pdf"
+  },
+  {
+   "year": 2023,
+   "type": "journal",
+   "authors": "D. Liu, L. Wang, Z. He, and C. Liu",
+   "title": "A Self-Packaged SISL Low-Power Rectifier Based on a High-Impedance Line for C-Band Applications",
+   "venue": "IEEE Microwave and Wireless Technology Letters, vol. 33, no. 2, pp. 212–215, Feb. 2023",
+   "pdf": "https://drive.google.com/file/d/1sXOjzl2sVfLeNgK925DH_AY2-aZsEmvW/view?usp=sharing",
+   "local": "papers/A Self-Packaged SISL Low-Power Rectifier Based on a High-Impedance Line for C-Band Applications.pdf"
+  },
+  {
+   "year": 2023,
+   "type": "patent",
+   "authors": "C. Liu, S. Wang, and L. Yan",
+   "title": "Injection-Locked Magnetron System Based on Filament Injection",
+   "venue": "US Patent 11,842,878, 2023",
+   "pdf": "https://drive.google.com/file/d/1uiBmbp0PfuVEl6BIfy5TO5DF_uXZIG52/view?usp=sharing",
+   "local": "papers/2023/US11842878.pdf"
+  },
+  {
+   "year": 2023,
+   "type": "conference",
+   "authors": "S. Wang, Y. Zhao, Z. He, J. Lan, L. Yan, and C. Liu",
+   "title": "Experimental Study on Spurious Suppression Techniques of S-Band Magnetrons",
+   "venue": "2023 IEEE 7th International Symposium on Electromagnetic Compatibility (ISEMC), Hangzhou, China, pp. 1–3",
+   "pdf": "https://drive.google.com/file/d/1RCMMOOnxwOvacABdG-uiki7nR4tFeFK-/view?usp=sharing",
+   "local": "papers/Experimental Study on Spurious Suppression Techniques of S-band Magnetrons.pdf"
+  },
+  {
+   "year": 2023,
+   "type": "journal",
+   "authors": "C. Zhang, S. Liu, H. Ni, R. Tan, C. Liu, and L. Yan",
+   "title": "An Angle-Stable Ultra-Wideband Single-Layer Frequency Selective Surface Absorber",
+   "venue": "Electronics, vol. 12, no. 18, art. 3776, 2023",
+   "pdf": "https://drive.google.com/file/d/1aYODZLhlB1-BgjC-ICHZ7YWuFuFydvvH/view?usp=sharing",
+   "local": "papers/2023/electronics-12-03776.pdf"
+  },
+  {
+   "year": 2023,
+   "type": "journal",
+   "authors": "L. Jiang, C. Liu, S. Wang, X. Sun, and J. Wu",
+   "title": "A Weak Reverse Coupling Cascaded Injection-Locked VCO Array for Beam Scanning in Phased Arrays",
+   "venue": "Electronics, vol. 12, no. 10, art. 2301, 2023",
+   "pdf": "https://www.mdpi.com/2079-9292/12/10/2301/pdf?version=1684491978"
+  },
+  {
+   "year": 2023,
+   "type": "journal",
+   "authors": "J. Jing, J. Mi, H. Zhang, and C. Liu",
+   "title": "An S-Band Compact Meander-Line Dual-Polarized Rectenna Array Design and Application Demonstration",
+   "venue": "International Journal of RF and Microwave Computer-Aided Engineering, vol. 2023, Art. ID 4878949, 6 pages",
+   "pdf": "https://downloads.hindawi.com/journals/ijmce/2023/4878949.pdf"
+  },
+  {
+   "year": 2023,
+   "type": "journal",
+   "authors": "B. Wang, C. Liu, B. Yan, S. Jeon, X. Yang, and Z. Zhang",
+   "title": "Lightweight Image Super-Resolution via Overlapping Back-Projection Feedback Network for Embedded Devices",
+   "venue": "Microprocessors and Microsystems, vol. 98, 104777, 2023",
+   "pdf": "https://drive.google.com/file/d/1uCU9TpeZYSSng0j06J3qgZqEXREwqCpW/view?usp=sharing"
+  },
+  {
+   "year": 2023,
+   "type": "journal",
+   "authors": "B. Wang, C. Liu, B. Yan, and X. Yang",
+   "title": "Lightweight Parallel Feedback Network for Image Super-Resolution",
+   "venue": "Neural Processing Letters, vol. 55, no. 3, pp. 3225–3243, 2023",
+   "pdf": "https://drive.google.com/file/d/1-6b8JzLFFV-wJ9yZWhcmWu1YLFZSCOI3/view?usp=sharing",
+   "local": "papers/2023/Lightweight Parallel Feedback Network for Image Super-Resolution.pdf"
+  },
+  {
+   "year": 2023,
+   "type": "conference",
+   "authors": "Z. He, X. Zhang, L. Yan, W. Che, and C. Liu",
+   "title": "Analysis of Low-Power Rectifiers Based on Tunnel Diode for Energy Harvesting",
+   "venue": "2023 16th UK-Europe-China Workshop on Millimetre Waves and Terahertz Technologies (UCMMT)",
+   "pdf": "https://drive.google.com/file/d/1-0F8spYNMfQxTtErq-mWkk3GoWpxjlMw/view?usp=sharing",
+   "local": "papers/Analysis of Low-Power Rectifiers Based on Tunnel Diode for Energy Harvesting.pdf"
+  },
+  {
+   "year": 2023,
+   "type": "conference",
+   "authors": "Z. Peng, L. Yan, C. Wang, X. Zhao, and C. Liu",
+   "title": "Improvement of Field Uniformity in Microwave Heating Cavity Using Beam-Splitting Metasurface",
+   "venue": "2023 XXXVth URSI General Assembly and Scientific Symposium (URSI GASS), Sapporo, Japan, pp. 1–3",
+   "pdf": "https://drive.google.com/file/d/1-2Av0Uqnp6fcTfvcQ9gFr8eA3r3bZUHh/view?usp=sharing",
+   "local": "papers/Improvement of Field Uniformity in Microwave Heating Cavity Using beam-splitting Metasurface.pdf"
+  },
+  {
+   "year": 2022,
+   "type": "journal",
+   "authors": "C. Liu, H. Lin, Z. He, and Z. Chen",
+   "title": "Compact Patch Rectennas Without Impedance Matching Network for Wireless Power Transmission",
+   "venue": "IEEE Transactions on Microwave Theory and Techniques, vol. 70, no. 5, pp. 2882–2890, May 2022",
+   "pdf": "https://drive.google.com/file/d/1PoZa-qhIUxCKh7S1m-raDi5T0oTfWR1j/view?usp=sharing",
+   "selected": true,
+   "local": "papers/Compact Patch Rectennas Without Impedance Matching Network for Wireless Power Transmission.pdf"
+  },
+  {
+   "year": 2022,
+   "type": "journal",
+   "authors": "H. He, H. Lin, P. Wu, Q. Li, and C. Liu",
+   "title": "Compact High Efficiency Broadband Rectifier Based on Coupled Transmission Line",
+   "venue": "IEEE Transactions on Circuits and Systems II: Express Briefs, vol. 69, no. 11, pp. 4404–4408, Nov. 2022",
+   "pdf": "https://drive.google.com/file/d/1LjawMpKL8ui10EgZOTdbozTpRw0j2zba/view?usp=sharing",
+   "local": "papers/Compact High-Efficiency Broadband Rectifier Based on Coupled Transmission Line.pdf"
+  },
+  {
+   "year": 2022,
+   "type": "journal",
+   "authors": "Z. Dan, Z. He, H. Lin, and C. Liu",
+   "title": "A Patch Rectenna With an Integrated Impedance Matching Network and a Harmonic Recycling Filter",
+   "venue": "IEEE Antennas and Wireless Propagation Letters, vol. 21, no. 10, pp. 2085–2089, Oct. 2022",
+   "pdf": "https://drive.google.com/file/d/1a8QjeKkagMDRpME4_m_8Mh4v_bVlkGCG/view?usp=sharing",
+   "local": "papers/A Patch Rectenna With an Integrated Impedance Matching Network and a Harmonic Recycling Filter.pdf"
+  },
+  {
+   "year": 2022,
+   "type": "journal",
+   "authors": "C. Liu and Z. He",
+   "title": "Investigation on Rectifiers and Rectennas with Various Input Power Levels for the Applications of Space Solar Power Station",
+   "venue": "Advances in Astronautics Science and Technology, no. 5, pp. 39–47, 2022",
+   "pdf": "https://drive.google.com/file/d/1Eij1y2u_drHX3HP64fZGkQihA-3N41zL/view?usp=sharing"
+  },
+  {
+   "year": 2022,
+   "type": "journal",
+   "authors": "C. Shi, J. Zou, J. Gao, and C. Liu",
+   "title": "Gain Enhancement of a Dual-Band Antenna with the FSS",
+   "venue": "Electronics, vol. 11, no. 18, art. 2882, 2022",
+   "pdf": "https://www.mdpi.com/2079-9292/11/18/2882/pdf"
+  },
+  {
+   "year": 2021,
+   "type": "journal",
+   "authors": "Z. He, J. Lan, and C. Liu",
+   "title": "Compact Rectifiers With Ultra-wide Input Power Range Based on Nonlinear Impedance Characteristics of Schottky Diodes",
+   "venue": "IEEE Transactions on Power Electronics, vol. 36, no. 7, pp. 7407–7411, July 2021",
+   "pdf": "https://drive.google.com/file/d/1-iHq4ws8HlyAk3Uk9oksQTPIdWGGdQjt/view?usp=sharing",
+   "local": "papers/Compact Rectifiers With Ultra-wide Input Power Range Based on Nonlinear Impedance Characteristics of Schottky Diodes.pdf"
+  },
+  {
+   "year": 2021,
+   "type": "journal",
+   "authors": "X. Chen, B. Yang, N. Shinohara, and C. Liu",
+   "title": "Low-Noise Dual-Way Magnetron Power-Combining System Using an Asymmetric H-Plane Tee and Closed-Loop Phase Compensation",
+   "venue": "IEEE Transactions on Microwave Theory and Techniques, vol. 69, no. 4, pp. 2267–2278, Apr. 2021",
+   "local": "papers/Low-Noise Dual-Way Magnetron Power-Combining System Using an Asymmetric H-Plane Tee and Closed-Loop Phase Compensation.pdf"
+  },
+  {
+   "year": 2021,
+   "type": "journal",
+   "authors": "H. Lin, X. Chen, Z. He, Y. Xiao, W. Che, and C. Liu",
+   "title": "Wide Input Power Range X-Band Rectifier With Dynamic Capacitive Self-Compensation",
+   "venue": "IEEE Microwave and Wireless Components Letters, vol. 31, no. 5, pp. 525–528, May 2021",
+   "pdf": "https://drive.google.com/file/d/1AfW-D9boQBmiIR2i33dFnSL3-y8zb72e/view?usp=sharing",
+   "local": "papers/Wide Input Power Range X-Band Rectifier With Dynamic Capacitive Self-Compensation.pdf"
+  },
+  {
+   "year": 2021,
+   "type": "journal",
+   "authors": "X. Sun, C. Liu, Y.-D. Chen, J. Jing, Z. He, and P. Wu",
+   "title": "Low-Power Wireless Uplink Utilizing Harmonic With an Integrated Rectifier–Transmitter",
+   "venue": "IEEE Microwave and Wireless Components Letters, vol. 31, no. 2, pp. 200–203, Feb. 2021",
+   "doi": "10.1109/LMWC.2020.3043793",
+   "pdf": "https://drive.google.com/file/d/1EKAhu0iIB1jSPrKsUd_ELSRzNgXCRENr/view?usp=sharing",
+   "local": "papers/Low-Power Wireless Uplink Utilizing Harmonic With an Integrated Rectifier-Transmitter.pdf"
+  },
+  {
+   "year": 2021,
+   "type": "journal",
+   "authors": "X. Lei, L. Ye, S. Li, C. Deng, C. Fan, X. Gui, B. Yan, and C. Liu",
+   "title": "A 5-bit CMOS Attenuator with Low Temperature and Process Variations for Ka-Band Phased-Array Applications",
+   "venue": "Microwave and Optical Technology Letters, vol. 63, no. 9, pp. 2370–2375, Sept. 2021",
+   "pdf": "https://drive.google.com/file/d/1QvID5FdwGgZCcXPIsg8yoWV_76yPSOka/view?usp=sharing"
+  },
+  {
+   "year": 2020,
+   "type": "journal",
+   "authors": "X. Chen, B. Yang, N. Shinohara, and C. Liu",
+   "title": "Modeling and Experiments of an Injection-Locked Magnetron with Various Load Reflection Levels",
+   "venue": "IEEE Transactions on Electron Devices, vol. 67, no. 9, pp. 3802–3808, Sept. 2020",
+   "pdf": "https://drive.google.com/file/d/17EfBkmfyrn-HkhtaOmqqpX2142A_1fSp/view?usp=sharing",
+   "local": "papers/Modeling and Experiments of an Injection-Locked Magnetron With Various Load Reflection Levels.pdf"
+  },
+  {
+   "year": 2020,
+   "type": "journal",
+   "authors": "X. Chen, B. Yang, N. Shinohara, and C. Liu",
+   "title": "A High-Efficiency Microwave Power Combining System Based on Frequency-Tuning Injection-Locked Magnetrons",
+   "venue": "IEEE Transactions on Electron Devices, vol. 67, no. 10, pp. 4447–4452, Oct. 2020",
+   "pdf": "https://drive.google.com/file/d/1y-Z_C6x7yZ1QBTRnNukXPrKJsRO8pHiJ/view",
+   "local": "papers/A High-Efficiency Microwave Power Combining System Based on Frequency-Tuning Injection-Locked Magnetrons.pdf"
+  },
+  {
+   "year": 2020,
+   "type": "journal",
+   "authors": "X. Chen, Z. Yu, H. Lin, X. Zhao, and C. Liu",
+   "title": "Improvements in a 20-kW Phase-Locked Magnetron by Anode Voltage Ripple Suppression",
+   "venue": "IEEE Transactions on Plasma Science, vol. 48, no. 6, pp. 1879–1885, June 2020",
+   "pdf": "https://drive.google.com/file/d/1AgIzE7Q8ZdyeuckwRgKJ_nWz2dku4lVw/view?usp=sharing",
+   "local": "papers/Improvements in a 20-kW Phase-Locked Magnetron by Anode Voltage Ripple Suppression.pdf"
+  },
+  {
+   "year": 2020,
+   "type": "journal",
+   "authors": "Z. He and C. Liu",
+   "title": "A Compact High-Efficiency Broadband Rectifier with a Wide Dynamic Range of Input Power for Energy Harvesting",
+   "venue": "IEEE Microwave and Wireless Components Letters, vol. 30, no. 4, pp. 433–436, Apr. 2020",
+   "pdf": "https://drive.google.com/file/d/1fgpteNX9yU4wHjzcMaTmMqTRE-e96BJF/view?usp=drive_link",
+   "local": "papers/A Compact High-Efficiency Broadband Rectifier With a Wide Dynamic Range of Input Power for Energy Harvesting.pdf"
+  },
+  {
+   "year": 2020,
+   "type": "journal",
+   "authors": "Z. He, H. Lin, H. Zhu, and C. Liu",
+   "title": "A Compact High-Efficiency Rectifier With a Simple Harmonic Suppression Structure",
+   "venue": "IEEE Microwave and Wireless Components Letters, vol. 30, no. 12, pp. 1177–1180, Dec. 2020",
+   "pdf": "https://drive.google.com/file/d/1kngdI83_w8LmohKMVB1Pmn5CaPwPYXRk/view?usp=drive_link",
+   "local": "papers/A Compact High-Efficiency Rectifier With a Simple Harmonic Suppression Structure.pdf"
+  },
+  {
+   "year": 2020,
+   "type": "journal",
+   "authors": "Z. He, H. Lin, and C. Liu",
+   "title": "A Novel Class-C Rectifier With High Efficiency for Wireless Power Transmission",
+   "venue": "IEEE Microwave and Wireless Components Letters, vol. 30, no. 12, pp. 1197–1200, Dec. 2020",
+   "pdf": "https://drive.google.com/file/d/1zpgDDqoJfLK2zrtPDj_f0dDA3Ph-JzXQ/view?usp=drive_link",
+   "local": "papers/A Novel Class-C Rectifier With High Efficiency for Wireless Power Transmission.pdf"
+  },
+  {
+   "year": 2020,
+   "type": "journal",
+   "authors": "Z. He, H. Lin, and C. Liu",
+   "title": "Codesign of a Schottky Diode's and Loop Antenna's Impedances for Dual-Band Wireless Power Transmission",
+   "venue": "IEEE Antennas and Wireless Propagation Letters, vol. 19, no. 10, pp. 1813–1817, Oct. 2020",
+   "pdf": "https://drive.google.com/file/d/1ozA5OZ1uJ65_y2nAqjL1c8v9oUht5BaT/view?usp=drive_link",
+   "local": "papers/Codesign of a Schottky Diode-s and Loop Antenna-s Impedances for Dual-Band Wireless Power Transmission.pdf"
+  },
+  {
+   "year": 2020,
+   "type": "journal",
+   "authors": "Z. Yu, L. Xu, and C. Liu",
+   "title": "Design of a Suspended Stripline Dual-Band Band-Stop Filter Loaded With Short-Ended Waveguide Stubs Embedded in the Metal Housing",
+   "venue": "IEEE Microwave and Wireless Components Letters, vol. 30, no. 11, pp. 1025–1028, Nov. 2020",
+   "pdf": "https://drive.google.com/file/d/1pvYB-xOlbBhJzkqqUEVZRgc5KMK8s9S1/view?usp=drive_link",
+   "local": "papers/Design of a Suspended Stripline Dual-Band Band-Stop Filter Loaded With Short-Ended Waveguide Stubs Embedded in the Metal Housing.pdf"
+  },
+  {
+   "year": 2020,
+   "type": "journal",
+   "authors": "L. Xu, B. Yan, and C. Liu",
+   "title": "Broadband Compact 180° Phase Shifter Based on Dumbbell-Shaped Slow Wave Line",
+   "venue": "Microwave and Optical Technology Letters, vol. 62, pp. 2857–2860, 2020"
+  },
+  {
+   "year": 2020,
+   "type": "journal",
+   "authors": "J. Jing, J. Pang, S. Wang, Z. Qiu, and C. Liu",
+   "title": "A Compact Hollowed-Out Loop Rectenna Without Matching Network for Wireless Sensor Applications",
+   "venue": "International Journal of RF and Microwave Computer-Aided Engineering, vol. 30, e22417, Oct. 2020"
+  },
+  {
+   "year": 2020,
+   "type": "conference",
+   "authors": "X. Chen, B. Yang, X. Zhao, N. Shinohara, and C. Liu",
+   "title": "An Enhanced Large-Power S-Band Injection-Locked Magnetron with Anode Voltage Ripple Inhibition",
+   "venue": "2020 IEEE/MTT-S International Microwave Symposium (IMS), Los Angeles, CA, USA, pp. 37–40",
+   "local": "papers/An Enhanced Large-Power S-band Injection-Locked Magnetron with Anode Voltage Ripple Inhibition.pdf"
+  },
+  {
+   "year": 2019,
+   "type": "journal",
+   "authors": "Z. Liu, X. Chen, M. Yang, P. Wu, K. Huang, and C. Liu",
+   "title": "Experimental Studies on a Four-Way Microwave Power Combining System Based on Hybrid Injection-Locked 20-kW S-Band Magnetrons",
+   "venue": "IEEE Transactions on Plasma Science, vol. 47, no. 1, pp. 243–250, 2019",
+   "local": "papers/Experimental Studies on a Four-Way Microwave Power Combining System Based on Hybrid Injection-Locked 20-kW S-Band Magnetrons.pdf"
+  },
+  {
+   "year": 2019,
+   "type": "journal",
+   "authors": "P. Wu, S. Y. Huang, W. Zhou, W. Yu, Z. Liu, X. Chen, and C. Liu",
+   "title": "Compact High-Efficiency Broadband Rectifier with Multi-Stage-Transmission-Line Matching",
+   "venue": "IEEE Transactions on Circuits and Systems II: Express Briefs, vol. 66, no. 8, pp. 1316–1320, Aug. 2019",
+   "doi": "10.1109/TCSII.2018.2886432",
+   "local": "papers/Compact High-Efficiency Broadband Rectifier With Multi-Stage-Transmission-Line Matching.pdf"
+  },
+  {
+   "year": 2019,
+   "type": "journal",
+   "authors": "A. Yan, L. Lin, C. Liu, J. Shi, S. Na, and L. V. Wang",
+   "title": "Microwave-Induced Thermoacoustic Tomography Through an Adult Human Skull",
+   "venue": "Medical Physics, vol. 46, no. 4, pp. 1793–1797, 2019"
+  },
+  {
+   "year": 2019,
+   "type": "conference",
+   "authors": "P. Wu, X. Chen, H. Lin, and C. Liu",
+   "title": "High-Efficiency Rectifier with Wide Input Power Range Based on a Small Capacitor in Parallel with the Diode",
+   "venue": "2019 IEEE MTT-S International Microwave Symposium (IMS), Boston, MA, USA",
+   "local": "papers/High-Efficiency Rectifier with Wide Input Power Rage Based on a Small Capacitor in Parallel with the Diode.pdf"
+  },
+  {
+   "year": 2018,
+   "type": "journal",
+   "authors": "P. Wu, S. Huang, W. Zhou, Z. Ren, Z. Liu, K. Huang, and C. Liu",
+   "title": "High-Efficient Rectifier With Extended Input Power Range Based on Self-Tuning Impedance Matching",
+   "venue": "IEEE Microwave and Wireless Components Letters, vol. 28, no. 12, pp. 1116–1118, Dec. 2018",
+   "pdf": "https://drive.google.com/file/d/1WdCNo-U6p-m7AJzG2BcmlEJ0lVdprz0v/view?usp=drive_link",
+   "local": "papers/High-Efficient Rectifier With Extended Input Power Range Based on Self-Tuning Impedance Matching.pdf"
+  },
+  {
+   "year": 2018,
+   "type": "journal",
+   "authors": "P. Wu, S. Huang, W. Zhou, and C. Liu",
+   "title": "One Octave Bandwidth Rectifier With a Frequency Selective Diode Array",
+   "venue": "IEEE Microwave and Wireless Components Letters, vol. 28, no. 11, pp. 1008–1010, 2018",
+   "pdf": "https://drive.google.com/file/d/1Y6sQEq8JyT-4pv1oVo22RmmBJjqxV2zm/view?usp=drive_link",
+   "local": "papers/One Octave Bandwidth Rectifier With a Frequency Selective Diode Array.pdf"
+  },
+  {
+   "year": 2018,
+   "type": "journal",
+   "authors": "Z. Liu, X. Chen, M. Yang, K. Huang, and C. Liu",
+   "title": "Experimental Studies on a 1-kW High-Gain S-Band Magnetron Amplifier With Output Phase Control Based on Load–Pull Characterization",
+   "venue": "IEEE Transactions on Plasma Science, vol. 46, no. 4, pp. 909–916, Apr. 2018",
+   "pdf": "https://drive.google.com/file/d/1y6s_ZIPWy_SPPl2w-rIJpomBYxLTUcUk/view?usp=drive_link",
+   "local": "papers/Experimental Studies on a 1-kW High-Gain  -S- -Band Magnetron Amplifier With Output Phase Control Based on Load-Pull Characterization.pdf"
+  },
+  {
+   "year": 2018,
+   "type": "journal",
+   "authors": "H. Huang, K. Huang, and C. Liu",
+   "title": "Experimental Study on the Phase Deviation of 20-kW S-Band CW Phase-Locked Magnetrons",
+   "venue": "IEEE Microwave and Wireless Components Letters, vol. 28, no. 6, pp. 509–511, 2018",
+   "local": "papers/Experimental Study on the Phase Deviation of 20-kW  -S- -Band CW Phase-Locked Magnetrons.pdf"
+  },
+  {
+   "year": 2018,
+   "type": "journal",
+   "authors": "W. Jiang and C. Liu",
+   "title": "Ka-Band Dual-Frequency Single-Slot Antenna Based on Substrate Integrated Waveguide",
+   "venue": "IEEE Antennas and Wireless Propagation Letters, vol. 17, no. 2, pp. 221–224, Feb. 2018",
+   "local": "papers/Ka-Band Dual-Frequency Single-Slot Antenna Based on Substrate Integrated Waveguide.pdf"
+  },
+  {
+   "year": 2018,
+   "type": "journal",
+   "authors": "Z. Liu, X. Chen, W. Jiang, P. Wu, M. Yang, K. Huang, and C. Liu",
+   "title": "Phase-Shifterless Power Controlled Combining Based on 20-kW S-Band Magnetrons With an Asymmetric Injection",
+   "venue": "IEEE Electron Device Letters, vol. 39, no. 9, pp. 1425–1428, 2018",
+   "local": "papers/Phase-Shifterless Power Controlled Combining Based on 20-kW S-Band Magnetrons With an Asymmetric Injection.pdf"
+  },
+  {
+   "year": 2018,
+   "type": "journal",
+   "authors": "A. Yan, L. Lin, S. Na, C. Liu, and L. V. Wang",
+   "title": "Large Field Homogeneous Illumination in Microwave-Induced Thermoacoustic Tomography Based on a Quasi-Conical Spiral Antenna",
+   "venue": "Applied Physics Letters, vol. 113, 123701, 2018",
+   "doi": "10.1063/1.5043541"
+  },
+  {
+   "year": 2018,
+   "type": "conference",
+   "authors": "Y. Zhao, X. Zhao, L. Yan, C. Liu, K. Huang, Q. Liu, and H. Zhou",
+   "title": "Analysis of Field-to-Transmission Line Coupling Inside a Reverberation Chamber Based on Mode Expansion Method",
+   "venue": "2018 IEEE Asia-Pacific Symposium on Electromagnetic Compatibility (EMC/APEMC), pp. 84–87",
+   "local": "papers/Analysis of field-to-transmission line coupling inside a reverberation chamber based on mode expansion method.pdf"
+  },
+  {
+   "year": 2018,
+   "type": "conference",
+   "authors": "X. Chen, H. Lin, Z. Liu, K. Huang, and C. Liu",
+   "title": "Study on a Frequency-Stabilized Power-Adjustable Magnetron",
+   "venue": "2018 Asia-Pacific Microwave Conference (APMC), pp. 1139–1141",
+   "local": "papers/Study on a Frequency-Stabilized Power-Adjustable Magnetron.pdf"
+  },
+  {
+   "year": 2017,
+   "type": "journal",
+   "authors": "C. Liu, F. Tan, H. Zhang, and Q. He",
+   "title": "A Novel Single-Diode Microwave Rectifier With a Series Band-Stop Structure",
+   "venue": "IEEE Transactions on Microwave Theory and Techniques, vol. 65, no. 2, pp. 600–606, Feb. 2017",
+   "selected": true,
+   "local": "papers/A Novel Single-Diode Microwave Rectifier With a Series Band-Stop Structure.pdf"
+  },
+  {
+   "year": 2017,
+   "type": "journal",
+   "authors": "F. Tan and C. Liu",
+   "title": "Theoretical and Experimental Development of a High-Conversion-Efficiency Rectifier at X-Band",
+   "venue": "International Journal of Microwave and Wireless Technologies, vol. 9, no. 5, pp. 985–994, 2017",
+   "pdf": "https://1drv.ms/b/s!Ar_zdcCyPbFl_SwCWBgPxGaHB5C4?e=yqYQkJ"
+  },
+  {
+   "year": 2015,
+   "type": "journal",
+   "authors": "C. Yu, F. Tan, and C. Liu",
+   "title": "A C-Band Microwave Rectenna Using Aperture-Coupled Antenna Array and Novel Class-F Rectifier with Cavity",
+   "venue": "Journal of Electromagnetic Waves and Applications, vol. 29, no. 8, pp. 977–991, 2015",
+   "pdf": "https://drive.google.com/file/d/1Ep8_mrM7nCP2g-oIiLWNJmSLgpRlsSDQ/view?usp=drive_link",
+   "local": "papers/2015-04 A C-band microwave rectenna using aperture-coupled antenna array and novel Class-F rectifier with cavity.pdf"
+  }
+ ],
+ "full_pdf_library": [
+  {
+   "title": "A Reconfigurable Circuit Strategy and Its Application in Low-Power Rectifier for Ambient Energy Harvesting",
+   "file": "papers/2025 IEEE TPE A_Reconfigurable_Circuit_Strategy_and_Its_Application_in_Low-Power_Rectifier_for_Ambient_Energy_Harvesting.pdf",
+   "year": 2025,
+   "year_source": "publication"
+  },
+  {
+   "title": "Wireless Power Transmission in a Closed Environment",
+   "file": "papers/Wireless_Power_Transmission_in_a_Closed_Environment.pdf",
+   "year": 2025,
+   "year_source": "publication"
+  },
+  {
+   "title": "A Novel Class-F 2.45/5.8 GHz Dual-Band Rectifier for Wireless Power Transmission",
+   "file": "papers/A Novel Class-F 2.45-5.8 GHz Dual-Band Rectifier for Wireless Power Transmission.pdf",
+   "year": 2024,
+   "year_source": "publication"
+  },
+  {
+   "title": "A Novel Stability Improvement Method of S-Band Magnetron Systems Based on Its Anode Current Feature",
+   "file": "papers/A Novel Stability Improvement Method of S-Band Magnetron Systems Based on Its Anode Current Feature.pdf",
+   "year": 2024,
+   "year_source": "publication"
+  },
+  {
+   "title": "A PDF Approximation Formula for Amplitude of Rectangular Components of E-Field in a Probabilistic Statistical Model of Reverberation Chamber",
+   "file": "papers/A PDF Approximation Formula for Amplitude of Rectangular Components of E-Field in a Probabilistic Statistical Model of Reverberation Chamber.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2024
+  },
+  {
+   "title": "All-Polarized Wideband Rectenna Array for Omnidirectional Wireless Energy Harvesting",
+   "file": "papers/2024/All-Polarized_Wideband_Rectenna_Array_for_Omnidirectional_Wireless_Energy_Harvesting.pdf",
+   "year": 2024,
+   "year_source": "filename"
+  },
+  {
+   "title": "All-Polarized Wideband Rectenna Array for Omnidirectional Wireless Energy Harvesting",
+   "file": "papers/All-Polarized Wideband Rectenna Array for Omnidirectional Wireless Energy Harvesting.pdf",
+   "year": 2024,
+   "year_source": "publication"
+  },
+  {
+   "title": "An Adaptive Power Division Strategy for Nonlinear Components in Rectification",
+   "file": "papers/An Adaptive Power Division Strategy for Nonlinear Components in Rectification.pdf",
+   "year": 2024,
+   "year_source": "publication"
+  },
+  {
+   "title": "An Analytical Model for Reverberation Time Prediction of Indoor Scenarios",
+   "file": "papers/An Analytical Model for Reverberation Time Prediction of Indoor Scenarios.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2024
+  },
+  {
+   "title": "Angularly Stable Ultrawide Band Single-Layer Frequency Selective Absorber",
+   "file": "papers/Angularly Stable Ultrawide Band Single-Layer Frequency Selective Absorber.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2024
+  },
+  {
+   "title": "Coherent Power Combining of Four-Way Injection-Locked 5.8-GHz Magnetrons Based on a Five-Port Hybrid Waveguide Combiner",
+   "file": "papers/Coherent Power Combining of Four-Way Injection-Locked 5.8-GHz Magnetrons Based on a Five-Port Hybrid Waveguide Combiner.pdf",
+   "year": 2024,
+   "year_source": "publication"
+  },
+  {
+   "title": "Conformal Flexible Omnidirectional Rectenna Array Designed for Application in IoT Smart Water Meters",
+   "file": "papers/2024/Conformal Flexible Omnidirectional Rectenna Array Designed for Application in IoT Smart Water Meters.pdf",
+   "year": 2024,
+   "year_source": "publication"
+  },
+  {
+   "title": "Experimental Study of Magnetron's Power-Pulled Characteristic to Realize a Quasi-Dual-Frequency Microwave Output",
+   "file": "papers/2024/Experimental Study of Magnetron’s Power-Pulled Characteristic to Realize a Quasi-Dual-Frequency Microwave Output.pdf",
+   "year": 2024,
+   "year_source": "publication"
+  },
+  {
+   "title": "Experimental Study of Realizing a Low-Noise Injection-Locked Magnetron Based on a Switch-Mode Power Supply",
+   "file": "papers/2024/Experimental_Study_of_Realizing_a_Low-Noise_Injection-Locked_Magnetron_Based_on_a_Switch-Mode_Power_Supply.pdf",
+   "year": 2024,
+   "year_source": "filename"
+  },
+  {
+   "title": "Experimental Study of Realizing a Low-Noise Injection-Locked Magnetron Based on a Switch-Mode Power Supply",
+   "file": "papers/Experimental Study of Realizing a Low-Noise Injection-Locked Magnetron Based on a Switch-Mode Power Supply.pdf",
+   "year": 2024,
+   "year_source": "publication"
+  },
+  {
+   "title": "Micro   Optical Tech Letters - 2024 - Tang - Optically transparent and angularly stable broad‐stopband frequency selective",
+   "file": "papers/2024/Micro   Optical Tech Letters - 2024 - Tang - Optically transparent and angularly stable broad‐stopband frequency selective.pdf",
+   "year": 2024,
+   "year_source": "filename"
+  },
+  {
+   "title": "Modular Multi-Rotary Joints SPS Concept -Challenges and Design Considerations",
+   "file": "papers/Modular Multi-Rotary Joints SPS Concept -Challenges and Design Considerations.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2024
+  },
+  {
+   "title": "Radio-Frequency Energy Harvester for a Hybrid Power Supply with Constant Voltage Output to a Water Meter",
+   "file": "papers/2024/Radio-Frequency Energy Harvester for a Hybrid Power Supply with Constant Voltage Output to a Water Meter.pdf",
+   "year": 2024,
+   "year_source": "publication"
+  },
+  {
+   "title": "S 波段变频微波方腔干燥PET 切片的研究",
+   "file": "papers/2024/S 波段变频微波方腔干燥PET 切片的研究.pdf",
+   "year": 2024,
+   "year_source": "filename"
+  },
+  {
+   "title": "Terrestrial transparent green energy receiving system designed for Space Solar Power Station",
+   "file": "papers/2024/Terrestrial transparent green energy receiving system designed for Space Solar Power Station.pdf",
+   "year": 2024,
+   "year_source": "filename"
+  },
+  {
+   "title": "Terrestrial Transparent Green Energy Receiving System Designed for Space Solar Power Station",
+   "file": "papers/Terrestrial transparent green energy receiving system designed for Space Solar Power Station.pdf",
+   "year": 2024,
+   "year_source": "publication"
+  },
+  {
+   "title": "基于频率控制的封闭腔体微波无线输能技术",
+   "file": "papers/2024/基于频率控制的封闭腔体微波无线输能技术.pdf",
+   "year": 2024,
+   "year_source": "filename"
+  },
+  {
+   "title": "封闭舱室电磁屏蔽用频率选择表面吸波体设计",
+   "file": "papers/2024/封闭舱室电磁屏蔽用频率选择表面吸波体设计.pdf",
+   "year": 2024,
+   "year_source": "filename"
+  },
+  {
+   "title": "混响室内模拟多径衰落场环境的概率统计模型 陈佳豪",
+   "file": "papers/2024/混响室内模拟多径衰落场环境的概率统计模型_陈佳豪.pdf",
+   "year": 2024,
+   "year_source": "filename"
+  },
+  {
+   "title": "透明可开关的超宽带频率选择表面电磁屏蔽研究 王成蓉",
+   "file": "papers/2024/透明可开关的超宽带频率选择表面电磁屏蔽研究_王成蓉.pdf",
+   "year": 2024,
+   "year_source": "filename"
+  },
+  {
+   "title": "面向环境射频能量收集的宽频整流电路 张欣",
+   "file": "papers/2024/面向环境射频能量收集的宽频整流电路_张欣.pdf",
+   "year": 2024,
+   "year_source": "filename"
+  },
+  {
+   "title": "A Novel Injection-Locked S-Band Oven Magnetron System Without Waveguide Isolators",
+   "file": "papers/A Novel Injection-Locked S-Band Oven Magnetron System Without Waveguide Isolators.pdf",
+   "year": 2023,
+   "year_source": "publication"
+  },
+  {
+   "title": "A Permittivity Measurement Equipment Based on Oblique Aperture Ridge Waveguide",
+   "file": "papers/A Permittivity Measurement Equipment Based on Oblique Aperture Ridge Waveguide.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2023
+  },
+  {
+   "title": "A Permittivity Measurement Equipment Based on Oblique Aperture Ridge Waveguide",
+   "file": "papers/A_Permittivity_Measurement_Equipment_Based_on_Oblique_Aperture_Ridge_Waveguide.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2023
+  },
+  {
+   "title": "A Self-Packaged SISL Low-Power Rectifier Based on a High-Impedance Line for C-Band Applications",
+   "file": "papers/A Self-Packaged SISL Low-Power Rectifier Based on a High-Impedance Line for C-Band Applications.pdf",
+   "year": 2023,
+   "year_source": "publication"
+  },
+  {
+   "title": "An Angle-Stable Ultra-Wideband Single-Layer Frequency Selective Surface Absorber",
+   "file": "papers/2023/electronics-12-03776.pdf",
+   "year": 2023,
+   "year_source": "publication"
+  },
+  {
+   "title": "Analysis of Low-Power Rectifiers Based on Tunnel Diode for Energy Harvesting",
+   "file": "papers/2023/Analysis_of_Low-Power_Rectifiers_Based_on_Tunnel_Diode_for_Energy_Harvesting.pdf",
+   "year": 2023,
+   "year_source": "filename"
+  },
+  {
+   "title": "Analysis of Low-Power Rectifiers Based on Tunnel Diode for Energy Harvesting",
+   "file": "papers/Analysis of Low-Power Rectifiers Based on Tunnel Diode for Energy Harvesting.pdf",
+   "year": 2023,
+   "year_source": "publication"
+  },
+  {
+   "title": "Experimental Study on Spurious Suppression Techniques of S-band Magnetrons",
+   "file": "papers/2023/Experimental_Study_on_Spurious_Suppression_Techniques_of_S-band_Magnetrons.pdf",
+   "year": 2023,
+   "year_source": "filename"
+  },
+  {
+   "title": "Experimental Study on Spurious Suppression Techniques of S-Band Magnetrons",
+   "file": "papers/Experimental Study on Spurious Suppression Techniques of S-band Magnetrons.pdf",
+   "year": 2023,
+   "year_source": "publication"
+  },
+  {
+   "title": "Improvement of Field Uniformity in Microwave Heating Cavity Using beam-splitting Metasurface",
+   "file": "papers/2023/Improvement_of_Field_Uniformity_in_Microwave_Heating_Cavity_Using_beam-splitting_Metasurface.pdf",
+   "year": 2023,
+   "year_source": "filename"
+  },
+  {
+   "title": "Improvement of Field Uniformity in Microwave Heating Cavity Using Beam-Splitting Metasurface",
+   "file": "papers/Improvement of Field Uniformity in Microwave Heating Cavity Using beam-splitting Metasurface.pdf",
+   "year": 2023,
+   "year_source": "publication"
+  },
+  {
+   "title": "Injection-Locked Magnetron System Based on Filament Injection",
+   "file": "papers/2023/US11842878.pdf",
+   "year": 2023,
+   "year_source": "publication"
+  },
+  {
+   "title": "Lightweight Parallel Feedback Network for Image Super-Resolution",
+   "file": "papers/2023/Lightweight Parallel Feedback Network for Image Super-Resolution.pdf",
+   "year": 2023,
+   "year_source": "publication"
+  },
+  {
+   "title": "Progress of Microwave Power Combining Based on S-band Injection Locked CW Magnetrons",
+   "file": "papers/Progress of Microwave Power Combining Based on S-band Injection Locked CW Magnetrons.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2023
+  },
+  {
+   "title": "Second- and Third-Harmonic Backscatter Through a Bandstop Filter Using Defected Ground Structure",
+   "file": "papers/Second- and Third-Harmonic Backscatter Through a Bandstop Filter Using Defected Ground Structure.pdf",
+   "year": 2023,
+   "year_source": "publication"
+  },
+  {
+   "title": "Study on Microwave Drying Characteristic for PET Materials",
+   "file": "papers/Study on Microwave Drying Characteristic for PET Materials.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2023
+  },
+  {
+   "title": "A High Conversion Efficiency Millimeter-Wave Rectifier Based on Modified Equivalent Model",
+   "file": "papers/A High Conversion Efficiency Millimeter-Wave Rectifier Based on Modified Equivalent Model.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2022
+  },
+  {
+   "title": "A High-efficiency Circular Polarized Membrane Rectenna for Wireless Power Transfer",
+   "file": "papers/A High-efficiency Circular Polarized Membrane Rectenna for Wireless Power Transfer.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2022
+  },
+  {
+   "title": "A Patch Rectenna With an Integrated Impedance Matching Network and a Harmonic Recycling Filter",
+   "file": "papers/A Patch Rectenna With an Integrated Impedance Matching Network and a Harmonic Recycling Filter.pdf",
+   "year": 2022,
+   "year_source": "publication"
+  },
+  {
+   "title": "Analysis of Rectifiers Under Various Multitone Excitations and Using Different Diodes in Low-Power Conditions",
+   "file": "papers/Analysis of Rectifiers Under Various Multitone Excitations and Using Different Diodes in Low-Power Conditions.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2022
+  },
+  {
+   "title": "Compact High Efficiency Broadband Rectifier Based on Coupled Transmission Line",
+   "file": "papers/Compact High-Efficiency Broadband Rectifier Based on Coupled Transmission Line.pdf",
+   "year": 2022,
+   "year_source": "publication"
+  },
+  {
+   "title": "Compact Patch Rectennas Without Impedance Matching Network for Wireless Power Transmission",
+   "file": "papers/Compact Patch Rectennas Without Impedance Matching Network for Wireless Power Transmission.pdf",
+   "year": 2022,
+   "year_source": "publication"
+  },
+  {
+   "title": "Performance Evaluation of a 20-kW Injection-locked Magnetron with Load-Pull Characterization",
+   "file": "papers/Performance Evaluation of a 20-kW Injection-locked Magnetron with Load-Pull Characterization.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2022
+  },
+  {
+   "title": "Compact Rectifiers With Ultra-wide Input Power Range Based on Nonlinear Impedance Characteristics of Schottky Diodes",
+   "file": "papers/Compact Rectifiers With Ultra-wide Input Power Range Based on Nonlinear Impedance Characteristics of Schottky Diodes.pdf",
+   "year": 2021,
+   "year_source": "publication"
+  },
+  {
+   "title": "Low-Noise Dual-Way Magnetron Power-Combining System Using an Asymmetric H-Plane Tee and Closed-Loop Phase Compensation",
+   "file": "papers/Low-Noise Dual-Way Magnetron Power-Combining System Using an Asymmetric H-Plane Tee and Closed-Loop Phase Compensation.pdf",
+   "year": 2021,
+   "year_source": "publication"
+  },
+  {
+   "title": "Low-Power Wireless Uplink Utilizing Harmonic With an Integrated Rectifier–Transmitter",
+   "file": "papers/Low-Power Wireless Uplink Utilizing Harmonic With an Integrated Rectifier-Transmitter.pdf",
+   "year": 2021,
+   "year_source": "publication"
+  },
+  {
+   "title": "Wide Input Power Range X-Band Rectifier With Dynamic Capacitive Self-Compensation",
+   "file": "papers/Wide Input Power Range X-Band Rectifier With Dynamic Capacitive Self-Compensation.pdf",
+   "year": 2021,
+   "year_source": "publication"
+  },
+  {
+   "title": "A Compact High-Efficiency Broadband Rectifier with a Wide Dynamic Range of Input Power for Energy Harvesting",
+   "file": "papers/A Compact High-Efficiency Broadband Rectifier With a Wide Dynamic Range of Input Power for Energy Harvesting.pdf",
+   "year": 2020,
+   "year_source": "publication"
+  },
+  {
+   "title": "A Compact High-Efficiency Rectifier With a Simple Harmonic Suppression Structure",
+   "file": "papers/A Compact High-Efficiency Rectifier With a Simple Harmonic Suppression Structure.pdf",
+   "year": 2020,
+   "year_source": "publication"
+  },
+  {
+   "title": "A High-Efficiency Microwave Power Combining System Based on Frequency-Tuning Injection-Locked Magnetrons",
+   "file": "papers/A High-Efficiency Microwave Power Combining System Based on Frequency-Tuning Injection-Locked Magnetrons.pdf",
+   "year": 2020,
+   "year_source": "publication"
+  },
+  {
+   "title": "A Novel Class-C Rectifier With High Efficiency for Wireless Power Transmission",
+   "file": "papers/A Novel Class-C Rectifier With High Efficiency for Wireless Power Transmission.pdf",
+   "year": 2020,
+   "year_source": "publication"
+  },
+  {
+   "title": "An Enhanced Large-Power S-Band Injection-Locked Magnetron with Anode Voltage Ripple Inhibition",
+   "file": "papers/An Enhanced Large-Power S-band Injection-Locked Magnetron with Anode Voltage Ripple Inhibition.pdf",
+   "year": 2020,
+   "year_source": "publication"
+  },
+  {
+   "title": "Codesign of a Schottky Diode's and Loop Antenna's Impedances for Dual-Band Wireless Power Transmission",
+   "file": "papers/Codesign of a Schottky Diode-s and Loop Antenna-s Impedances for Dual-Band Wireless Power Transmission.pdf",
+   "year": 2020,
+   "year_source": "publication"
+  },
+  {
+   "title": "Design of a Suspended Stripline Dual-Band Band-Stop Filter Loaded With Short-Ended Waveguide Stubs Embedded in the Metal Housing",
+   "file": "papers/Design of a Suspended Stripline Dual-Band Band-Stop Filter Loaded With Short-Ended Waveguide Stubs Embedded in the Metal Housing.pdf",
+   "year": 2020,
+   "year_source": "publication"
+  },
+  {
+   "title": "Design of Microwave Directional Heating System Based on Phased-Array Antenna",
+   "file": "papers/Design of Microwave Directional Heating System Based on Phased-Array Antenna.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2020
+  },
+  {
+   "title": "Improvements in a 20-kW Phase-Locked Magnetron by Anode Voltage Ripple Suppression",
+   "file": "papers/Improvements in a 20-kW Phase-Locked Magnetron by Anode Voltage Ripple Suppression.pdf",
+   "year": 2020,
+   "year_source": "publication"
+  },
+  {
+   "title": "Measurement of Near-Field Electromagnetic Emissions and Characterization Based on Equivalent Dipole Model in Time-Domain",
+   "file": "papers/Measurement of Near-Field Electromagnetic Emissions and Characterization Based on Equivalent Dipole Model in Time-Domain.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2020
+  },
+  {
+   "title": "Modeling and Experiments of an Injection-Locked Magnetron with Various Load Reflection Levels",
+   "file": "papers/Modeling and Experiments of an Injection-Locked Magnetron With Various Load Reflection Levels.pdf",
+   "year": 2020,
+   "year_source": "publication"
+  },
+  {
+   "title": "Reconstruction of the Statistical Characteristics of Electric Fields in Enclosures With an Aperture Based on Random Forest Regression",
+   "file": "papers/Reconstruction of the Statistical Characteristics of Electric Fields in Enclosures With an Aperture Based on Random Forest Regression.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2020
+  },
+  {
+   "title": "Compact High-Efficiency Broadband Rectifier with Multi-Stage-Transmission-Line Matching",
+   "file": "papers/Compact High-Efficiency Broadband Rectifier With Multi-Stage-Transmission-Line Matching.pdf",
+   "year": 2019,
+   "year_source": "publication"
+  },
+  {
+   "title": "Experimental Studies on a Four-Way Microwave Power Combining System Based on Hybrid Injection-Locked 20-kW S-Band Magnetrons",
+   "file": "papers/Experimental Studies on a Four-Way Microwave Power Combining System Based on Hybrid Injection-Locked 20-kW S-Band Magnetrons.pdf",
+   "year": 2019,
+   "year_source": "publication"
+  },
+  {
+   "title": "High-Efficiency Rectifier with Wide Input Power Range Based on a Small Capacitor in Parallel with the Diode",
+   "file": "papers/High-Efficiency Rectifier with Wide Input Power Rage Based on a Small Capacitor in Parallel with the Diode.pdf",
+   "year": 2019,
+   "year_source": "publication"
+  },
+  {
+   "title": "3-D Printing Implementation of an X-band Eaton Lens for Beam Deflection",
+   "file": "papers/3-D Printing Implementation of an X-band Eaton Lens for Beam Deflection.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2018
+  },
+  {
+   "title": "A 2.45 GHz rectenna in a near-field wireless power transmission system on hundred-watt level",
+   "file": "papers/A 2.45 GHz rectenna in a near-field wireless power transmission system on hundred-watt level.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2018
+  },
+  {
+   "title": "A C-band microwave rectifier based on harmonic termination and with input filter removed",
+   "file": "papers/A C-band microwave rectifier based on harmonic termination and with input filter removed.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2018
+  },
+  {
+   "title": "A fast prediction for shielding effectiveness of double enclosures",
+   "file": "papers/A fast prediction for shielding effectiveness of double enclosures.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2018
+  },
+  {
+   "title": "A hybrid method on the design of C band microwave rectifiers",
+   "file": "papers/A hybrid method on the design of C band microwave rectifiers.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2018
+  },
+  {
+   "title": "A microstrip diplexer from metamaterial transmission lines",
+   "file": "papers/A microstrip diplexer from metamaterial transmission lines.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2018
+  },
+  {
+   "title": "A novel directional coupler from composite right-left-handed transmission line and artificial transmission line",
+   "file": "papers/A novel directional coupler from composite right-left-handed transmission line and artificial transmission line.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2018
+  },
+  {
+   "title": "A Novel Low-Pass Filter With an Embedded Band-Stop Structure for Improved Stop-Band Characteristics",
+   "file": "papers/A Novel Low-Pass Filter With an Embedded Band-Stop Structure for Improved Stop-Band Characteristics.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2018
+  },
+  {
+   "title": "A simple tunable monopole antenna with sharp controlled notched bands",
+   "file": "papers/A simple tunable monopole antenna with sharp controlled notched bands.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2018
+  },
+  {
+   "title": "An Alternative Semianalytical-Analytical Solution to Field-to-Wire Coupling in an Electrically Large Cavity",
+   "file": "papers/An Alternative Semianalytical-Analytical Solution to Field-to-Wire Coupling in an Electrically Large Cavity.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2018
+  },
+  {
+   "title": "An SIW Resonator Sensor for Liquid Permittivity Measurements at C Band",
+   "file": "papers/An SIW Resonator Sensor for Liquid Permittivity Measurements at C Band.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2018
+  },
+  {
+   "title": "An Unequal Power Divider Using Composite Right-Left-Handed Transmission Line Couplers",
+   "file": "papers/An Unequal Power Divider Using Composite Right-Left-Handed Transmission Line Couplers.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2018
+  },
+  {
+   "title": "Analysis of Field-to-Transmission Line Coupling Inside a Reverberation Chamber Based on Mode Expansion Method",
+   "file": "papers/Analysis of field-to-transmission line coupling inside a reverberation chamber based on mode expansion method.pdf",
+   "year": 2018,
+   "year_source": "publication"
+  },
+  {
+   "title": "Analysis of Temperature Effect on p-i-n Diode Circuits by a Multiphysics and Circuit Cosimulation Algorithm",
+   "file": "papers/Analysis of Temperature Effect on p-i-n Diode Circuits by a Multiphysics and Circuit Cosimulation Algorithm.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2018
+  },
+  {
+   "title": "Asymmetrical coplanar waveguide zeroth-order resonant antenna with extended bandwidth",
+   "file": "papers/Asymmetrical coplanar waveguide zeroth-order resonant antenna with extended bandwidth.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2018
+  },
+  {
+   "title": "Broadband Via-Free Microstrip Balun Using Metamaterial Transmission Lines",
+   "file": "papers/Broadband Via-Free Microstrip Balun Using Metamaterial Transmission Lines.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2018
+  },
+  {
+   "title": "Cell deformation and increase of cytotoxicity of anticancer drugs due to low-intensity transient electromagnetic pulses",
+   "file": "papers/Cell deformation and increase of cytotoxicity of anticancer drugs due to low-intensity transient electromagnetic pulses.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2018
+  },
+  {
+   "title": "Comments on -Planar Artificial Transmission Lines Loading for Miniturization of RFID Printed Quasi-Yagi Antenna-",
+   "file": "papers/Comments on -Planar Artificial Transmission Lines Loading for Miniturization of RFID Printed Quasi-Yagi Antenna-.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2018
+  },
+  {
+   "title": "Compact half-wave balun using microstrip and lumped-element artificial transmission lines",
+   "file": "papers/Compact half-wave balun using microstrip and lumped-element artificial transmission lines.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2018
+  },
+  {
+   "title": "Comparative Effects of Linearly and Circularly Polarized Illumination on Microwave-Induced Thermoacoustic Tomography",
+   "file": "papers/Comparative Effects of Linearly and Circularly Polarized Illumination on Microwave-Induced Thermoacoustic Tomography.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2018
+  },
+  {
+   "title": "Design of a capacitor-less 5.8-GHz microwave rectifier for microwave power transmission",
+   "file": "papers/Design of a capacitor-less 5.8-GHz microwave rectifier for microwave power transmission.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2018
+  },
+  {
+   "title": "Design of a High-Conversion-Efficiency X-Band Rectifier for Microwave Wireless Power Transmission",
+   "file": "papers/Design of a High-Conversion-Efficiency X-Band Rectifier for Microwave Wireless Power Transmission.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2018
+  },
+  {
+   "title": "Design of beam shifter based on the Schwarz-Christoffel mapping",
+   "file": "papers/Design of beam shifter based on the Schwarz-Christoffel mapping.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2018
+  },
+  {
+   "title": "Experimental Studies on a 1-kW High-Gain S-Band Magnetron Amplifier With Output Phase Control Based on Load–Pull Characterization",
+   "file": "papers/Experimental Studies on a 1-kW High-Gain  -S- -Band Magnetron Amplifier With Output Phase Control Based on Load-Pull Characterization.pdf",
+   "year": 2018,
+   "year_source": "publication"
+  },
+  {
+   "title": "Experimental Study on Microwave Power Combining Based on Injection-Locked 15-kW  -S- -Band Continuous-Wave Magnetrons",
+   "file": "papers/Experimental Study on Microwave Power Combining Based on Injection-Locked 15-kW  -S- -Band Continuous-Wave Magnetrons.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2018
+  },
+  {
+   "title": "Experimental Study on the Phase Deviation of 20-kW S-Band CW Phase-Locked Magnetrons",
+   "file": "papers/Experimental Study on the Phase Deviation of 20-kW  -S- -Band CW Phase-Locked Magnetrons.pdf",
+   "year": 2018,
+   "year_source": "publication"
+  },
+  {
+   "title": "FDTD analysis to simulate interaction between microwave and chemical reaction",
+   "file": "papers/FDTD analysis to simulate interaction between microwave and chemical reaction.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2018
+  },
+  {
+   "title": "High-Efficient Rectifier With Extended Input Power Range Based on Self-Tuning Impedance Matching",
+   "file": "papers/High-Efficient Rectifier With Extended Input Power Range Based on Self-Tuning Impedance Matching.pdf",
+   "year": 2018,
+   "year_source": "publication"
+  },
+  {
+   "title": "K-Band Frequency-Scanned Leaky-Wave Antenna Based on Composite Right-Left-Handed Transmission Lines",
+   "file": "papers/K-Band Frequency-Scanned Leaky-Wave Antenna Based on Composite Right-Left-Handed Transmission Lines.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2018
+  },
+  {
+   "title": "Ka-Band Dual-Frequency Single-Slot Antenna Based on Substrate Integrated Waveguide",
+   "file": "papers/Ka-Band Dual-Frequency Single-Slot Antenna Based on Substrate Integrated Waveguide.pdf",
+   "year": 2018,
+   "year_source": "publication"
+  },
+  {
+   "title": "Microwave power combining system based on two injection-locked 15 kW CW magnetrons",
+   "file": "papers/Microwave power combining system based on two injection-locked 15 kW CW magnetrons.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2018
+  },
+  {
+   "title": "One Octave Bandwidth Rectifier With a Frequency Selective Diode Array",
+   "file": "papers/One Octave Bandwidth Rectifier With a Frequency Selective Diode Array.pdf",
+   "year": 2018,
+   "year_source": "publication"
+  },
+  {
+   "title": "Phase-Shifterless Power Controlled Combining Based on 20-kW S-Band Magnetrons With an Asymmetric Injection",
+   "file": "papers/Phase-Shifterless Power Controlled Combining Based on 20-kW S-Band Magnetrons With an Asymmetric Injection.pdf",
+   "year": 2018,
+   "year_source": "publication"
+  },
+  {
+   "title": "Simulation and Experiments of an -S- -Band 20-kW Power-Adjustable Phase-Locked Magnetron",
+   "file": "papers/Simulation and Experiments of an -S- -Band 20-kW Power-Adjustable Phase-Locked Magnetron.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2018
+  },
+  {
+   "title": "Some Amendments to -Field-to-Wire Coupling in an Electrically Large Cavity A Semianalytic Solution-",
+   "file": "papers/Some Amendments to -Field-to-Wire Coupling in an Electrically Large Cavity A Semianalytic Solution-.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2018
+  },
+  {
+   "title": "Study of wireless power transfer link with metallic plates",
+   "file": "papers/Study of wireless power transfer link with metallic plates.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2018
+  },
+  {
+   "title": "Study on a Frequency-Stabilized Power-Adjustable Magnetron",
+   "file": "papers/Study on a Frequency-Stabilized Power-Adjustable Magnetron.pdf",
+   "year": 2018,
+   "year_source": "publication"
+  },
+  {
+   "title": "Transformation optical design for 2D Flattened Maxwell fish-eye lens",
+   "file": "papers/Transformation optical design for 2D Flattened Maxwell fish-eye lens.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2018
+  },
+  {
+   "title": "A Novel Single-Diode Microwave Rectifier With a Series Band-Stop Structure",
+   "file": "papers/A Novel Single-Diode Microwave Rectifier With a Series Band-Stop Structure.pdf",
+   "year": 2017,
+   "year_source": "publication"
+  },
+  {
+   "title": "Experimental studies on a low power injection-locked continuous wave magnetron",
+   "file": "papers/Experimental studies on a low power injection-locked continuous wave magnetron.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2017
+  },
+  {
+   "title": "A C-Band Microwave Rectenna Using Aperture-Coupled Antenna Array and Novel Class-F Rectifier with Cavity",
+   "file": "papers/2015-04 A C-band microwave rectenna using aperture-coupled antenna array and novel Class-F rectifier with cavity.pdf",
+   "year": 2015,
+   "year_source": "publication"
+  },
+  {
+   "title": "A 2.45 GHz rectifying circuit with enhanced range of input power and load",
+   "file": "papers/A 2.45 GHz rectifying circuit with enhanced range of input power and load.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2009
+  },
+  {
+   "title": "A Microstrip Resonator With Slotted Ground Plane for Complex Permittivity Measurements of Liquids",
+   "file": "papers/A Microstrip Resonator With Slotted Ground Plane for Complex Permittivity Measurements of Liquids.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2008
+  },
+  {
+   "title": "On the relation between a negative refractive index transmission line and chebyshev filters",
+   "file": "papers/On the relation between a negative refractive index transmission line and chebyshev filters.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2007
+  },
+  {
+   "title": "Biological effects and applications of transient electromagnetic fields",
+   "file": "papers/Biological effects and applications of transient electromagnetic fields.pdf",
+   "year": null,
+   "year_source": "unconfirmed",
+   "file_date": 2004
+  },
+  {
+   "title": "A hybrid numerical method to compute erythrocyte TMP in low-frequency electric fields",
+   "file": "papers/A hybrid numerical method to compute erythrocyte TMP in low-frequency electric fields.pdf",
+   "year": 2003,
+   "year_source": "filename"
+  },
+  {
+   "title": "Measurement-computation of effective permittivity of dilute solution in saponification reaction",
+   "file": "papers/Measurement-computation of effective permittivity of dilute solution in saponification reaction.pdf",
+   "year": 2003,
+   "year_source": "filename"
+  },
+  {
+   "title": "Of electromagnetic waves and the experimental study on bioeffects of transient electromagnetic fields on cells and its applications",
+   "file": "papers/Of electromagnetic waves and the experimental study on bioeffects of transient electromagnetic fields on cells and its applications.pdf",
+   "year": 2000,
+   "year_source": "filename"
+  }
+ ]
+}

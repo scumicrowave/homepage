@@ -5,3 +5,5 @@ Thumbs.db
 _matches.json
 *.zip
 deploy.log
+*.genie
+homepage_blob_cache.json

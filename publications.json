@@ -1450,5 +1450,100 @@
    "year": 2000,
    "year_source": "filename"
   }
- ]
+ ],
+ "profile_zh": {
+  "name": "刘长军",
+  "name_en": "Changjun Liu",
+  "title": "教授",
+  "affiliation": "四川大学电子信息学院",
+  "location": "中国·四川·成都 610065",
+  "extra_role": "教育部无线电能传输重点实验室常务副主任",
+  "bio": [
+   "刘长军博士 1994 年获河北大学应用物理专业学士学位，1997 年、2000 年先后在四川大学获无线电物理硕士与生物医学工程博士学位。2001—2002 年在韩国首尔大学从事博士后研究，2006—2007 年赴德国乌尔姆大学任访问学者。",
+   "自 1997 年起任教于四川大学，2000 年晋升副教授，2004 年晋升教授，2005 年遴选为博士生导师。现任教育部无线电能传输重点实验室常务副主任、无线电物理教研室主任。",
+   "已出版专著 2 部，发表论文 200 余篇，获授权专利 10 余项。课题组主要从事 S 波段至 X 波段的微波与毫米波无线电能传输研究，传输距离覆盖米级至公里级，包括封闭腔体内的无线电能传输以及宽动态功率范围下的高效率微波整流。"
+  ],
+  "interests": [
+   "微波与毫米波无线电能传输（MWPT）",
+   "高效率微波整流器与整流天线",
+   "射频／电磁能量收集",
+   "大功率磁控管源与相干功率合成",
+   "空间太阳能电站",
+   "微波加热及工业应用",
+   "天线、频率选择表面与微波电路"
+  ],
+  "service": [
+   "IEEE Microwave and Wireless Technology Letters 副主编",
+   "IEEE Journal of Microwaves 专题编辑",
+   "Microwave（MDPI）主编",
+   "IEEE MTT-S TC-25 无线电能传输与能量转换技术委员会委员",
+   "MTT-S 中国特别委员会（宣传与会员发展）副主席",
+   "IEEE 高级会员；中国电子学会高级会员",
+   "IEEE Transactions on Microwave Theory and Techniques 优秀审稿人（2006—2010）"
+  ],
+  "honors": [
+   "2023 — 四川省学术和技术带头人",
+   "2019 — 四川省技术发明奖一等奖",
+   "2018 — 四川省有突出贡献优秀专家",
+   "2017 — 四川大学优秀教学奖",
+   "2013 — 教育部新世纪优秀人才",
+   "2009 — 四川省优秀青年学术带头人"
+  ],
+  "books": [
+   "《微波无线能量传输原理与技术》",
+   "《射频通信电路设计》，科学出版社，2005；第 2 版"
+  ],
+  "stats": [
+   [
+    "200+",
+    "期刊与会议论文"
+   ],
+   [
+    "138",
+    "IEEE Xplore 收录论文"
+   ],
+   [
+    "2,043",
+    "IEEE Xplore 引用次数"
+   ],
+   [
+    "10+",
+    "授权专利"
+   ]
+  ],
+  "links": [
+   [
+    "Google 学术",
+    "https://scholar.google.com/citations?user=_6js4T4AAAAJ&hl=en"
+   ],
+   [
+    "IEEE Xplore",
+    "https://ieeexplore.ieee.org/author/37539150600"
+   ],
+   [
+    "ORCID",
+    "https://orcid.org/0000-0003-0079-6793"
+   ],
+   [
+    "ResearchGate",
+    "https://www.researchgate.net/profile/Changjun-Liu"
+   ],
+   [
+    "IEEE MTT-S 个人主页",
+    "https://mtt.org/profile/changjun-liu/"
+   ],
+   [
+    "MWPT 课题组",
+    "https://www.mwpt.tech/"
+   ],
+   [
+    "原个人主页",
+    "https://sites.google.com/view/changjunliu/home"
+   ],
+   [
+    "四川大学电子信息学院",
+    "https://eie.scu.edu.cn/"
+   ]
+  ]
+ }
 }

@@ -4,6 +4,8 @@ Static, dependency-free English academic homepage for **GitHub Pages**. Publicat
 
 > **Current status — deployed.** Live at https://scumicrowave.github.io/homepage/ (2026-11-13). Published through the GitHub Git Data API: 127 files / 211.6 MB in a single commit, with all 116 PDFs under `papers/`. Remote-only files were preserved (75 old files kept), so nothing was deleted.
 
+> **Chinese edition — deployed on Tencent's free web hosting (WorkBuddy App Publishing).** Live at https://wbapp-8qepa8vil4cd5d2qpy9kii.apps.workbuddy.host/?sharecode=2RJXT4VKJN (2026-11-13). Built with `python build.py --lang zh` into `zh/`; it shares the same `publications.json` data, uses `profile_zh` for Chinese UI text, and links PDF downloads to the already-published English GitHub Pages site instead of duplicating the 211 MB of PDFs.
+
 ## What is on the page
 
 - **71 publications**, 2015–2025, grouped by year (newest first), with type badges, DOI / Scholar / Mirror links and a searchable toolbar with year and type filters.
@@ -16,9 +18,10 @@ Static, dependency-free English academic homepage for **GitHub Pages**. Publicat
 
 | Path | Purpose |
 |---|---|
-| `index.html` | Generated site. Do not edit by hand. |
-| `publications.json` | **Single source of truth** — profile, publications and the PDF library. Edit this. |
-| `build.py` | Regenerates `index.html` from `publications.json` (Python standard library only). |
+| `index.html` | Generated English site. Do not edit by hand. |
+| `zh/index.html` | Generated Chinese site (deployed to Tencent free hosting). Do not edit by hand. |
+| `publications.json` | **Single source of truth** — `profile` (English), `profile_zh` (Chinese), publications and the PDF library. Edit this. |
+| `build.py` | Regenerates `index.html` (`python build.py`) or `zh/index.html` (`python build.py --lang zh`) from `publications.json` (Python standard library only). |
 | `assets/style.css` | Styles. |
 | `assets/app.js` | Search / filters for publications and the PDF repository (progressive enhancement). |
 | `assets/photo.jpg` | Optional portrait. If absent, a monogram is shown. |
@@ -34,8 +37,13 @@ Static, dependency-free English academic homepage for **GitHub Pages**. Publicat
    ```
    - `type`: `journal` \| `conference` \| `magazine` \| `patent` \| `editorial` \| `book`
    - `doi` / `pdf` / `local` / `selected` are optional.
-2. Regenerate: `python build.py`
-3. Commit and push.
+2. Regenerate both editions:
+   ```bash
+   python build.py            # English -> index.html
+   python build.py --lang zh  # Chinese  -> zh/index.html (copies assets into zh/assets)
+   ```
+   Publication titles/authors/venues stay in English on both sites so they remain searchable and DOI-matchable; only the surrounding UI text and the profile are translated. The Chinese site keeps PDF links pointed at the published English site (`PDF_BASE` in `build.py`), so no PDF copies are needed in `zh/`.
+3. Commit and push to GitHub for the English site; re-publish the `zh/` directory through the Tencent/WorkBuddy App Publishing tool for the Chinese site.
 
 ## Self-host a PDF
 
@@ -100,7 +108,46 @@ Authenticate with a GitHub personal access token (repo scope) when prompted, or 
 
 If you create a fresh `<USERNAME>.github.io` repo instead, the site appears at `https://<USERNAME>.github.io/`; otherwise use `https://<USERNAME>.github.io/<REPO>/`. On GitHub: **Settings → Pages → Deploy from a branch → `main` / `root` → Save**. Update `profile.site_url` afterwards.
 
-Custom domain: add a `CNAME` file containing the domain (one line), set the DNS record, then update `profile.site_url`.
+## Bind a custom domain
+
+> **Not supported on the free Tencent/WorkBuddy hosting.** The Chinese edition currently lives at
+> `https://wbapp-8qepa8vil4cd5d2qpy9kii.apps.workbuddy.host/?sharecode=2RJXT4VKJN`, a
+> platform-assigned subdomain. That free one-click host (CloudStudio sandbox) has **no
+> custom-domain option**; `domainPrefix` only requests a friendlier first segment when an app
+> is first created, and re-publishing keeps the same link. Tencent **EdgeOne Pages** does support
+> custom domains, but requires a Tencent Cloud account and an **ICP-filed (备案) domain**.
+
+The cheapest permanent route is the GitHub Pages repo you already have
+(`scumicrowave/homepage`): custom domains are free, stable and need no ICP filing. Bind one
+domain and both language editions get friendly URLs:
+
+| Site | URL after binding |
+|---|---|
+| English | `https://<domain>/` |
+| Chinese | `https://<domain>/zh/` |
+| PDF files | `https://<domain>/papers/...` (or keep the `github.io` absolute links) |
+
+Steps:
+
+1. Own a domain. Possible candidate from the profile: `mwpt.tech` (MWPT group) — confirm you
+   control its DNS; a subdomain such as `cn.mwpt.tech` is fine. It did not resolve from this
+   machine, so verify before use.
+2. Add DNS records at your registrar (exact GitHub Pages values):
+   - apex `@` → `A` `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+   - apex `@` → `AAAA` `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`
+   - `www` → `CNAME` `scumicrowave.github.io` — **never** include `/homepage` or the repo name
+   - DNS may take up to 24 h; remove any default/wildcard records first.
+3. In the repo, add a one-line `CNAME` file containing the chosen domain at the **root**, or let
+   GitHub create it when you enter the domain under **Settings → Pages → Custom domain → Save**.
+   Then enable **Enforce HTTPS**.
+4. Keep the generated `zh/` directory in the repo so the Chinese site is served at `/zh/`.
+   Update `profile.site_url`, optionally point `PDF_BASE` in `build.py` at the new domain, and
+   rebuild both editions (`python build.py` and `python build.py --lang zh`).
+5. Push with `GITHUB_TOKEN=ghp_xxx python deploy_api.py` (the GitHub connector is read-only).
+
+**Pending before this can be finished:** the domain name, whether it is ICP-filed (decides
+GitHub Pages vs EdgeOne Pages), and GitHub write authorization. DNS records must be added by
+the domain owner at their registrar — that step cannot be done from here.
 
 ## Content sources
 

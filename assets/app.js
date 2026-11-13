@@ -4,6 +4,13 @@
 (function () {
   'use strict';
 
+  /* One script serves both language editions; the <html lang> decides wording. */
+  var zh = (document.documentElement.lang || '').toLowerCase().indexOf('zh') === 0;
+  var TYPE_LABELS = {
+    journal: '期刊', conference: '会议', magazine: '杂志',
+    patent: '专利', editorial: '社论', book: '专著'
+  };
+
   /* ---------- publications ---------- */
   var q = document.getElementById('q');
   var yearChips = document.getElementById('year-chips');
@@ -33,10 +40,12 @@
 
       var parts = [];
       if (state.year !== 'all') parts.push(state.year);
-      if (state.type !== 'all') parts.push(state.type);
+      if (state.type !== 'all') parts.push(zh ? (TYPE_LABELS[state.type] || state.type) : state.type);
       if (state.text) parts.push('"' + state.text + '"');
-      countEl.textContent = 'Showing ' + shown + ' of ' + papers.length + ' publications' +
-        (parts.length ? ' · ' + parts.join(' · ') : '') + '.';
+      var tail = parts.length ? ' · ' + parts.join(' · ') : '';
+      countEl.textContent = zh
+        ? '显示 ' + shown + ' / ' + papers.length + ' 条论文' + tail + '。'
+        : 'Showing ' + shown + ' of ' + papers.length + ' publications' + tail + '.';
       emptyEl.hidden = shown !== 0;
     }
 
@@ -89,8 +98,10 @@
         h.classList.toggle('is-hidden', !ul || ul.classList.contains('is-hidden'));
       });
       if (libCount) {
-        libCount.textContent = 'Showing ' + shown + ' of ' + items.length + ' PDFs' +
-          (text ? ' matching "' + text + '"' : '') + '.';
+        libCount.textContent = zh
+          ? '显示 ' + shown + ' / ' + items.length + ' 篇 PDF' + (text ? '，匹配「' + text + '」' : '') + '。'
+          : 'Showing ' + shown + ' of ' + items.length + ' PDFs' +
+            (text ? ' matching "' + text + '"' : '') + '.';
       }
       if (libEmpty) libEmpty.hidden = shown !== 0;
     }

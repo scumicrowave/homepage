@@ -5,12 +5,17 @@ Fallback for when `git fetch/push` stalls behind a proxy on large binary files.
 All files go into ONE commit; remote-only files are preserved via `base_tree`,
 so the push replaces the homepage without deleting anything.
 
-Usage:  GITHUB_TOKEN=ghp_xxx python deploy_api.py
+Usage:  python deploy_api.py
+        GITHUB_TOKEN=ghp_xxx python deploy_api.py
+
+The token is looked up in this order: GITHUB_TOKEN env var, first CLI argument,
+then Git Credential Manager (`git credential fill`). Nothing is written to disk.
 """
 import base64
 import hashlib
 import json
 import os
+import subprocess
 import sys
 import tempfile
 import time
@@ -20,16 +25,34 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-TOKEN = os.environ.get("GITHUB_TOKEN") or (sys.argv[1] if len(sys.argv) > 1 else "")
+
+
+def stored_token():
+    """Reuse the github.com credential already saved by Git Credential Manager."""
+    try:
+        out = subprocess.run(
+            ["git", "credential", "fill"],
+            input="protocol=https\nhost=github.com\n\n",
+            capture_output=True, text=True, timeout=20, cwd=ROOT,
+        ).stdout
+        return dict(line.split("=", 1) for line in out.strip().splitlines()
+                    if "=" in line).get("password", "")
+    except Exception:
+        return ""
+
+
+TOKEN = (os.environ.get("GITHUB_TOKEN")
+         or (sys.argv[1] if len(sys.argv) > 1 else "")
+         or stored_token())
 if not TOKEN:
     sys.exit("Usage: GITHUB_TOKEN=<PAT> python deploy_api.py")
 
 OWNER, REPO, BRANCH = "scumicrowave", "homepage", "main"
 API = "https://api.github.com/repos/%s/%s" % (OWNER, REPO)
 CACHE = Path(tempfile.gettempdir()) / "homepage_blob_cache.json"
-SKIP = {".git", "_matches.json", "_blob_cache.json", "deploy.log",
+SKIP = {".git", ".workbuddy", "_matches.json", "_blob_cache.json", "deploy.log",
         ".DS_Store", "Thumbs.db"}
-MESSAGE = "Rebuild academic homepage: 71 publications, 116 self-hosted PDFs"
+MESSAGE = "Add Chinese edition, sitemap/robots and hreflang SEO metadata"
 
 
 def api(method, path, payload=None, timeout=180):
@@ -72,7 +95,7 @@ def collect():
         rel = p.relative_to(ROOT)
         if any(part in SKIP or part == ".git" for part in rel.parts):
             continue
-        if p.suffix == ".zip" or p.name.endswith(".pyc"):
+        if p.suffix in {".zip", ".pyc", ".genie"} or p.name.endswith(".pyc"):
             continue
         out.append((rel.as_posix(), p))
     return out

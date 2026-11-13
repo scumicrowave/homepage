@@ -2,7 +2,7 @@
 
 Static, dependency-free English academic homepage for **GitHub Pages**. Publications are grouped by year in reverse chronological order, each with a PDF download button, and the full-text PDFs are hosted on the site itself.
 
-> **Current status — BOTH language editions are served by GitHub Pages** (commit `568238c0`, 2026-11-13).
+> **Current status — BOTH language editions are served by GitHub Pages** (deployed 2026-11-13).
 >
 > | Edition | URL |
 > |---|---|

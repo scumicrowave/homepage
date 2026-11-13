@@ -2,7 +2,7 @@
 
 Static, dependency-free English academic homepage for **GitHub Pages**. Publications are grouped by year in reverse chronological order, each with a PDF download button, and the full-text PDFs are hosted on the site itself.
 
-> **Current status.** The site is complete locally (`index.html` + `papers/` + `assets/`) and ready to publish. It has **not** been pushed to GitHub yet: the GitHub connector is read-only (`403 Resource not accessible by integration`), there is no local git credential or personal access token, and the connector's file API only accepts text — it cannot upload the 116 binary PDFs. Granting the GitHub App `Contents: read + write` lets the page files be pushed, but the PDF library still needs one `git push` with a token (see `deploy.sh`). See [Publish to GitHub](#publish-to-github).
+> **Current status — deployed.** Live at https://scumicrowave.github.io/homepage/ (2026-11-13). Published through the GitHub Git Data API: 127 files / 211.6 MB in a single commit, with all 116 PDFs under `papers/`. Remote-only files were preserved (75 old files kept), so nothing was deleted.
 
 ## What is on the page
 
@@ -62,16 +62,23 @@ Open `http://localhost:8000`. No network or build tools required.
 
 Target: the existing GitHub Pages repo **`scumicrowave/homepage`**, currently live at `https://scumicrowave.github.io/homepage/`. It already contains an older `index.html` and some PDFs. Replacing the homepage is approved; the script still keeps the remote-only files rather than deleting them.
 
-### One-shot script (recommended)
+### Recommended: REST API (`deploy_api.py`)
 
-`deploy.sh` does the whole push, including the 116 binary PDFs, in one command:
+`git fetch/push` can stall behind proxies when uploading large binary files. The API deployer uploads blobs directly and creates one commit — 127 files / 211.6 MB in about two minutes:
 
 ```bash
-GITHUB_TOKEN=ghp_xxx ./deploy.sh
-# or: ./deploy.sh ghp_xxx
+GITHUB_TOKEN=ghp_xxx python deploy_api.py
 ```
 
-It initialises git, stages the site, replays everything as a single commit on top of the existing remote history (no force-push, no unrelated-history errors), pushes, then strips the token from the stored remote URL. Files that exist only on the remote (old `index.files/`, `publications/*.pdf`, etc.) are kept, so the push replaces the homepage without deleting anything. Use a repo-scoped PAT or a fine-grained token with **Contents: read + write** on `scumicrowave/homepage`.
+It uses `base_tree` so remote-only files are preserved, and caches uploaded blob SHAs so an interrupted run can be resumed. Needs a repo-scoped PAT or a fine-grained token with **Contents: read + write** on `scumicrowave/homepage`.
+
+### Alternative: git push (`deploy.sh`)
+
+```bash
+GITHUB_TOKEN=ghp_xxx bash deploy.sh
+```
+
+Initialises git, stages the site, replays everything as one commit on top of the existing remote history (no force-push, no unrelated-history errors), pushes, then strips the token from the stored remote URL. Remote-only files are kept. Use this when git-over-HTTPS is reliable.
 
 ### Manual equivalent
 
@@ -106,4 +113,4 @@ Profile and publication list compiled from the existing Google Sites homepage, I
 - The publication list covers 2015–2025 (no 2016 entries on the source page); IEEE Xplore shows work up to 2026 — add newer papers.
 - The PDF library contains 116 files (~211 MB); every file is under 18 MB, within GitHub's 100 MB per-file limit and 1 GB soft repo limit.
 - **Verify every hosted PDF is legally shareable** (publisher copyright / open-access / accepted-manuscript status) before making the repository public.
-- GitHub write access is still pending — see the status note at the top.
+- Deployed 2026-11-13 with a one-off PAT. **Revoke that token** after use; future updates can use either deployer.

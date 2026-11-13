@@ -26,6 +26,15 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 
+# Google Search Console re-checks its HTML verification file periodically.
+# Search Console: "To stay verified, don't remove the file, even after verification succeeds."
+# Detect every google*.html at the repo root and make sure it ships on EVERY deploy.
+VERIFICATION_GLOB = "google*.html"
+
+
+def verification_files():
+    return sorted(ROOT.glob(VERIFICATION_GLOB))
+
 
 def stored_token():
     """Reuse the github.com credential already saved by Git Credential Manager."""
@@ -116,6 +125,25 @@ def upload_blob(item, cached):
 
 def main():
     files = collect()
+    names = {rel for rel, _ in files}
+
+    # Never let a deploy silently drop a Search Console verification file.
+    vfiles = verification_files()
+    for vf in vfiles:
+        rel = vf.name
+        if rel not in names:
+            sys.exit("Refusing to deploy: %s exists in the repo but would not be "
+                     "uploaded. Search Console requires it to stay published." % rel)
+        body = vf.read_text(encoding="utf-8", errors="replace").strip()
+        if not body.startswith("google-site-verification:"):
+            sys.exit("Refusing to deploy: %s does not look like a Google "
+                     "verification file." % rel)
+    if vfiles:
+        print("Verification files protected (%d): %s" %
+              (len(vfiles), ", ".join(v.name for v in vfiles)), flush=True)
+    else:
+        print("Note: no google*.html verification file in the repo root.", flush=True)
+
     print("Uploading %d files (%.1f MB)..." % (
         len(files), sum(p.stat().st_size for _, p in files) / 1e6), flush=True)
 

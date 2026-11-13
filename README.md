@@ -40,6 +40,7 @@ Static, dependency-free English academic homepage for **GitHub Pages**. Publicat
 | `assets/photo.jpg` | Optional portrait. If absent, a monogram is shown. |
 | `papers/` | 116 self-hosted PDFs (~211 MB). See `papers/README.md`. |
 | `.nojekyll` | Tells GitHub Pages not to run Jekyll. |
+| `google89b0777337e2a7d8.html` | **Google Search Console ownership verification file. Never delete** — see below. |
 | `_matches.json` | Intermediate title→PDF matching result used while building the library. |
 
 ## Add or fix a paper
@@ -205,28 +206,46 @@ is unaffected. Submitting the sitemap directly in Search Console is the reliable
 a custom domain is bound, `robots.txt` sits at the real root and the `Sitemap:` directive is
 picked up automatically.
 
-**The one step that needs your Google account** (cannot be automated from here):
+### Ownership verification — DONE ✅
 
-1. Open https://search.google.com/search-console and add a **URL-prefix property**:
-   `https://scumicrowave.github.io/homepage/`.
-2. Verify ownership. **Use the HTML tag method** — it is the only one that works for a project
-   site. Copy the `content` value from
-   `<meta name="google-site-verification" content="...">`, add it to `publications.json` as
-   `"google_site_verification": "..."` — `build.py` already reads that key and injects the tag
-   into **both** pages. Then rebuild and deploy:
-   ```bash
-   python build.py && python build.py --lang zh && python deploy_api.py
-   ```
-   The **HTML file** method does NOT work here: Google looks for
-   `https://scumicrowave.github.io/googleXXXX.html` (the host root), which belongs to a
-   possible `<username>.github.io` account repo, not `scumicrowave/homepage`. The **DNS TXT**
-   method needs a Domain property with an apex domain you control — `mwpt.tech` is expired, so
-   it is not available today. It becomes an option after `bind_domain.py --apply`.
-3. **Sitemaps → Add** `https://scumicrowave.github.io/homepage/sitemap.xml` → Submit.
-4. Optionally use **URL Inspection → Request Indexing** for the two homepage URLs
-   (quota is limited; the sitemap handles the remaining 116 PDF URLs).
-5. Verify the Chinese page with URL Inspection on `/homepage/zh/` and confirm the hreflang
-   cluster is recognised under **International Targeting**.
+Search Console asked for the HTML verification file to be uploaded to
+`https://scumicrowave.github.io/homepage/`. It is committed at the repo root and live:
+
+| | |
+|---|---|
+| File | `google89b0777337e2a7d8.html` |
+| Live URL | `https://scumicrowave.github.io/homepage/google89b0777337e2a7d8.html` |
+| Content | `google-site-verification: google89b0777337e2a7d8.html` |
+| Checked | HTTP 200, `text/html`, 53 bytes, exact match |
+
+> **Keep this file permanently.** Search Console says: *"To stay verified, don't remove the
+> file, even after verification succeeds."* Google re-checks it periodically. `deploy_api.py`
+> therefore treats `google*.html` as protected — it auto-detects missing verification files
+> from the repo, refuses to deploy without them, and re-uploads them on every run. Do not
+> delete or rename it, and do not add it to `.gitignore`.
+
+A URL-prefix property (`https://scumicrowave.github.io/homepage/`) expects the file at the
+**root of that prefix**, not at the host root — so this works on a project page. (The host root
+`https://scumicrowave.github.io/googleXXXX.html` would belong to a separate
+`<username>.github.io` account repo, which does not exist here.) The DNS TXT method would need
+a Domain property with an apex domain you control; `mwpt.tech` is expired, so it only becomes
+an option after `bind_domain.py --apply`. As a belt-and-braces fallback, `build.py` also
+supports the HTML-tag method: put `"google_site_verification": "<content>"` in
+`publications.json`, rebuild, and the meta tag is injected into both pages.
+
+### Remaining steps — need your Google account
+
+These are the only steps that cannot be done from this workspace (they require being logged in
+to your Google account):
+
+1. In https://search.google.com/search-console, open the **URL-prefix property**
+   `https://scumicrowave.github.io/homepage/` and click **Verify** on the HTML-file method.
+   The file is already live, so verification should succeed immediately.
+2. **Sitemaps → Add** `https://scumicrowave.github.io/homepage/sitemap.xml` → **Submit**.
+3. Optionally **URL Inspection → Request Indexing** for the two homepage URLs
+   (quota is limited; the sitemap covers the other 116 PDF URLs).
+4. Inspect `/homepage/zh/` too, and confirm the hreflang cluster is recognised under
+   **International Targeting**.
 
 Google's sitemap "ping" endpoint has been retired and the Indexing API only accepts
 `JobPosting` / `BroadcastEvent` types, so Search Console is the only supported submission route.

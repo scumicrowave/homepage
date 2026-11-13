@@ -7,3 +7,7 @@ _matches.json
 deploy.log
 *.genie
 homepage_blob_cache.json
+
+# Google Search Console verification files must stay in the repo (never ignored).
+# Explicitly un-ignore so a future broad rule cannot hide them:
+!google*.html

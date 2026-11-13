@@ -693,8 +693,8 @@
     },
     {
       "year": null,
-      "type": "journal",
-      "authors": "C. Liu et al.",
+      "type": "conference",
+      "authors": "Changjun Liu",
       "title": "A PDF Approximation Formula for Amplitude of Rectangular Components of E-Field in a Probabilistic Statistical Model of Reverberation Chamber",
       "venue": "",
       "local": "papers/A PDF Approximation Formula for Amplitude of Rectangular Components of E-Field in a Probabilistic Statistical Model of Reverberation Chamber.pdf"
@@ -704,13 +704,13 @@
       "type": "journal",
       "authors": "C. Liu et al.",
       "title": "An Analytical Model for Reverberation Time Prediction of Indoor Scenarios",
-      "venue": "",
+      "venue": "IEEE Antennas Wireless Propag. Lett., vol. 23, no. 9",
       "local": "papers/An Analytical Model for Reverberation Time Prediction of Indoor Scenarios.pdf"
     },
     {
       "year": null,
-      "type": "journal",
-      "authors": "C. Liu et al.",
+      "type": "conference",
+      "authors": "Junzhuo Ai, Feng Shi, Liping Yan, Xiang Zhao, Changjun Liu",
       "title": "Angularly Stable Ultrawide Band Single-Layer Frequency Selective Absorber",
       "venue": "",
       "local": "papers/Angularly Stable Ultrawide Band Single-Layer Frequency Selective Absorber.pdf"
@@ -718,7 +718,7 @@
     {
       "year": 2024,
       "type": "journal",
-      "authors": "C. Liu et al.",
+      "authors": "Xiang Zhao, Changjun Liu",
       "title": "Micro   Optical Tech Letters - 2024 - Tang - Optically transparent and angularly stable broad‐stopband frequency selective",
       "venue": "",
       "local": "papers/2024/Micro   Optical Tech Letters - 2024 - Tang - Optically transparent and angularly stable broad‐stopband frequency selective.pdf"
@@ -728,13 +728,13 @@
       "type": "journal",
       "authors": "C. Liu et al.",
       "title": "Modular Multi-Rotary Joints SPS Concept -Challenges and Design Considerations",
-      "venue": "",
+      "venue": "IEEE Trans. Aerosp. Electron. Syst., vol. 00",
       "local": "papers/Modular Multi-Rotary Joints SPS Concept -Challenges and Design Considerations.pdf"
     },
     {
       "year": 2024,
       "type": "journal",
-      "authors": "C. Liu et al.",
+      "authors": "TANG Rong, LIU Changjun, LIAO Chongwei, WEN Haoyu, WU Bo, WANG Chuanlong",
       "title": "S 波段变频微波方腔干燥PET 切片的研究",
       "venue": "",
       "local": "papers/2024/S 波段变频微波方腔干燥PET 切片的研究.pdf"
@@ -742,63 +742,63 @@
     {
       "year": 2024,
       "type": "journal",
-      "authors": "C. Liu et al.",
+      "authors": "JING Xiaowei, JING Jianwei, YAN Liping, LIU Changjun",
       "title": "基于频率控制的封闭腔体微波无线输能技术",
       "venue": "",
       "local": "papers/2024/基于频率控制的封闭腔体微波无线输能技术.pdf"
     },
     {
       "year": null,
-      "type": "journal",
-      "authors": "C. Liu et al.",
+      "type": "conference",
+      "authors": "Mingyi Gou, Kama Huang, Yi He, Changjun Liu, and Qian Chen",
       "title": "A Permittivity Measurement Equipment Based on Oblique Aperture Ridge Waveguide",
       "venue": "",
       "local": "papers/A Permittivity Measurement Equipment Based on Oblique Aperture Ridge Waveguide.pdf"
     },
     {
       "year": null,
-      "type": "journal",
-      "authors": "C. Liu et al.",
+      "type": "conference",
+      "authors": "Shaoyue Wang, Yan Zhao, Chongwei Liao, and Changjun Liu",
       "title": "Progress of Microwave Power Combining Based on S-band Injection Locked CW Magnetrons",
-      "venue": "",
+      "venue": "vol. 101, no. 6, pp. 1438–1447",
       "local": "papers/Progress of Microwave Power Combining Based on S-band Injection Locked CW Magnetrons.pdf"
     },
     {
       "year": null,
-      "type": "journal",
-      "authors": "C. Liu et al.",
+      "type": "conference",
+      "authors": "Chongwei Liao, Yi He, Qian Chen, and Changjun Liu",
       "title": "Study on Microwave Drying Characteristic for PET Materials",
       "venue": "",
       "local": "papers/Study on Microwave Drying Characteristic for PET Materials.pdf"
     },
     {
       "year": null,
-      "type": "journal",
-      "authors": "C. Liu et al.",
+      "type": "conference",
+      "authors": "Changjun Liu",
       "title": "A High Conversion Efficiency Millimeter-Wave Rectifier Based on Modified Equivalent Model",
       "venue": "",
       "local": "papers/A High Conversion Efficiency Millimeter-Wave Rectifier Based on Modified Equivalent Model.pdf"
     },
     {
       "year": null,
-      "type": "journal",
-      "authors": "C. Liu et al.",
+      "type": "conference",
+      "authors": "Ruinan Fan, Yuhang Ji and Changjun Liu",
       "title": "A High-efficiency Circular Polarized Membrane Rectenna for Wireless Power Transfer",
       "venue": "",
       "local": "papers/A High-efficiency Circular Polarized Membrane Rectenna for Wireless Power Transfer.pdf"
     },
     {
       "year": null,
-      "type": "journal",
-      "authors": "C. Liu et al.",
+      "type": "conference",
+      "authors": "Changjun Liu",
       "title": "Analysis of Rectifiers Under Various Multitone Excitations and Using Different Diodes in Low-Power Conditions",
       "venue": "",
       "local": "papers/Analysis of Rectifiers Under Various Multitone Excitations and Using Different Diodes in Low-Power Conditions.pdf"
     },
     {
       "year": null,
-      "type": "journal",
-      "authors": "C. Liu et al.",
+      "type": "conference",
+      "authors": "Zhenlong Liu, Ze Cai, Naichang Pei, Zhengming Tan, Changjun Liu",
       "title": "Performance Evaluation of a 20-kW Injection-locked Magnetron with Load-Pull Characterization",
       "venue": "",
       "local": "papers/Performance Evaluation of a 20-kW Injection-locked Magnetron with Load-Pull Characterization.pdf"
@@ -808,7 +808,7 @@
       "type": "journal",
       "authors": "C. Liu et al.",
       "title": "Design of Microwave Directional Heating System Based on Phased-Array Antenna",
-      "venue": "",
+      "venue": "IEEE Trans. Microwave Theory Techn., vol. 68, no. 11",
       "local": "papers/Design of Microwave Directional Heating System Based on Phased-Array Antenna.pdf"
     },
     {
@@ -816,7 +816,7 @@
       "type": "journal",
       "authors": "C. Liu et al.",
       "title": "Measurement of Near-Field Electromagnetic Emissions and Characterization Based on Equivalent Dipole Model in Time-Domain",
-      "venue": "",
+      "venue": "IEEE Trans. Electromagn. Compat., vol. 62, no. 4",
       "local": "papers/Measurement of Near-Field Electromagnetic Emissions and Characterization Based on Equivalent Dipole Model in Time-Domain.pdf"
     },
     {
@@ -824,7 +824,7 @@
       "type": "journal",
       "authors": "C. Liu et al.",
       "title": "Reconstruction of the Statistical Characteristics of Electric Fields in Enclosures With an Aperture Based on Random Forest Regression",
-      "venue": "",
+      "venue": "IEEE Trans. Electromagn. Compat., vol. 62, no. 4",
       "local": "papers/Reconstruction of the Statistical Characteristics of Electric Fields in Enclosures With an Aperture Based on Random Forest Regression.pdf"
     },
     {
@@ -832,13 +832,13 @@
       "type": "journal",
       "authors": "C. Liu et al.",
       "title": "3-D Printing Implementation of an X-band Eaton Lens for Beam Deflection",
-      "venue": "",
+      "venue": "IEEE Antennas Wireless Propag. Lett., vol. 15",
       "local": "papers/3-D Printing Implementation of an X-band Eaton Lens for Beam Deflection.pdf"
     },
     {
       "year": null,
       "type": "journal",
-      "authors": "C. Liu et al.",
+      "authors": "Wan Jiang, Biao Zhang, Liping Van, Changjun Liu",
       "title": "A 2.45 GHz rectenna in a near-field wireless power transmission system on hundred-watt level",
       "venue": "",
       "local": "papers/A 2.45 GHz rectenna in a near-field wireless power transmission system on hundred-watt level.pdf"
@@ -846,7 +846,7 @@
     {
       "year": null,
       "type": "journal",
-      "authors": "C. Liu et al.",
+      "authors": "Pengde Wu, Lei Zhang, Changjun Liu, and Yingsheng Zhao",
       "title": "A C-band microwave rectifier based on harmonic termination and with input filter removed",
       "venue": "",
       "local": "papers/A C-band microwave rectifier based on harmonic termination and with input filter removed.pdf"
@@ -854,7 +854,7 @@
     {
       "year": null,
       "type": "journal",
-      "authors": "C. Liu et al.",
+      "authors": "Liping Yan, Xiang Zhao, Yong Kan, Changjun Liu, Kama",
       "title": "A fast prediction for shielding effectiveness of double enclosures",
       "venue": "",
       "local": "papers/A fast prediction for shielding effectiveness of double enclosures.pdf"
@@ -862,7 +862,7 @@
     {
       "year": null,
       "type": "journal",
-      "authors": "C. Liu et al.",
+      "authors": "Chengyang Yu, Biao Zhang, Sheng Sun and Changjun Liu",
       "title": "A hybrid method on the design of C band microwave rectifiers",
       "venue": "",
       "local": "papers/A hybrid method on the design of C band microwave rectifiers.pdf"
@@ -870,7 +870,7 @@
     {
       "year": null,
       "type": "journal",
-      "authors": "C. Liu et al.",
+      "authors": "Changjun Liu",
       "title": "A microstrip diplexer from metamaterial transmission lines",
       "venue": "",
       "local": "papers/A microstrip diplexer from metamaterial transmission lines.pdf"
@@ -888,15 +888,15 @@
       "type": "journal",
       "authors": "C. Liu et al.",
       "title": "A Novel Low-Pass Filter With an Embedded Band-Stop Structure for Improved Stop-Band Characteristics",
-      "venue": "",
+      "venue": "IEEE Microw. Wireless Compon. Lett., vol. 19, no. 10",
       "local": "papers/A Novel Low-Pass Filter With an Embedded Band-Stop Structure for Improved Stop-Band Characteristics.pdf"
     },
     {
       "year": null,
       "type": "journal",
-      "authors": "C. Liu et al.",
+      "authors": "Zhenlong Liu, Changjun Liu",
       "title": "A simple tunable monopole antenna with sharp controlled notched bands",
-      "venue": "",
+      "venue": "vol. 48, no. 20, pp. 1250",
       "local": "papers/A simple tunable monopole antenna with sharp controlled notched bands.pdf"
     },
     {
@@ -904,7 +904,7 @@
       "type": "journal",
       "authors": "C. Liu et al.",
       "title": "An Alternative Semianalytical-Analytical Solution to Field-to-Wire Coupling in an Electrically Large Cavity",
-      "venue": "",
+      "venue": "IEEE Trans. Electromagn. Compat., vol. 54, no. 5",
       "local": "papers/An Alternative Semianalytical-Analytical Solution to Field-to-Wire Coupling in an Electrically Large Cavity.pdf"
     },
     {
@@ -912,13 +912,13 @@
       "type": "journal",
       "authors": "C. Liu et al.",
       "title": "An SIW Resonator Sensor for Liquid Permittivity Measurements at C Band",
-      "venue": "",
+      "venue": "IEEE Microw. Wireless Compon. Lett., vol. 25, no. 11",
       "local": "papers/An SIW Resonator Sensor for Liquid Permittivity Measurements at C Band.pdf"
     },
     {
       "year": null,
       "type": "journal",
-      "authors": "C. Liu et al.",
+      "authors": "Chang-Jun Liu, Ka-Ma Huang, and Wolfgang Menzel",
       "title": "An Unequal Power Divider Using Composite Right-Left-Handed Transmission Line Couplers",
       "venue": "",
       "local": "papers/An Unequal Power Divider Using Composite Right-Left-Handed Transmission Line Couplers.pdf"
@@ -928,13 +928,13 @@
       "type": "journal",
       "authors": "C. Liu et al.",
       "title": "Analysis of Temperature Effect on p-i-n Diode Circuits by a Multiphysics and Circuit Cosimulation Algorithm",
-      "venue": "",
+      "venue": "IEEE Trans. Electron Devices, vol. 59, no. 11",
       "local": "papers/Analysis of Temperature Effect on p-i-n Diode Circuits by a Multiphysics and Circuit Cosimulation Algorithm.pdf"
     },
     {
       "year": null,
       "type": "journal",
-      "authors": "C. Liu et al.",
+      "authors": "Yu He, Feifei Tan, and Changjun Liu",
       "title": "Asymmetrical coplanar waveguide zeroth-order resonant antenna with extended bandwidth",
       "venue": "",
       "local": "papers/Asymmetrical coplanar waveguide zeroth-order resonant antenna with extended bandwidth.pdf"
@@ -944,15 +944,15 @@
       "type": "journal",
       "authors": "C. Liu et al.",
       "title": "Broadband Via-Free Microstrip Balun Using Metamaterial Transmission Lines",
-      "venue": "",
+      "venue": "IEEE Microw. Wireless Compon. Lett., vol. 18, no. 7",
       "local": "papers/Broadband Via-Free Microstrip Balun Using Metamaterial Transmission Lines.pdf"
     },
     {
       "year": null,
       "type": "journal",
-      "authors": "C. Liu et al.",
+      "authors": "Changjun Liu, Baoyi Wang, Zishu Wang, and Hong Zhang",
       "title": "Cell deformation and increase of cytotoxicity of anticancer drugs due to low-intensity transient electromagnetic pulses",
-      "venue": "",
+      "venue": "vol. 28, no. 1",
       "local": "papers/Cell deformation and increase of cytotoxicity of anticancer drugs due to low-intensity transient electromagnetic pulses.pdf"
     },
     {
@@ -960,13 +960,13 @@
       "type": "journal",
       "authors": "C. Liu et al.",
       "title": "Comments on -Planar Artificial Transmission Lines Loading for Miniturization of RFID Printed Quasi-Yagi Antenna-",
-      "venue": "",
+      "venue": "IEEE Antennas Wireless Propag. Lett., vol. 13",
       "local": "papers/Comments on -Planar Artificial Transmission Lines Loading for Miniturization of RFID Printed Quasi-Yagi Antenna-.pdf"
     },
     {
       "year": null,
       "type": "journal",
-      "authors": "C. Liu et al.",
+      "authors": "Wen Huang, Changjun Liu",
       "title": "Compact half-wave balun using microstrip and lumped-element artificial transmission lines",
       "venue": "",
       "local": "papers/Compact half-wave balun using microstrip and lumped-element artificial transmission lines.pdf"
@@ -976,13 +976,13 @@
       "type": "journal",
       "authors": "C. Liu et al.",
       "title": "Comparative Effects of Linearly and Circularly Polarized Illumination on Microwave-Induced Thermoacoustic Tomography",
-      "venue": "",
+      "venue": "IEEE Antennas Wireless Propag. Lett., vol. 16",
       "local": "papers/Comparative Effects of Linearly and Circularly Polarized Illumination on Microwave-Induced Thermoacoustic Tomography.pdf"
     },
     {
       "year": null,
       "type": "journal",
-      "authors": "C. Liu et al.",
+      "authors": "Biao Zhang, Chengyang Yu, and Changjun Liu",
       "title": "Design of a capacitor-less 5.8-GHz microwave rectifier for microwave power transmission",
       "venue": "",
       "local": "papers/Design of a capacitor-less 5.8-GHz microwave rectifier for microwave power transmission.pdf"
@@ -990,7 +990,7 @@
     {
       "year": null,
       "type": "journal",
-      "authors": "C. Liu et al.",
+      "authors": "Feifei Tan, Changjun Liu",
       "title": "Design of a High-Conversion-Efficiency X-Band Rectifier for Microwave Wireless Power Transmission",
       "venue": "",
       "local": "papers/Design of a High-Conversion-Efficiency X-Band Rectifier for Microwave Wireless Power Transmission.pdf"
@@ -998,7 +998,7 @@
     {
       "year": null,
       "type": "journal",
-      "authors": "C. Liu et al.",
+      "authors": "Guohong Du, and Changjun Liu",
       "title": "Design of beam shifter based on the Schwarz-Christoffel mapping",
       "venue": "",
       "local": "papers/Design of beam shifter based on the Schwarz-Christoffel mapping.pdf"
@@ -1008,13 +1008,13 @@
       "type": "journal",
       "authors": "C. Liu et al.",
       "title": "Experimental Study on Microwave Power Combining Based on Injection-Locked 15-kW  -S- -Band Continuous-Wave Magnetrons",
-      "venue": "",
+      "venue": "IEEE Trans. Plasma Sci., vol. 44, no. 8",
       "local": "papers/Experimental Study on Microwave Power Combining Based on Injection-Locked 15-kW  -S- -Band Continuous-Wave Magnetrons.pdf"
     },
     {
       "year": null,
       "type": "journal",
-      "authors": "C. Liu et al.",
+      "authors": "LIU Changjun HUANG Kama HU Zhongxia ZHAO Xiang CHEN Xing YUAN Yuan",
       "title": "FDTD analysis to simulate interaction between microwave and chemical reaction",
       "venue": "",
       "local": "papers/FDTD analysis to simulate interaction between microwave and chemical reaction.pdf"
@@ -1024,13 +1024,13 @@
       "type": "journal",
       "authors": "C. Liu et al.",
       "title": "K-Band Frequency-Scanned Leaky-Wave Antenna Based on Composite Right-Left-Handed Transmission Lines",
-      "venue": "",
+      "venue": "IEEE Antennas Wireless Propag. Lett., vol. 12",
       "local": "papers/K-Band Frequency-Scanned Leaky-Wave Antenna Based on Composite Right-Left-Handed Transmission Lines.pdf"
     },
     {
       "year": null,
       "type": "journal",
-      "authors": "C. Liu et al.",
+      "authors": "Heping Huang, Ling Liu, Feixiang Huo, Zhengyu Liu, and Changjun Liu",
       "title": "Microwave power combining system based on two injection-locked 15 kW CW magnetrons",
       "venue": "",
       "local": "papers/Microwave power combining system based on two injection-locked 15 kW CW magnetrons.pdf"
@@ -1040,29 +1040,29 @@
       "type": "journal",
       "authors": "C. Liu et al.",
       "title": "Simulation and Experiments of an -S- -Band 20-kW Power-Adjustable Phase-Locked Magnetron",
-      "venue": "",
+      "venue": "IEEE Trans. Plasma Sci., vol. 45, no. 5",
       "local": "papers/Simulation and Experiments of an -S- -Band 20-kW Power-Adjustable Phase-Locked Magnetron.pdf"
     },
     {
       "year": null,
       "type": "journal",
-      "authors": "C. Liu et al.",
+      "authors": "Huabin Zhang, Xiang Zhao, Liping Yan, Changjun Liu",
       "title": "Some Amendments to -Field-to-Wire Coupling in an Electrically Large Cavity A Semianalytic Solution-",
-      "venue": "",
+      "venue": "IEEE Trans. Electromagn. Compat., vol. 54, no. 1",
       "local": "papers/Some Amendments to -Field-to-Wire Coupling in an Electrically Large Cavity A Semianalytic Solution-.pdf"
     },
     {
       "year": null,
       "type": "journal",
-      "authors": "C. Liu et al.",
+      "authors": "Changjun Liu",
       "title": "Study of wireless power transfer link with metallic plates",
-      "venue": "",
+      "venue": "vol. 38, no. 5, pp. 3329-3331",
       "local": "papers/Study of wireless power transfer link with metallic plates.pdf"
     },
     {
       "year": null,
       "type": "journal",
-      "authors": "C. Liu et al.",
+      "authors": "Guohong Du, Chengyang Yu, and Changjun Liu",
       "title": "Transformation optical design for 2D Flattened Maxwell fish-eye lens",
       "venue": "",
       "local": "papers/Transformation optical design for 2D Flattened Maxwell fish-eye lens.pdf"
@@ -1070,7 +1070,7 @@
     {
       "year": null,
       "type": "journal",
-      "authors": "C. Liu et al.",
+      "authors": "Zhenlong Liu, Xiaojie Chen, Menglin Yang, and Changjun Liu",
       "title": "Experimental studies on a low power injection-locked continuous wave magnetron",
       "venue": "",
       "local": "papers/Experimental studies on a low power injection-locked continuous wave magnetron.pdf"
@@ -1078,7 +1078,7 @@
     {
       "year": null,
       "type": "journal",
-      "authors": "C. Liu et al.",
+      "authors": "Changjun Liu, Kama Huang, and Qijuan He",
       "title": "A 2.45 GHz rectifying circuit with enhanced range of input power and load",
       "venue": "",
       "local": "papers/A 2.45 GHz rectifying circuit with enhanced range of input power and load.pdf"
@@ -1088,21 +1088,21 @@
       "type": "journal",
       "authors": "C. Liu et al.",
       "title": "A Microstrip Resonator With Slotted Ground Plane for Complex Permittivity Measurements of Liquids",
-      "venue": "",
+      "venue": "IEEE Microw. Wireless Compon. Lett., vol. 18, no. 4",
       "local": "papers/A Microstrip Resonator With Slotted Ground Plane for Complex Permittivity Measurements of Liquids.pdf"
     },
     {
       "year": null,
       "type": "journal",
-      "authors": "C. Liu et al.",
+      "authors": "Changjun Liu, Wolfgang Menzel",
       "title": "On the relation between a negative refractive index transmission line and chebyshev filters",
       "venue": "",
       "local": "papers/On the relation between a negative refractive index transmission line and chebyshev filters.pdf"
     },
     {
       "year": null,
-      "type": "journal",
-      "authors": "C. Liu et al.",
+      "type": "conference",
+      "authors": "WANG Baoyi LIU Changjun ZHANG Hong",
       "title": "Biological effects and applications of transient electromagnetic fields",
       "venue": "",
       "local": "papers/Biological effects and applications of transient electromagnetic fields.pdf"
@@ -1110,9 +1110,9 @@
     {
       "year": 2003,
       "type": "journal",
-      "authors": "C. Liu et al.",
+      "authors": "Changjun Liu, Dongwoo Sheen, and Kama Huang",
       "title": "A hybrid numerical method to compute erythrocyte TMP in low-frequency electric fields",
-      "venue": "",
+      "venue": "IEEE Trans. Nanobiosci., vol. 2, no. 2, 2003",
       "local": "papers/A hybrid numerical method to compute erythrocyte TMP in low-frequency electric fields.pdf"
     },
     {
@@ -1120,15 +1120,15 @@
       "type": "journal",
       "authors": "C. Liu et al.",
       "title": "Measurement-computation of effective permittivity of dilute solution in saponification reaction",
-      "venue": "",
+      "venue": "IEEE Trans. Microwave Theory Techn., vol. 51, no. 10, 2003",
       "local": "papers/Measurement-computation of effective permittivity of dilute solution in saponification reaction.pdf"
     },
     {
       "year": 2000,
       "type": "journal",
-      "authors": "C. Liu et al.",
+      "authors": "Baoyi Wq Changjun Liu Hong.Zh+g Renling Fan",
       "title": "Of electromagnetic waves and the experimental study on bioeffects of transient electromagnetic fields on cells and its applications",
-      "venue": "",
+      "venue": "vol. 2, no. 1, pp. 12, 2000",
       "local": "papers/Of electromagnetic waves and the experimental study on bioeffects of transient electromagnetic fields on cells and its applications.pdf"
     }
   ],

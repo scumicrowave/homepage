@@ -38,6 +38,14 @@
         g.classList.toggle('is-hidden', !g.querySelector('.paper:not(.is-hidden)'));
       });
 
+      // hide a "Conference Papers" sub-heading when its block has no visible papers
+      document.querySelectorAll('.type-subhead').forEach(function (h) {
+        var ol = h.nextElementSibling;
+        var hasVisible = ol && ol.classList.contains('papers') &&
+          ol.querySelector('.paper:not(.is-hidden)');
+        h.classList.toggle('is-hidden', !hasVisible);
+      });
+
       var parts = [];
       if (state.year !== 'all') parts.push(state.year);
       if (state.type !== 'all') parts.push(zh ? (TYPE_LABELS[state.type] || state.type) : state.type);

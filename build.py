@@ -76,6 +76,7 @@ I18N = {
         "footnote_repo": "PDFs are served as-is. Please observe publisher copyright and open-access terms before redistributing them.",
         "repo_hint": "Enter a title above to search the full-text PDFs; matching files will appear here with a download link.",
         "undated": "Earlier works & undated full texts",
+        "sec_conference": "Conference Papers",
         "btn_mirror": "Mirror", "btn_doi": "DOI", "btn_scholar": "Scholar",
         "btn_pdf_fallback": "PDF \u2020",
         "tip_local": "PDF hosted on this site (GitHub Pages)",
@@ -119,6 +120,7 @@ I18N = {
         "footnote_repo": "PDF 按原文件提供。再次分发时请遵守出版社版权与开放获取条款。",
         "repo_hint": "在上方输入标题以搜索全文 PDF，匹配的文件会在此显示并提供下载。",
         "undated": "早期论文及年份未确认的全文",
+        "sec_conference": "会议论文",
         "btn_mirror": "镜像", "btn_doi": "DOI", "btn_scholar": "学术搜索",
         "btn_pdf_fallback": "PDF \u2020",
         "tip_local": "PDF 由本站文件库提供",
@@ -219,13 +221,28 @@ def render_years():
     for year, items in grouped.items():
         ykey = year if year is not None else "undated"
         ylabel = year if year is not None else T["undated"]
-        rows = "\n".join(render_paper(p, counter + i) for i, p in enumerate(items))
-        counter += len(items)
+        # conferences are listed after journal/magazine/other entries within the year
+        non_conf = [p for p in items if p.get("type") != "conference"]
+        conf = [p for p in items if p.get("type") == "conference"]
+        blocks = []
+        start = counter
+        if non_conf:
+            rows = "\n".join(render_paper(p, start + i) for i, p in enumerate(non_conf))
+            blocks.append(f'''      <ol class="papers" start="{start}">
+{rows}
+      </ol>''')
+            start += len(non_conf)
+        if conf:
+            rows = "\n".join(render_paper(p, start + j) for j, p in enumerate(conf))
+            blocks.append(f'''      <h4 class="type-subhead">{esc(T["sec_conference"])}</h4>
+      <ol class="papers" start="{start}">
+{rows}
+      </ol>''')
+            start += len(conf)
+        counter = start
         out.append(f'''    <section class="year-group" data-year="{ykey}">
       <h3 class="year-heading">{esc(ylabel)}<span class="year-count">{len(items)}</span></h3>
-      <ol class="papers" start="{counter - len(items)}">
-{rows}
-      </ol>
+{chr(10).join(blocks)}
     </section>''')
     return "\n".join(out), len(grouped)
 

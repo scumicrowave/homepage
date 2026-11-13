@@ -60,7 +60,8 @@ OWNER, REPO, BRANCH = "scumicrowave", "homepage", "main"
 API = "https://api.github.com/repos/%s/%s" % (OWNER, REPO)
 CACHE = Path(tempfile.gettempdir()) / "homepage_blob_cache.json"
 SKIP = {".git", ".workbuddy", "_matches.json", "_blob_cache.json", "deploy.log",
-        ".DS_Store", "Thumbs.db"}
+        ".DS_Store", "Thumbs.db", "_apply_enrich.py", "_enrich.py", "_pdf_text.json",
+        "_baseline_126.json", "_publications_backup.json", "_verify_remote.json"}
 MESSAGE = "Sync deployment docs for bilingual GitHub Pages rollout"
 
 

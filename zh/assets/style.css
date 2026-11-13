@@ -215,6 +215,11 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
   border-radius: 999px; padding: 2px 8px;
 }
 .papers { list-style: none; margin: 0; padding: 0; counter-reset: none; }
+.type-subhead {
+  font: 600 12px/1.3 var(--sans); color: var(--muted); text-transform: uppercase;
+  letter-spacing: .08em; margin: 22px 0 6px; padding-top: 16px;
+  border-top: 1px dashed var(--line);
+}
 .paper {
   position: relative; padding: 15px 0 16px 0;
   border-bottom: 1px solid var(--line);
@@ -276,7 +281,7 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 .repo-hint { color: var(--muted); font-style: italic; margin: 10px 0 0; }
 .library-empty { text-align: center; color: var(--muted); padding: 28px 0; font-size: 14px; }
 
-.paper.is-hidden, .year-group.is-hidden { display: none; }
+.paper.is-hidden, .year-group.is-hidden, .type-subhead.is-hidden { display: none; }
 .empty-state { text-align: center; color: var(--muted); padding: 32px 0; font-size: 14px; }
 .footnote { font-size: 11.5px; color: var(--muted); margin-top: 22px; padding-top: 14px; border-top: 1px solid var(--line); }
 

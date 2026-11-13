@@ -81,12 +81,25 @@
     var items = Array.prototype.slice.call(document.querySelectorAll('.lib-item'));
     var lists = Array.prototype.slice.call(document.querySelectorAll('.pdf-library .additional-list'));
     var heads = Array.prototype.slice.call(document.querySelectorAll('.pdf-library .lib-year'));
+    var pdfLibrary = document.getElementById('pdf-library');
+    var repoHint = document.getElementById('repo-hint');
 
     function applyLib() {
       var text = libQ.value.trim().toLowerCase();
+      var collapsed = text.length === 0;
+      if (pdfLibrary) pdfLibrary.classList.toggle('collapsed', collapsed);
+      if (repoHint) repoHint.hidden = !collapsed;
+      if (collapsed) {
+        items.forEach(function (el) { el.classList.add('is-hidden'); });
+        lists.forEach(function (ul) { ul.classList.add('is-hidden'); });
+        heads.forEach(function (h) { h.classList.add('is-hidden'); });
+        if (libCount) libCount.textContent = '';
+        if (libEmpty) libEmpty.hidden = true;
+        return;
+      }
       var shown = 0;
       items.forEach(function (el) {
-        var ok = !text || (el.dataset.text || '').indexOf(text) !== -1;
+        var ok = (el.dataset.text || '').indexOf(text) !== -1;
         el.classList.toggle('is-hidden', !ok);
         if (ok) shown++;
       });

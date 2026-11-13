@@ -269,6 +269,11 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
   border: 1px solid var(--line); border-radius: 3px; padding: 1px 5px;
 }
 .lib-item.is-hidden, .additional-list.is-hidden, .lib-year.is-hidden { display: none; }
+
+/* PDF Repository is search-first: the list stays hidden until a title is typed. */
+.pdf-library.collapsed .additional-list,
+.pdf-library.collapsed .lib-year { display: none; }
+.repo-hint { color: var(--muted); font-style: italic; margin: 10px 0 0; }
 .library-empty { text-align: center; color: var(--muted); padding: 28px 0; font-size: 14px; }
 
 .paper.is-hidden, .year-group.is-hidden { display: none; }

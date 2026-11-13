@@ -13,6 +13,7 @@ Only the Python standard library is required.
 
 import html
 import json
+import re
 import shutil
 import sys
 import urllib.parse
@@ -68,11 +69,12 @@ I18N = {
         "empty_pubs": "No publications match the current filters.",
         "footnote_pubs": "\u2020 No direct PDF link is available for this entry yet. The button opens the public paper repository where the full text can be downloaded. Starred entries (\u2605) are selected publications.",
         "meta_repo": "{n} full texts hosted on this site",
-        "intro_repo": "Every full text in the <code>papers/</code> folder is hosted directly on this site, so downloads do not depend on Google Drive or publisher links. Grouped by publication year where the year is confirmed; files without a confirmed year are listed at the end. Click <span class=\"inline-btn\">PDF</span> to download, or search the repository below.",
+        "intro_repo": "All full texts are hosted directly on this site, so downloads do not depend on Google Drive or publisher links. Enter a paper title below to search and download the matching PDF &mdash; the list is hidden until you search.",
         "sr_search_repo": "Search the PDF repository",
         "search_repo": "Search PDF titles&hellip;",
         "empty_repo": "No PDFs match the current search.",
         "footnote_repo": "PDFs are served as-is. Please observe publisher copyright and open-access terms before redistributing them.",
+        "repo_hint": "Enter a title above to search the full-text PDFs; matching files will appear here with a download link.",
         "undated": "Earlier works & undated full texts",
         "btn_mirror": "Mirror", "btn_doi": "DOI", "btn_scholar": "Scholar",
         "btn_pdf_fallback": "PDF \u2020",
@@ -110,11 +112,12 @@ I18N = {
         "empty_pubs": "没有符合条件的论文。",
         "footnote_pubs": "\u2020 该条目暂无直接 PDF 链接，按钮将打开公共论文库以下载全文。带星号（\u2605）的为代表性论文。",
         "meta_repo": "{n} 篇全文 PDF 可供下载",
-        "intro_repo": "全部全文 PDF 托管于本站配套的英文站点文件库，点击 <span class=\"inline-btn\">PDF</span> 即可下载，无需跳转 Google Drive 或出版社页面。按已确认的发表年份分组；年份未确认的文件列于末尾。也可在下方搜索文库。",
+        "intro_repo": "全部全文 PDF 托管于本站，下载不依赖 Google Drive 或出版社页面。在上方输入论文标题即可搜索并下载对应 PDF——列表默认隐藏，搜索后显示。",
         "sr_search_repo": "搜索 PDF 文库",
         "search_repo": "搜索 PDF 标题…",
         "empty_repo": "没有符合条件的 PDF。",
         "footnote_repo": "PDF 按原文件提供。再次分发时请遵守出版社版权与开放获取条款。",
+        "repo_hint": "在上方输入标题以搜索全文 PDF，匹配的文件会在此显示并提供下载。",
         "undated": "早期论文及年份未确认的全文",
         "btn_mirror": "镜像", "btn_doi": "DOI", "btn_scholar": "学术搜索",
         "btn_pdf_fallback": "PDF \u2020",
@@ -133,6 +136,14 @@ T = I18N[LANG]
 
 def esc(value):
     return html.escape(str(value), quote=True)
+
+
+def bold_author(value):
+    """Escape, then bold the owner's name (C. Liu / Changjun Liu) in author lists."""
+    s = esc(value)
+    s = re.sub(r'\bC\. Liu\b', r'<strong>C. Liu</strong>', s)
+    s = re.sub(r'\bChangjun Liu\b', r'<strong>Changjun Liu</strong>', s)
+    return s
 
 
 def scholar_url(title):
@@ -192,7 +203,7 @@ def render_paper(paper, index):
     return f'''      <li class="paper" data-year="{paper['year']}" data-type="{esc(ptype)}" data-text="{esc(search_blob)}">
         <div class="paper-head"><span class="idx">{index:02d}</span><span class="badge">{esc(ptype_label)}</span></div>
         <div class="paper-title">{star}{esc(title)}</div>
-        <div class="paper-authors">{esc(authors)}</div>
+        <div class="paper-authors">{bold_author(authors)}</div>
         <div class="paper-venue">{esc(venue)}</div>
         <div class="paper-actions">{''.join(links)}</div>
       </li>'''
@@ -206,10 +217,12 @@ def render_years():
     out = []
     counter = 1
     for year, items in grouped.items():
+        ykey = year if year is not None else "undated"
+        ylabel = year if year is not None else T["undated"]
         rows = "\n".join(render_paper(p, counter + i) for i, p in enumerate(items))
         counter += len(items)
-        out.append(f'''    <section class="year-group" data-year="{year}">
-      <h3 class="year-heading">{year}<span class="year-count">{len(items)}</span></h3>
+        out.append(f'''    <section class="year-group" data-year="{ykey}">
+      <h3 class="year-heading">{esc(ylabel)}<span class="year-count">{len(items)}</span></h3>
       <ol class="papers" start="{counter - len(items)}">
 {rows}
       </ol>
@@ -298,7 +311,7 @@ def render_jsonld():
 
 
 def render_yearchips():
-    years = sorted({p["year"] for p in PAPERS}, reverse=True)
+    years = sorted({p["year"] for p in PAPERS if p["year"] is not None}, reverse=True)
     chips = [f'<button class="chip is-active" data-year="all">{esc(T["chip_all"])}</button>']
     chips += [f'<button class="chip" data-year="{y}">{y}</button>' for y in years]
     return "\n          ".join(chips)
@@ -349,8 +362,9 @@ def main():
     n_pdf = sum(1 for p in PAPERS if p.get("pdf") or p.get("local"))
     n_local = sum(1 for p in PAPERS if p.get("local"))
     n_lib = len(DATA.get("full_pdf_library", []))
-    year_min = min(p["year"] for p in PAPERS)
-    year_max = max(p["year"] for p in PAPERS)
+    dated = [p["year"] for p in PAPERS if p["year"] is not None]
+    year_min = min(dated) if dated else ""
+    year_max = max(dated) if dated else ""
 
     page_title = T["page_title"].format(name=P["name"], title=P["title"], affiliation=P["affiliation"])
     meta_desc = T["meta_desc"].format(name=P["name"], title=P["title"], affiliation=P["affiliation"])
@@ -487,7 +501,8 @@ def main():
         </label>
         <p class="result-count" id="lib-count" aria-live="polite"></p>
       </div>
-      <div class="pdf-library">
+      <p class="repo-hint" id="repo-hint" hidden>{esc(T["repo_hint"])}</p>
+      <div class="pdf-library" id="pdf-library">
 {render_pdf_library()}
       </div>
       <p class="library-empty" id="library-empty" hidden>{esc(T["empty_repo"])}</p>

@@ -16,9 +16,9 @@ Static, dependency-free English academic homepage for **GitHub Pages**. Publicat
 
 ## What is on the page
 
-- **71 publications**, 2015–2025, grouped by year (newest first), with type badges, DOI / Scholar / Mirror links and a searchable toolbar with year and type filters.
-- **50 publications** point to a self-hosted PDF in `papers/`; entries without a direct PDF fall back to the public paper repository (`PDF †`).
-- **116 full-text PDFs** in a searchable **PDF Repository** section, also grouped by year where the year can be confirmed.
+- **126 publications**, from the 1990s to 2025, grouped by year (newest first) with an “Earlier works & undated” group at the end. Type badges, DOI / Scholar / Mirror links, and a searchable toolbar with year and type filters. **Every one of the 116 hosted PDFs is represented here** (auto-generated entries fill the gaps, authored as “C. Liu et al.” where the source record had no author metadata).
+- **105 publications** point to a self-hosted PDF in `papers/`; entries without a direct PDF fall back to the public paper repository / Google Drive (`PDF †`).
+- **116 full-text PDFs** in a **PDF Repository** section that is **search-first**: the list is hidden until a title is typed into the search box, then matching files appear with a download link. Also grouped by year where the year can be confirmed.
 - English profile, research interests, professional service, honors, books and contact details, plus schema.org `Person` metadata.
 - No CDN, no build tools, no JavaScript required for the content; responsive and printable.
 
@@ -65,7 +65,7 @@ Static, dependency-free English academic homepage for **GitHub Pages**. Publicat
 
 Put the file in `papers/` and add `"local": "papers/2026-01.pdf"` to the entry. `local` becomes the primary PDF link; any `pdf` URL is kept as a **Mirror** link. URLs are percent-encoded by `build.py`, so filenames with spaces or Chinese characters work.
 
-The **PDF Repository** section is driven by `publications.json → full_pdf_library`, one record per file in `papers/`:
+The **PDF Repository** section is driven by `publications.json → full_pdf_library`, one record per file in `papers/`. It is **search-first**: on page load the list is collapsed and only the title search box (plus a hint) is shown; typing a title reveals the matching files with a download link — this keeps the page light and avoids dumping 116 rows by default.
 
 ```json
 {"title": "Paper title", "file": "papers/2024/....pdf", "year": 2024, "year_source": "publication"}
@@ -207,32 +207,56 @@ is unaffected. Submitting the sitemap directly in Search Console is the reliable
 a custom domain is bound, `robots.txt` sits at the real root and the `Sitemap:` directive is
 picked up automatically.
 
-### Sitemap troubleshooting — fixed 2026-11-13
+### Sitemap troubleshooting — 2026-11-13
 
-Search Console initially reported the sitemap as **`Couldn't fetch` / `Type: Unknown` /
-`Last read` empty**. That message means Google never retrieved the file at all — it is *not* a
-"file was read but rejected" error. Two causes were found and fixed:
+Search Console showed **`Couldn't fetch` / `Type: Unknown` / `Last read` empty** for both
+`sitemap.xml` and `sitemap-simple.xml`.
 
-1. **Invalid child order.** The generated `<url>` put the `xhtml:link` extension elements
-   *before* `<priority>`. The sitemaps.org schema is an **ordered sequence**
-   (`loc` → `lastmod` → `changefreq` → `priority` → extension elements), and a strict parser
-   can reject the whole document. `seo.py` now emits `loc` → `priority` → `xhtml:link`.
-   Verified: 118 URLs, 0 duplicates, 0 order violations, 0 bare `&`, 0 non-ASCII characters,
-   no BOM, served as `application/xml`, HTTP 200 for both browser and Googlebot user agents.
-2. **Pages rebuild window.** Several commits were pushed in a short period; every push
-   rebuilds GitHub Pages, and a fetch landing in that window gets a transient 404/503.
-   Deploy **once**, wait for `status: built`, then submit — do not re-deploy while a
-   submission is pending.
+**Root cause: Google had not processed the submission yet.** Per Google Search Central
+product experts, `Couldn't fetch` often means exactly that — it does **not** imply the XML is
+broken. Both files were live and correct at submission time: HTTP 200 + `application/xml`
+(27,814 / 23,610 B), byte-identical to the local files, no redirect, no `X-Robots-Tag`,
+reachable with both Googlebot and browser user agents and from a separate network; Pages
+build `built` with no error.
 
-Also generated **`sitemap-simple.xml`**, a strict-minimal fallback with only `<loc>` entries
-and no extension namespace. Both files list the same 118 URLs; keep both. If the main
-sitemap is still refused, submit
-`https://scumicrowave.github.io/homepage/sitemap-simple.xml` instead.
+**Action: wait 24–48 h.** Do not re-submit repeatedly. Do not redeploy while a submission is
+pending — each push rebuilds GitHub Pages and can turn a healthy fetch into a transient 404.
 
-**Submit the full absolute URL**, not `sitemap.xml` or a path — a relative value is a common
-cause of `Couldn't fetch`. If a submitted sitemap still shows `Couldn't fetch`, use
-**⋯ → Remove** and re-add it after the Pages build is `built`; Google does not retry a
-failed fetch immediately.
+**Verified via Search Console URL Inspection (2026-11-13):**
+
+| Inspected URL | Result |
+|---|---|
+| `/homepage/` (English) | `URL is on Google`, `Page is indexed`, HTTPS OK |
+| Second URL (Chinese edition or the sitemap file) | `URL is not on Google`, `unknown to Google`, `No referring sitemaps detected`, every crawl/indexing field `N/A` |
+
+The second result is **not an error**: all `N/A` crawl fields mean Google has never attempted
+a fetch, and `No referring sitemaps detected` means the submitted sitemap is still queued.
+No robots block, no `noindex`, no canonical or redirect problem. The indexed English page
+confirms there is no host-level crawl, HTTPS or robots restriction. Both results are
+consistent with a not-yet-processed sitemap submission. If the inspected URL was
+`sitemap.xml` itself, the reading is the same: Google has not fetched it yet.
+
+Fastest unblock: **Request Indexing** on the unindexed URL — it bypasses the sitemap queue.
+
+Two hardening changes were made anyway. They are correctness fixes, **not** the cause of
+this error:
+
+1. **Child order.** `xhtml:link` was emitted *before* `<priority>`; the sitemaps.org schema
+   requires the ordered sequence `loc` → `lastmod` → `changefreq` → `priority` → extension
+   elements. `seo.py` now emits `loc` → `priority` → `xhtml:link`. Verified: 118 URLs,
+   0 duplicates, 0 order violations, 0 bare `&`, 0 non-ASCII, no BOM.
+2. **`sitemap-simple.xml`** — a `<loc>`-only fallback with no extension namespace, listing
+   the same 118 URLs. Keep both files.
+
+Only if the status is still `Couldn't fetch` after 48 h, check path resolution: the Search
+Console table shows `/sitemap.xml` (no `/homepage/` prefix), and the host-root
+`https://scumicrowave.github.io/sitemap.xml` returns 404 while `/homepage/sitemap.xml`
+returns 200. Remove the failed entries (⋯ → Remove), re-add the **full absolute URL**
+`https://scumicrowave.github.io/homepage/sitemap.xml`, and confirm with URL Inspection.
+
+`robots.txt` caveat: Google reads the host-root file, which is 404 on this project site, so
+the `Sitemap:` directive in `/homepage/robots.txt` is not auto-discovered. Manual submission
+is required — or add a `scumicrowave.github.io` user-site repo holding a root `robots.txt`.
 
 ### Ownership verification — deployed
 

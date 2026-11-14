@@ -16,7 +16,7 @@ Static, dependency-free English academic homepage for **GitHub Pages**. Publicat
 
 ## What is on the page
 
-- **126 publications**, from the 1990s to 2025, grouped by year (newest first) with an “Earlier works & undated” group at the end. Type badges, DOI / Scholar / Mirror links, and a searchable toolbar with year and type filters. **Every one of the 116 hosted PDFs is represented here** (auto-generated entries fill the gaps, authored as “C. Liu et al.” where the source record had no author metadata).
+- **126 publications**, from 1997 to 2025, grouped by year (newest first). Type badges, DOI / Scholar / Mirror links, and a searchable toolbar with year and type filters. **Every one of the 116 hosted PDFs is represented here.** All 126 entries now carry a complete journal/conference name, volume/issue/pages, year and full author list; 118 have a DOI link. Missing metadata was resolved against CrossRef, OpenAlex and the local PDF text cache (no PDF re-parsing). Within each year, conference papers are listed after the journal papers under a **Conference Papers / 会议论文** sub-heading.
 - **105 publications** point to a self-hosted PDF in `papers/`; entries without a direct PDF fall back to the public paper repository / Google Drive (`PDF †`).
 - **116 full-text PDFs** in a **PDF Repository** section that is **search-first**: the list is hidden until a title is typed into the search box, then matching files appear with a download link. Also grouped by year where the year can be confirmed.
 - English profile, research interests, professional service, honors, books and contact details, plus schema.org `Person` metadata.
@@ -308,6 +308,8 @@ Google's sitemap "ping" endpoint has been retired and the Indexing API only acce
 ## Content sources
 
 Profile and publication list compiled from the existing Google Sites homepage, IEEE Xplore author profile, IEEE MTT-S profile, Sichuan University EIE faculty page and Baidu Baike. Google Scholar blocked automated retrieval, so citation counts come from IEEE Xplore (138 publications / 2,043 citations). The 116 PDFs come from the exported Google Drive folder `Public research articles` supplied as a local zip.
+
+For the auto-added PDF entries, venue / volume / issue / pages / year / full author lists / DOIs were filled from the **CrossRef** REST API (strict title matching, `>= 0.90`), with **OpenAlex** and **Semantic Scholar** used for three conference papers absent from CrossRef (2013 ISAP, 43rd EuMC). Where a database record conflicted with the article itself, the PDF header/footer in the cached `_pdf_text.json` extraction took precedence — e.g. `IEEE Transactions on Plasma Science, vol. 44, no. 8, August 2016` and `Proceedings of the 43rd European Microwave Conference`. No PDF was re-parsed during this pass.
 
 ### Known data issues / to confirm
 

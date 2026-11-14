@@ -61,7 +61,9 @@ API = "https://api.github.com/repos/%s/%s" % (OWNER, REPO)
 CACHE = Path(tempfile.gettempdir()) / "homepage_blob_cache.json"
 SKIP = {".git", ".workbuddy", "_matches.json", "_blob_cache.json", "deploy.log",
         ".DS_Store", "Thumbs.db", "_apply_enrich.py", "_enrich.py", "_pdf_text.json",
-        "_baseline_126.json", "_publications_backup.json", "_verify_remote.json"}
+        "_baseline_126.json", "_publications_backup.json", "_verify_remote.json",
+        "_apply_crossref.py", "_crossref_fetch.py", "_crossref_raw.json",
+        "_publications_before_crossref.json"}
 MESSAGE = "Sync deployment docs for bilingual GitHub Pages rollout"
 
 

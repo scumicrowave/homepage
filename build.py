@@ -140,12 +140,19 @@ def esc(value):
     return html.escape(str(value), quote=True)
 
 
+OWNER_RE = re.compile(
+    r'\b(?:C\.\s*Liu|Chang[-\s]?jun\s*Liu|Liu\s+Chang[-\s]?jun)\b', re.I
+)
+
+
 def bold_author(value):
-    """Escape, then bold the owner's name (C. Liu / Changjun Liu) in author lists."""
+    """Escape, then bold every spelling of the owner's name in author lists.
+
+    Enriched CrossRef / PDF records use C. Liu, Changjun Liu, Chang-Jun Liu,
+    Liu Changjun and uppercase pinyin LIU CHANGJUN; all must stay bolded.
+    """
     s = esc(value)
-    s = re.sub(r'\bC\. Liu\b', r'<strong>C. Liu</strong>', s)
-    s = re.sub(r'\bChangjun Liu\b', r'<strong>Changjun Liu</strong>', s)
-    return s
+    return OWNER_RE.sub(lambda m: "<strong>" + m.group(0) + "</strong>", s)
 
 
 def scholar_url(title):

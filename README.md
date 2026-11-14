@@ -20,6 +20,7 @@ Static, dependency-free English academic homepage for **GitHub Pages**. Publicat
 - **105 publications** point to a self-hosted PDF in `papers/`; entries without a direct PDF fall back to the public paper repository / Google Drive (`PDF †`).
 - **116 full-text PDFs** in a **PDF Repository** section that is **search-first**: the list is hidden until a title is typed into the search box, then matching files appear with a download link. Also grouped by year where the year can be confirmed.
 - English profile, research interests, professional service, honors, books and contact details, plus schema.org `Person` metadata.
+- Both editions show the **circular portrait** at the top-left of the page (`assets/photo.jpg`, copied into `zh/assets/` on each build). The same image is exposed as `og:image` and schema.org `Person.image` for rich results.
 - No CDN, no build tools, no JavaScript required for the content; responsive and printable.
 
 ## Files
@@ -37,7 +38,7 @@ Static, dependency-free English academic homepage for **GitHub Pages**. Publicat
 | `deploy.sh` | Alternative git-push deployer. |
 | `assets/style.css` | Styles. |
 | `assets/app.js` | Search / filters for publications and the PDF repository (progressive enhancement). |
-| `assets/photo.jpg` | Optional portrait. If absent, a monogram is shown. |
+| `assets/photo.jpg` | Circular portrait (1024×1024 JPEG) shown at the top-left of both editions; also used for `og:image` / `Person.image`. If absent, `build.py` falls back to an initials monogram. |
 | `papers/` | 116 self-hosted PDFs (~211 MB). See `papers/README.md`. |
 | `.nojekyll` | Tells GitHub Pages not to run Jekyll. |
 | `google89b0777337e2a7d8.html` | **Google Search Console ownership verification file. Never delete** — see below. |

@@ -32,6 +32,12 @@ SITE_URL = PROFILE["site_url"].rstrip("/") + "/"
 EN_URL = SITE_URL
 ZH_URL = SITE_URL + "zh/"
 
+# Circular portrait shown at the top-left of both language editions.
+# build.py already falls back to initials if the file is not present.
+PHOTO_NAME = "photo.jpg"
+PHOTO_PATH = ROOT / "assets" / PHOTO_NAME
+PHOTO_URL = SITE_URL + "assets/" + PHOTO_NAME
+
 LANG = "en"
 if "--lang" in sys.argv:
     i = sys.argv.index("--lang")
@@ -278,9 +284,11 @@ def render_bio():
 
 
 def render_avatar():
-    photo = ROOT / "assets" / "photo.jpg"
-    if photo.exists():
-        return f'<img class="avatar" src="assets/photo.jpg" alt="{esc(P["name"])}">'
+    if PHOTO_PATH.exists():
+        return (
+            f'<img class="avatar" src="assets/{PHOTO_NAME}" alt="{esc(P["name"])}" '
+            'width="108" height="108" loading="eager" fetchpriority="high" decoding="async">'
+        )
     initials = P["name"][:2] if LANG == "zh" else "".join(w[0] for w in PROFILE["name"].split()[:2]).upper()
     return f'<div class="avatar avatar-mono" role="img" aria-label="{esc(P["name"])}">{esc(initials)}</div>'
 
@@ -305,6 +313,14 @@ def render_seo():
         f'  <meta property="og:locale" content="{own_locale}">',
         f'  <meta property="og:locale:alternate" content="{other_locale}">',
     ]
+    if PHOTO_PATH.exists():
+        lines += [
+            f'  <meta property="og:image" content="{esc(PHOTO_URL)}">',
+            '  <meta property="og:image:type" content="image/jpeg">',
+            '  <meta property="og:image:width" content="1024">',
+            '  <meta property="og:image:height" content="1024">',
+            f'  <meta property="og:image:alt" content="{esc(P["name"])}">',
+        ]
     ver = DATA.get("google_site_verification")
     if ver:
         lines.append(f'  <meta name="google-site-verification" content="{esc(ver)}">')
@@ -329,6 +345,8 @@ def render_jsonld():
         "inLanguage": T["lang"],
         "mainEntityOfPage": {"@type": "WebPage", "@id": canonical_url()},
     }
+    if PHOTO_PATH.exists():
+        schema["image"] = PHOTO_URL
     if LANG == "zh":
         schema["alternateName"] = PROFILE["name"]
     return json.dumps(schema, ensure_ascii=False, indent=2)
@@ -578,8 +596,11 @@ def main():
     OUT.mkdir(parents=True, exist_ok=True)
     if LANG == "zh":
         (OUT / "assets").mkdir(exist_ok=True)
-        for name in ("style.css", "app.js"):
-            shutil.copy2(ROOT / "assets" / name, OUT / "assets" / name)
+        # The Chinese edition is self-contained, so the portrait must be copied too.
+        for name in ("style.css", "app.js", PHOTO_NAME):
+            src = ROOT / "assets" / name
+            if src.exists():
+                shutil.copy2(src, OUT / "assets" / name)
     (OUT / "index.html").write_text(doc, encoding="utf-8")
     print(f"Wrote {OUT / 'index.html'}: {LANG}, {total} publications, {n_years} year groups, "
           f"{n_local} self-hosted PDF links, {n_lib} files in the PDF repository.")

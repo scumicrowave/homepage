@@ -3402,11 +3402,13 @@
       "type": "journal",
       "authors": "J. Guan and C. Liu",
       "title": "Load State Acquisition Technique Based on Magnetron Anode Current Detection (in Chinese)",
-      "venue": "Vacuum Electronics, 2021",
+      "venue": "Vacuum Electronics, no. 2, pp. 19, 2021",
       "local": "papers/基于磁控管阳极电流检测的负载状态获取技术_官继红.pdf",
       "pdf": "https://drive.google.com/drive/folders/18b5WzqsXi_nJspJD2Nlvid2EVwWiCH8B",
       "journal": "Vacuum Electronics",
-      "in_chinese": true
+      "in_chinese": true,
+      "issue": "2",
+      "pages": "19"
     },
     {
       "year": 2021,
@@ -3428,12 +3430,14 @@
       "type": "journal",
       "authors": "Z. Liu, Z. Tang, and C. Liu",
       "title": "Study on the Power Synthesis System of 20 kW Magnetrons Based on Frequency Pushing (in Chinese)",
-      "venue": "Applied Science and Technology, 2022",
+      "venue": "Applied Science and Technology, no. 1, pp. 90-94, 2022",
       "local": "papers/kW磁控管频率推移特性的功率合成实验研究_刘臻龙.pdf",
       "pdf": "https://drive.google.com/drive/folders/18b5WzqsXi_nJspJD2Nlvid2EVwWiCH8B",
       "journal": "Applied Science and Technology",
       "in_chinese": true,
-      "doi": "10.11991/yykj.202111017"
+      "doi": "10.11991/yykj.202111017",
+      "issue": "1",
+      "pages": "90-94"
     },
     {
       "year": 2022,
@@ -3506,12 +3510,14 @@
       "type": "journal",
       "authors": "L. Wang, D. Liu, H. He, and C. Liu",
       "title": "A High-Efficiency Microwave Rectifier Based on Substrate Integrated Suspended Line Technology (in Chinese)",
-      "venue": "Applied Science and Technology, 2022",
+      "venue": "Applied Science and Technology, no. 5, pp. 52-57, 2022",
       "local": "papers/一种基于介质集成悬置线的高效率微波整流电路_王玲.pdf",
       "pdf": "https://drive.google.com/drive/folders/18b5WzqsXi_nJspJD2Nlvid2EVwWiCH8B",
       "journal": "Applied Science and Technology",
       "in_chinese": true,
-      "doi": "10.11991/yykj.202112025"
+      "doi": "10.11991/yykj.202112025",
+      "issue": "5",
+      "pages": "52-57"
     },
     {
       "year": 2022,

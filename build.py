@@ -162,7 +162,10 @@ def bold_author(value):
 
 
 def scholar_url(title):
-    return "https://scholar.google.com/scholar?q=" + urllib.parse.quote_plus(title)
+    # "(in Chinese)" is a display marker for translated Chinese papers; strip it
+    # so the Scholar lookup still matches the original publication.
+    q = re.sub(r"\s*\(in Chinese\)\s*$", "", title).strip()
+    return "https://scholar.google.com/scholar?q=" + urllib.parse.quote_plus(q)
 
 
 def local_url(path):
@@ -187,7 +190,11 @@ def render_paper(paper, index):
     ptype = paper.get("type", "journal")
     ptype_label = T["types"].get(ptype, ptype.title())
     pdf_url, pdf_label, pdf_tip = pdf_target(paper)
-    search_blob = " ".join([title, authors, venue, ptype_label, str(paper["year"])]).lower()
+    search_blob = " ".join([
+        title, authors, venue, ptype_label, str(paper["year"]),
+        str(paper.get("journal", "")), str(paper.get("volume", "")),
+        str(paper.get("issue", "")), str(paper.get("pages", "")),
+    ]).lower()
 
     links = [
         f'<a class="btn btn-pdf" href="{esc(pdf_url)}" title="{esc(pdf_tip)}" '
@@ -224,39 +231,61 @@ def render_paper(paper, index):
       </li>'''
 
 
+def prestige_key(paper):
+    """Ordering within a single year.
+
+    IEEE Magazine first, then IEEE Transactions, then IEEE Letters, then other
+    IEEE venues, other journals, and finally conference papers (always last).
+    Python's sort is stable, so entries sharing a tier keep their data order.
+    """
+    venue = ((paper.get("venue") or "") + " " + (paper.get("journal") or "")).lower()
+    ptype = (paper.get("type") or "journal").lower()
+    if ptype == "conference":
+        return 90
+    if "ieee" in venue:
+        if "magazine" in venue:
+            return 0
+        if "transactions" in venue or "ieee trans" in venue:
+            return 1
+        if "letters" in venue:
+            return 2
+        return 3
+    if "letters" in venue:
+        return 4
+    if ptype == "magazine":
+        return 5
+    if ptype == "editorial":
+        return 6
+    if ptype == "patent":
+        return 7
+    return 10
+
+
 def render_years():
     grouped = OrderedDict()
     for p in PAPERS:
         grouped.setdefault(p["year"], []).append(p)
+    # newest year first, undated last
+    grouped = OrderedDict(
+        sorted(grouped.items(), key=lambda kv: (kv[0] is None, -(kv[0] or 0)))
+    )
 
     out = []
     counter = 1
     for year, items in grouped.items():
         ykey = year if year is not None else "undated"
         ylabel = year if year is not None else T["undated"]
-        # conferences are listed after journal/magazine/other entries within the year
-        non_conf = [p for p in items if p.get("type") != "conference"]
-        conf = [p for p in items if p.get("type") == "conference"]
-        blocks = []
-        start = counter
-        if non_conf:
-            rows = "\n".join(render_paper(p, start + i) for i, p in enumerate(non_conf))
-            blocks.append(f'''      <ol class="papers" start="{start}">
-{rows}
-      </ol>''')
-            start += len(non_conf)
-        if conf:
-            rows = "\n".join(render_paper(p, start + j) for j, p in enumerate(conf))
-            blocks.append(f'''      <h4 class="type-subhead">{esc(T["sec_conference"])}</h4>
-      <ol class="papers" start="{start}">
-{rows}
-      </ol>''')
-            start += len(conf)
-        counter = start
+        # one continuous list per year: conference papers sit after journal
+        # papers without a separate subheading or a second <ol>
+        items = sorted(items, key=prestige_key)
+        rows = "\n".join(render_paper(p, counter + i) for i, p in enumerate(items))
         out.append(f'''    <section class="year-group" data-year="{ykey}">
       <h3 class="year-heading">{esc(ylabel)}<span class="year-count">{len(items)}</span></h3>
-{chr(10).join(blocks)}
+      <ol class="papers" start="{counter}">
+{rows}
+      </ol>
     </section>''')
+        counter += len(items)
     return "\n".join(out), len(grouped)
 
 
@@ -382,7 +411,9 @@ def render_pdf_library():
         for it in group:
             n += 1
             url = local_url(it["file"])
-            blob = " ".join([it["title"], str(year or ""), it["file"]]).lower()
+            # Keep the search index English-only: file names may still contain
+            # CJK characters even though displayed titles are translated.
+            blob = " ".join([it["title"], str(year or "")]).lower()
             rows.append(
                 f'        <li class="lib-item" data-text="{esc(blob)}">'
                 f'<span class="add-num">{n:03d}</span>'

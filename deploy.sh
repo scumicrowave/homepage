@@ -24,7 +24,7 @@ export GIT_TERMINAL_PROMPT=0
 
 git init -q
 # 211 MB of PDFs exceeds git's default 1 MB HTTP buffer; raise it locally.
-git config http.postBuffer 524288000
+git config http.postBuffer 2147483648
 git config user.name  "Changjun Liu"
 git config user.email "cjliu@scu.edu.cn"
 git add -A

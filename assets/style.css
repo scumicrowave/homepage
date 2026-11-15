@@ -89,9 +89,8 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
   position: sticky; top: 88px;
 }
 .avatar {
-  width: 108px; height: 108px; border-radius: 50%;
+  width: 108px; height: 108px;
   object-fit: cover; display: block; margin: 0 auto 18px;
-  border: 1px solid var(--line);
 }
 .avatar-mono {
   display: grid; place-items: center;
@@ -99,12 +98,10 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
   color: #fff; font: 400 40px/1 var(--serif); letter-spacing: .04em;
   border: none;
 }
-/* Square white-background headshot: border-radius cuts the circle, and a
-   soft ring + shadow keep the edge visible against the white sidebar. */
+/* Portrait sits directly on the white sidebar card: no circle, border, ring
+   or shadow, so the square photo has no visible edge. */
 img.avatar {
-  background: #fff;
-  border: 1px solid rgba(28, 36, 48, .16);
-  box-shadow: 0 0 0 3px rgba(31, 93, 120, .07), 0 3px 12px rgba(18, 32, 45, .14);
+  background: var(--card);
 }
 .name { font: 600 25px/1.25 var(--serif); margin: 0 0 4px; text-align: center; }
 .role {

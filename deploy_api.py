@@ -65,7 +65,10 @@ SKIP = {".git", ".workbuddy", "_matches.json", "_blob_cache.json", "deploy.log",
         "_apply_crossref.py", "_crossref_fetch.py", "_crossref_raw.json",
         "_publications_before_crossref.json", "_scholar_works.json",
         "_publications_before_latest.json", "_publications_before_merge.json",
-        "_removed_pdfs.json"}
+        "_removed_pdfs.json", "_publications_before_liulab.json",
+        "_liulab_downloads", "_liulab_branches.json", "_liulab_pdfmeta.json",
+        "_liulab_compare.json", "_liulab_classified.json", "_liulab_plan.json",
+        "_liulab_pdftext.json", "_liulab_new_entries.json"}
 MESSAGE = "Sync deployment docs for bilingual GitHub Pages rollout"
 
 

@@ -4050,6 +4050,336 @@
       "pages": "427-433",
       "in_chinese": true,
       "doi": "10.11805/TKYDA2025222"
+    },
+    {
+      "year": 2010,
+      "type": "journal",
+      "authors": "Y. Li and C. Liu",
+      "title": "基于混合左右手和人工传输线的平面双定向耦合器",
+      "venue": "High Power Laser and Particle Beams, vol. 22, no. 10, pp. 2403-2406, 2010",
+      "local": "papers/基于混合左右手和人工传输线的平面双定向耦合器.pdf",
+      "journal": "High Power Laser and Particle Beams",
+      "volume": "22",
+      "issue": "10",
+      "pages": "2403-2406"
+    },
+    {
+      "year": 2010,
+      "type": "conference",
+      "authors": "C. Liu and K. Huang",
+      "title": "A Compact Substrate Integrated Waveguide Band-Pass Filter",
+      "venue": "Progress in Electromagnetics Research Symposium (PIERS) Proceedings, Cambridge, MA, USA, pp. 1135-1138, 2010",
+      "local": "papers/A compact substrate integrated waveguide band-pass filter.pdf",
+      "journal": "PIERS Proceedings",
+      "volume": null,
+      "issue": null,
+      "pages": "1135-1138"
+    },
+    {
+      "year": 2010,
+      "type": "chapter",
+      "authors": "C. Liu and K. Huang",
+      "title": "Metamaterial Transmission Line and its Applications",
+      "venue": "Book chapter in Advanced Microwave and Millimeter Wave Technologies: Semiconductor Devices, Circuits and Systems, M. Mukherjee (Ed.), InTech, 2010",
+      "local": "papers/Metamaterial transmission line and its applications.pdf",
+      "journal": "Advanced Microwave and Millimeter Wave Technologies",
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "doi": "10.5772/8770"
+    },
+    {
+      "year": 2010,
+      "type": "journal",
+      "authors": "W. Huang and C. Liu",
+      "title": "基于人工传输线的小型微带 Wilkinson 功分器",
+      "venue": "High Power Laser and Particle Beams, vol. 22, no. 1, pp. 123-126, 2010",
+      "local": "papers/基于人工传输线的小型微带Wilkinson 功分器.pdf",
+      "journal": "High Power Laser and Particle Beams",
+      "volume": "22",
+      "issue": "1",
+      "pages": "123-126"
+    },
+    {
+      "year": 2010,
+      "type": "journal",
+      "authors": "G. Hu, C. Liu, L. Yan, K. Huang, and W. Menzel",
+      "title": "Novel Dual Mode Substrate Integrated Waveguide Band-Pass Filters",
+      "venue": "Journal of Electromagnetic Waves and Applications, vol. 24, no. 11-12, pp. 1661-1672, 2010",
+      "local": "papers/Novel dual mode substrate integrated waveguide band-pass filters.pdf",
+      "journal": "Journal of Electromagnetic Waves and Applications",
+      "volume": "24",
+      "issue": "11-12",
+      "pages": "1661-1672",
+      "doi": "10.1163/156939310792149768"
+    },
+    {
+      "year": 2011,
+      "type": "journal",
+      "authors": "C. Liu, T. Yang, K. Huang, and W. Menzel",
+      "title": "Compact Capacitive Compensated Directional Coupler Using Planar Artificial Transmission Lines",
+      "venue": "Electronics Letters, vol. 47, no. 24, pp. 1321-1323, 2011",
+      "local": "papers/Compact capacitive compensated directional coupler using planar artificial transmission lines.pdf",
+      "journal": "Electronics Letters",
+      "volume": "47",
+      "issue": "24",
+      "pages": "1321-1323",
+      "doi": "10.1049/el.2011.2803"
+    },
+    {
+      "year": 2011,
+      "type": "journal",
+      "authors": "B. Zhang and C. Liu",
+      "title": "一种高效的 2.45 GHz 二极管阵列微波整流电路",
+      "venue": "High Power Laser and Particle Beams, vol. 23, no. 9, pp. 2443-2446, 2011",
+      "local": "papers/一种高效的2.45 GHz 二极管阵列微波整流电路.pdf",
+      "journal": "High Power Laser and Particle Beams",
+      "volume": "23",
+      "issue": "9",
+      "pages": "2443-2446"
+    },
+    {
+      "year": 2011,
+      "type": "journal",
+      "authors": "C. Yu, C. Liu, B. Zhang, X. Chen, and K. Huang",
+      "title": "An Intermodulation Recycling Rectifier for Microwave Power Transmission at 2.45 GHz",
+      "venue": "Progress in Electromagnetics Research, vol. 119, pp. 435-447, 2011",
+      "local": "papers/An intermodulation recycling rectifier for microwave power transmission at 2.45 GHz.pdf",
+      "journal": "Progress in Electromagnetics Research",
+      "volume": "119",
+      "issue": null,
+      "pages": "435-447",
+      "doi": "10.2528/pier11071506"
+    },
+    {
+      "year": 2012,
+      "type": "journal",
+      "authors": "G. Du and C. Liu",
+      "title": "Multiband Metamaterial Structure: Butterfly-Pattern Resonator",
+      "venue": "Microwave and Optical Technology Letters, vol. 54, no. 9, pp. 2179-2181, 2012",
+      "local": "papers/Multiband metamaterial structure_ Butterfly‐pattern resonator.pdf",
+      "journal": "Microwave and Optical Technology Letters",
+      "volume": "54",
+      "issue": "9",
+      "pages": "2179-2181",
+      "doi": "10.1002/mop.27027"
+    },
+    {
+      "year": 2012,
+      "type": "journal",
+      "authors": "H. Ke, T. N. Erpelding, L. Jankovic, C. Liu, and L. V. Wang",
+      "title": "Performance Characterization of an Integrated Ultrasound, Photoacoustic, and Thermoacoustic Imaging System",
+      "venue": "Journal of Biomedical Optics, vol. 17, no. 5, art. 056010, 2012",
+      "local": "papers/Performance characterization of an integrated ultrasound, photoacoustic, and thermoacoustic imaging syste.pdf",
+      "journal": "Journal of Biomedical Optics",
+      "volume": "17",
+      "issue": "5",
+      "pages": "056010",
+      "doi": "10.1117/1.jbo.17.5.056010"
+    },
+    {
+      "year": 2012,
+      "type": "journal",
+      "authors": "M.-Y. Bai, C. H. Moran, L. Zhang, C. Liu, Y. Zhang, L. V. Wang, and Y. Xia",
+      "title": "A Facile and General Method for the Encapsulation of Different Types of Imaging Contrast Agents Within Microbubbles",
+      "venue": "Advanced Functional Materials, vol. 22, no. 4, pp. 764-770, 2012",
+      "local": "papers/A facile and general method for the encapsulation of different types of imaging contrast agents within mi.pdf",
+      "journal": "Advanced Functional Materials",
+      "volume": "22",
+      "issue": "4",
+      "pages": "764-770",
+      "doi": "10.1002/adfm.201102582"
+    },
+    {
+      "year": 2012,
+      "type": "journal",
+      "authors": "J. Cao, X. Zhao, C. Liu, and L. Yan",
+      "title": "A Planar Compact Triple-Band Monopole Antenna for WLAN/WiMAX Applications",
+      "venue": "Progress in Electromagnetics Research Letters, vol. 29, pp. 15-23, 2012",
+      "local": "papers/A planar compact triple-band monopole antenna for WLAN_WiMAX applications.pdf",
+      "journal": "Progress in Electromagnetics Research Letters",
+      "volume": "29",
+      "issue": null,
+      "pages": "15-23",
+      "doi": "10.2528/pierl11112604"
+    },
+    {
+      "year": 2013,
+      "type": "journal",
+      "authors": "X. Wu, W. Huang, F. Tong, and C. Liu",
+      "title": "基于人工传输线结构的小型化低通滤波器",
+      "venue": "High Power Laser and Particle Beams, vol. 25, no. 11, pp. 2919-2921, 2013",
+      "local": "papers/基于人工传输线结构的小型化低通滤波器.pdf",
+      "journal": "High Power Laser and Particle Beams",
+      "volume": "25",
+      "issue": "11",
+      "pages": "2919-2921"
+    },
+    {
+      "year": 2013,
+      "type": "journal",
+      "authors": "W. Yang, C. Liu, X. Wu, and X. Hou",
+      "title": "Preliminary Research on Low-Power Laser Wireless Energy Transmission",
+      "venue": "Modern Physics, vol. 3, pp. 49-53, 2013",
+      "local": "papers/Preliminary research on low-power laser wireless energy transmission.pdf",
+      "journal": "Modern Physics",
+      "volume": "3",
+      "issue": null,
+      "pages": "49-53",
+      "doi": "10.12677/mp.2013.31009"
+    },
+    {
+      "year": 2013,
+      "type": "journal",
+      "authors": "W. Huang, B. Zhang, X. Chen, K. Huang, and C. Liu",
+      "title": "Study on an S-Band Rectenna Array for Wireless Microwave Power Transmission",
+      "venue": "Progress in Electromagnetics Research, vol. 135, pp. 747-758, 2013",
+      "local": "papers/Study on an S-band rectenna array for wireless microwave power transmission.pdf",
+      "journal": "Progress in Electromagnetics Research",
+      "volume": "135",
+      "issue": null,
+      "pages": "747-758",
+      "doi": "10.2528/pier12120314"
+    },
+    {
+      "year": 2013,
+      "type": "journal",
+      "authors": "P. Feng, X. Chen, X.-Y. Ren, C. Liu, and K.-M. Huang",
+      "title": "A Novel Microstrip Grid Array Antenna with Both High-Gain and Wideband Properties",
+      "venue": "Progress in Electromagnetics Research C, vol. 34, pp. 215-226, 2013",
+      "local": "papers/A novel microstrip grid array antenna with both high-gain and wideband properties.pdf",
+      "journal": "Progress in Electromagnetics Research C",
+      "volume": "34",
+      "issue": null,
+      "pages": "215-226",
+      "doi": "10.2528/pierc12082920"
+    },
+    {
+      "year": 2014,
+      "type": "conference",
+      "authors": "G. Du, M. Liang, R. A. S. Garcia, C. Liu, and H. Xin",
+      "title": "3D Microwave Eaton Lens Fabricated by Polymer Jetting Rapid Prototyping",
+      "venue": "2014 USNC-URSI Radio Science Meeting (Joint with AP-S Symposium), p. 267, 2014",
+      "local": "papers/3D microwave eaton lens fabricated by polymer jetting rapid prototyping.pdf",
+      "journal": "USNC-URSI Radio Science Meeting",
+      "volume": null,
+      "issue": null,
+      "pages": "267",
+      "doi": "10.1109/usnc-ursi.2014.6955650"
+    },
+    {
+      "year": 2014,
+      "type": "journal",
+      "authors": "Y. He, X. Wu, and C. Liu",
+      "title": "Novel Miniaturized Low-Pass Filters from Artificial Transmission Line Structures",
+      "venue": "Journal of Electromagnetic Waves and Applications, vol. 28, no. 10, pp. 1269-1274, 2014",
+      "local": "papers/Novel miniaturized low-pass filters from artificial transmission line structures.pdf",
+      "journal": "Journal of Electromagnetic Waves and Applications",
+      "volume": "28",
+      "issue": "10",
+      "pages": "1269-1274",
+      "doi": "10.1080/09205071.2014.915201"
+    },
+    {
+      "year": 2014,
+      "type": "editorial",
+      "authors": "G. Du, C. Yu, and C. Liu",
+      "title": "Erratum: Frequency Selective Surface with Switchable Polarization",
+      "venue": "Microwave and Optical Technology Letters, vol. 56, no. 7, p. 1729, 2014",
+      "local": "papers/Erratum_ Frequency selective surface with switchable polarization.pdf",
+      "journal": "Microwave and Optical Technology Letters",
+      "volume": "56",
+      "issue": "7",
+      "pages": "1729",
+      "doi": "10.1002/mop.28430"
+    },
+    {
+      "year": 2014,
+      "type": "journal",
+      "authors": "Y. Liu, X. Chen, X. Ren, C. Liu, and K. Huang",
+      "title": "High-Gain Planar Array Designed by Using Fragmented Slots",
+      "venue": "International Journal of RF and Microwave Computer-Aided Engineering, vol. 24, no. 3, pp. 331-338, 2014",
+      "local": "papers/High‐gain planar array designed by using fragmented slots.pdf",
+      "journal": "International Journal of RF and Microwave Computer-Aided Engineering",
+      "volume": "24",
+      "issue": "3",
+      "pages": "331-338",
+      "doi": "10.1002/mmce.20771"
+    },
+    {
+      "year": 2014,
+      "type": "journal",
+      "authors": "G. Du, C. Yu, and C. Liu",
+      "title": "Frequency Selective Surface with Switchable Polarization",
+      "venue": "Microwave and Optical Technology Letters, vol. 56, no. 2, pp. 515-518, 2014",
+      "local": "papers/Frequency selective surface with switchable polarization.pdf",
+      "journal": "Microwave and Optical Technology Letters",
+      "volume": "56",
+      "issue": "2",
+      "pages": "515-518"
+    },
+    {
+      "year": 2014,
+      "type": "journal",
+      "authors": "Y. Tan, L. Yan, X. Zhao, C. Liu, and K. Huang",
+      "title": "Bandwidth Enhancement of a Printed Slot Antenna with a Diamond-Shaped Tuning Stub",
+      "venue": "Progress in Electromagnetics Research C, vol. 50, pp. 87-93, 2014",
+      "local": "papers/Bandwidth enhancement of a printed slot antenna with a diamond-shaped tuning stub.pdf",
+      "journal": "Progress in Electromagnetics Research C",
+      "volume": "50",
+      "issue": null,
+      "pages": "87-93",
+      "doi": "10.2528/pierc14032404"
+    },
+    {
+      "year": 2016,
+      "type": "journal",
+      "authors": "Z. Yin, Y. Wei, Z. Liu, and C. Liu",
+      "title": "1 kW 注入锁定连续波磁控管微波相干合成实验研究",
+      "venue": "Applied Science and Technology, vol. 43, no. 5, pp. 20-23, 2016",
+      "local": "papers/1 kW 注入锁定连续波磁控管微波相干合成实验研究.pdf",
+      "journal": "Applied Science and Technology",
+      "volume": "43",
+      "issue": "5",
+      "pages": "20-23",
+      "doi": "10.11991/yykj.201602004"
+    },
+    {
+      "year": 2016,
+      "type": "journal",
+      "authors": "H. Zhang and C. Liu",
+      "title": "一种基于子阵分解的高效整流天线阵列",
+      "venue": "Applied Science and Technology, vol. 43, no. 4, pp. 26-29, 2016",
+      "local": "papers/一种基于子阵分解的高效整流天线阵列.pdf",
+      "journal": "Applied Science and Technology",
+      "volume": "43",
+      "issue": "4",
+      "pages": "26-29",
+      "doi": "10.11991/yykj.201602001"
+    },
+    {
+      "year": 2016,
+      "type": "patent",
+      "authors": "K. Huang, C. Liu, Y. Yang, X. Chen, and H. Zhu",
+      "title": "Injection Locked Magnetron Microwave Generator with Recycle of Spurious Energy",
+      "venue": "US Patent 9,355,808 B2, May 31, 2016",
+      "local": "papers/Injection locked magnetron microwave generator with recycle of spurious energy.pdf",
+      "journal": "US Patent",
+      "volume": null,
+      "issue": null,
+      "pages": null
+    },
+    {
+      "year": 2016,
+      "type": "journal",
+      "authors": "F. Tan, H. Huang, and C. Liu",
+      "title": "一种六边形缝隙宽带微波天线设计",
+      "venue": "Journal of Terahertz Science and Electronic Information Technology, vol. 14, no. 2, pp. 245-248, 2016",
+      "local": "papers/一种六边形缝隙宽带微波天线设计.pdf",
+      "journal": "Journal of Terahertz Science and Electronic Information Technology",
+      "volume": "14",
+      "issue": "2",
+      "pages": "245-248"
     }
   ],
   "full_pdf_library": [
@@ -6418,6 +6748,162 @@
       "file": "papers/一种用于无线能量传输_能量收集的宽带整流超表面.pdf",
       "year": 2026,
       "year_source": "filename"
+    },
+    {
+      "title": "基于混合左右手和人工传输线的平面双定向耦合器",
+      "file": "papers/基于混合左右手和人工传输线的平面双定向耦合器.pdf",
+      "year": 2010,
+      "year_source": "publication"
+    },
+    {
+      "title": "A Compact Substrate Integrated Waveguide Band-Pass Filter",
+      "file": "papers/A compact substrate integrated waveguide band-pass filter.pdf",
+      "year": 2010,
+      "year_source": "publication"
+    },
+    {
+      "title": "Metamaterial Transmission Line and its Applications",
+      "file": "papers/Metamaterial transmission line and its applications.pdf",
+      "year": 2010,
+      "year_source": "publication"
+    },
+    {
+      "title": "基于人工传输线的小型微带 Wilkinson 功分器",
+      "file": "papers/基于人工传输线的小型微带Wilkinson 功分器.pdf",
+      "year": 2010,
+      "year_source": "publication"
+    },
+    {
+      "title": "Novel Dual Mode Substrate Integrated Waveguide Band-Pass Filters",
+      "file": "papers/Novel dual mode substrate integrated waveguide band-pass filters.pdf",
+      "year": 2010,
+      "year_source": "publication"
+    },
+    {
+      "title": "Compact Capacitive Compensated Directional Coupler Using Planar Artificial Transmission Lines",
+      "file": "papers/Compact capacitive compensated directional coupler using planar artificial transmission lines.pdf",
+      "year": 2011,
+      "year_source": "publication"
+    },
+    {
+      "title": "一种高效的 2.45 GHz 二极管阵列微波整流电路",
+      "file": "papers/一种高效的2.45 GHz 二极管阵列微波整流电路.pdf",
+      "year": 2011,
+      "year_source": "publication"
+    },
+    {
+      "title": "An Intermodulation Recycling Rectifier for Microwave Power Transmission at 2.45 GHz",
+      "file": "papers/An intermodulation recycling rectifier for microwave power transmission at 2.45 GHz.pdf",
+      "year": 2011,
+      "year_source": "publication"
+    },
+    {
+      "title": "Multiband Metamaterial Structure: Butterfly-Pattern Resonator",
+      "file": "papers/Multiband metamaterial structure_ Butterfly‐pattern resonator.pdf",
+      "year": 2012,
+      "year_source": "publication"
+    },
+    {
+      "title": "Performance Characterization of an Integrated Ultrasound, Photoacoustic, and Thermoacoustic Imaging System",
+      "file": "papers/Performance characterization of an integrated ultrasound, photoacoustic, and thermoacoustic imaging syste.pdf",
+      "year": 2012,
+      "year_source": "publication"
+    },
+    {
+      "title": "A Facile and General Method for the Encapsulation of Different Types of Imaging Contrast Agents Within Microbubbles",
+      "file": "papers/A facile and general method for the encapsulation of different types of imaging contrast agents within mi.pdf",
+      "year": 2012,
+      "year_source": "publication"
+    },
+    {
+      "title": "A Planar Compact Triple-Band Monopole Antenna for WLAN/WiMAX Applications",
+      "file": "papers/A planar compact triple-band monopole antenna for WLAN_WiMAX applications.pdf",
+      "year": 2012,
+      "year_source": "publication"
+    },
+    {
+      "title": "基于人工传输线结构的小型化低通滤波器",
+      "file": "papers/基于人工传输线结构的小型化低通滤波器.pdf",
+      "year": 2013,
+      "year_source": "publication"
+    },
+    {
+      "title": "Preliminary Research on Low-Power Laser Wireless Energy Transmission",
+      "file": "papers/Preliminary research on low-power laser wireless energy transmission.pdf",
+      "year": 2013,
+      "year_source": "publication"
+    },
+    {
+      "title": "Study on an S-Band Rectenna Array for Wireless Microwave Power Transmission",
+      "file": "papers/Study on an S-band rectenna array for wireless microwave power transmission.pdf",
+      "year": 2013,
+      "year_source": "publication"
+    },
+    {
+      "title": "A Novel Microstrip Grid Array Antenna with Both High-Gain and Wideband Properties",
+      "file": "papers/A novel microstrip grid array antenna with both high-gain and wideband properties.pdf",
+      "year": 2013,
+      "year_source": "publication"
+    },
+    {
+      "title": "3D Microwave Eaton Lens Fabricated by Polymer Jetting Rapid Prototyping",
+      "file": "papers/3D microwave eaton lens fabricated by polymer jetting rapid prototyping.pdf",
+      "year": 2014,
+      "year_source": "publication"
+    },
+    {
+      "title": "Novel Miniaturized Low-Pass Filters from Artificial Transmission Line Structures",
+      "file": "papers/Novel miniaturized low-pass filters from artificial transmission line structures.pdf",
+      "year": 2014,
+      "year_source": "publication"
+    },
+    {
+      "title": "Erratum: Frequency Selective Surface with Switchable Polarization",
+      "file": "papers/Erratum_ Frequency selective surface with switchable polarization.pdf",
+      "year": 2014,
+      "year_source": "publication"
+    },
+    {
+      "title": "High-Gain Planar Array Designed by Using Fragmented Slots",
+      "file": "papers/High‐gain planar array designed by using fragmented slots.pdf",
+      "year": 2014,
+      "year_source": "publication"
+    },
+    {
+      "title": "Frequency Selective Surface with Switchable Polarization",
+      "file": "papers/Frequency selective surface with switchable polarization.pdf",
+      "year": 2014,
+      "year_source": "publication"
+    },
+    {
+      "title": "Bandwidth Enhancement of a Printed Slot Antenna with a Diamond-Shaped Tuning Stub",
+      "file": "papers/Bandwidth enhancement of a printed slot antenna with a diamond-shaped tuning stub.pdf",
+      "year": 2014,
+      "year_source": "publication"
+    },
+    {
+      "title": "1 kW 注入锁定连续波磁控管微波相干合成实验研究",
+      "file": "papers/1 kW 注入锁定连续波磁控管微波相干合成实验研究.pdf",
+      "year": 2016,
+      "year_source": "publication"
+    },
+    {
+      "title": "一种基于子阵分解的高效整流天线阵列",
+      "file": "papers/一种基于子阵分解的高效整流天线阵列.pdf",
+      "year": 2016,
+      "year_source": "publication"
+    },
+    {
+      "title": "Injection Locked Magnetron Microwave Generator with Recycle of Spurious Energy",
+      "file": "papers/Injection locked magnetron microwave generator with recycle of spurious energy.pdf",
+      "year": 2016,
+      "year_source": "publication"
+    },
+    {
+      "title": "一种六边形缝隙宽带微波天线设计",
+      "file": "papers/一种六边形缝隙宽带微波天线设计.pdf",
+      "year": 2016,
+      "year_source": "publication"
     }
   ],
   "profile_zh": {

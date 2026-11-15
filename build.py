@@ -67,6 +67,7 @@ I18N = {
         "h_honors": "Honors & Awards", "h_books": "Books", "h_contact": "Contact",
         "meta_pubs": "{total} entries &middot; {n_years} years &middot; {ymin}&ndash;{ymax} &middot; {n_pdf} with PDF links &middot; {n_local} hosted here",
         "intro_pubs": "Papers are listed in reverse chronological order. <strong>{name}</strong> is marked in the author list as <em>C. Liu</em> / <em>Changjun Liu</em>. Click <span class=\"inline-btn\">PDF</span> to download, or use the filters below.",
+        "year_link_tip": "View all {year} papers and PDFs on a dedicated page",
         "sr_search_pubs": "Search publications",
         "search_pubs": "Search title, author, venue&hellip;",
         "chip_all": "All", "chip_all_types": "All types",
@@ -112,6 +113,7 @@ I18N = {
         "h_honors": "荣誉与奖励", "h_books": "著作", "h_contact": "联系方式",
         "meta_pubs": "{total} 条 &middot; {n_years} 个年份 &middot; {ymin}&ndash;{ymax} &middot; {n_pdf} 条含 PDF 链接 &middot; {n_local} 条可直接下载",
         "intro_pubs": "论文按发表年份倒序排列。<strong>{name}</strong> 在作者列表中标注为 <em>C. Liu</em> / <em>Changjun Liu</em>。点击 <span class=\"inline-btn\">PDF</span> 下载，或使用下方筛选。论文标题、作者及期刊信息保留英文原文，便于检索与 DOI 核对。",
+        "year_link_tip": "查看 {year} 年全部论文与 PDF（独立页面）",
         "sr_search_pubs": "搜索论文",
         "search_pubs": "搜索标题、作者、期刊…",
         "chip_all": "全部", "chip_all_types": "全部类型",
@@ -306,14 +308,248 @@ def render_years():
         # papers without a separate subheading or a second <ol>
         items = sorted(items, key=prestige_key)
         rows = "\n".join(render_paper(p, counter + i) for i, p in enumerate(items))
+        # The year itself links to that year's dedicated archive page so Google
+        # (and readers) can reach every paper and PDF for the year in one click.
+        href = year_page_url(LANG, str(ykey))
         out.append(f'''    <section class="year-group" data-year="{ykey}">
-      <h3 class="year-heading">{esc(ylabel)}<span class="year-count">{len(items)}</span></h3>
+      <h3 class="year-heading"><a class="year-link" href="{esc(href)}" title="{esc(T["year_link_tip"].format(year=ylabel))}">{esc(ylabel)}</a><span class="year-count">{len(items)}</span></h3>
       <ol class="papers" start="{counter}">
 {rows}
       </ol>
     </section>''')
         counter += len(items)
     return "\n".join(out), len(grouped)
+
+
+# ---------------------------------------------------------------------------
+# Per-year archive pages.  Every year gets its own crawlable HTML page in both
+# languages, listing every paper AND every full-text PDF for that year, so each
+# PDF has a static, visible, indexable link instead of living only inside the
+# JavaScript-driven repository on the homepage.
+# ---------------------------------------------------------------------------
+YEAR_TEXT = {
+    "en": {
+        "title": "Publications in {year}",
+        "desc": "All {n} papers by Changjun Liu published in {year}, with authors, journal details and free full-text PDF downloads.",
+        "h_papers": "Papers published in {year}",
+        "h_pdfs": "All {m} full-text PDFs for {year}",
+        "back": "Back to homepage",
+        "other_lang": "中文版 / Chinese",
+        "nav": "Browse all years",
+        "undated": "Earlier works & undated full texts",
+        "undated_short": "Earlier",
+        "tip": "View all {year} papers and PDFs",
+        "meta": "{n} papers &middot; {m} full-text PDFs",
+        "no_papers": "No dated publications in this group; the full texts are listed below.",
+        "pdf_hint": "Click any title to download the PDF.",
+        "undated_h1": "Earlier works & undated full texts",
+        "undated_desc": "Earlier works and full texts whose publication year is not confirmed, with free full-text PDF downloads.",
+        "undated_papers_h": "Papers in this group",
+        "undated_pdfs_h": "All {m} full-text PDFs in this group",
+    },
+    "zh": {
+        "title": "{year} 年发表论文",
+        "desc": "刘长军 {year} 年发表的 {n} 篇论文，含作者、期刊卷期页码信息及全文 PDF 下载。",
+        "h_papers": "{year} 年发表论文",
+        "h_pdfs": "{year} 年全部 {m} 个全文 PDF",
+        "back": "返回中文主页",
+        "other_lang": "English",
+        "nav": "按年份浏览",
+        "undated": "早期论文及年份未确认的全文",
+        "undated_short": "早期",
+        "tip": "查看 {year} 年全部论文与 PDF",
+        "meta": "{n} 篇论文 &middot; {m} 个全文 PDF",
+        "no_papers": "该分组没有标注年份的论文，全文 PDF 列于下方。",
+        "pdf_hint": "点击标题即可下载 PDF。",
+        "undated_h1": "早期论文及年份未确认的全文",
+        "undated_desc": "早期论文及发表年份尚未确认的全文，均可免费下载 PDF。",
+        "undated_papers_h": "该分组论文",
+        "undated_pdfs_h": "该分组全部 {m} 个全文 PDF",
+    },
+}
+
+
+def year_keys():
+    """Dated years (newest first) plus one page for undated full texts."""
+    years = sorted({int(p["year"]) for p in PAPERS if p["year"] is not None}, reverse=True)
+    return [str(y) for y in years] + ["undated"]
+
+
+def year_page_url(lang, key):
+    return SITE_URL + ("zh/years/" if lang == "zh" else "years/") + str(key) + ".html"
+
+
+def abs_pdf_url(path):
+    return SITE_URL + urllib.parse.quote(path, safe="/")
+
+
+def render_year_paper(p, idx):
+    """A paper row for an archive page; PDF URLs are absolute (page lives in /years/)."""
+    ptype = p.get("type", "journal")
+    label = T["types"].get(ptype, ptype.title())
+    pdf = abs_pdf_url(p["local"]) if p.get("local") else (p.get("pdf") or DRIVE)
+    links = [
+        f'<a class="btn btn-pdf" href="{esc(pdf)}" target="_blank" rel="noopener">PDF</a>'
+    ]
+    if p.get("doi"):
+        links.append(
+            f'<a class="btn btn-ghost" href="{esc("https://doi.org/" + p["doi"])}" '
+            'target="_blank" rel="noopener">DOI</a>'
+        )
+    links.append(
+        f'<a class="btn btn-ghost" href="{esc(scholar_url(p["title"]))}" '
+        f'target="_blank" rel="noopener">{esc(T["btn_scholar"])}</a>'
+    )
+    star = (
+        '<span class="star" aria-label="Selected publication">\u2605</span> '
+        if p.get("selected") else ""
+    )
+    return f'''      <li class="paper">
+        <div class="paper-head"><span class="idx">{idx:02d}</span><span class="badge">{esc(label)}</span></div>
+        <div class="paper-title">{star}{esc(p["title"])}</div>
+        <div class="paper-authors">{bold_author(p["authors"])}</div>
+        <div class="paper-venue">{render_venue(p)}</div>
+        <div class="paper-actions">{''.join(links)}</div>
+      </li>'''
+
+
+def render_year_page(key):
+    yt = YEAR_TEXT[LANG]
+    year = None if key == "undated" else int(key)
+    label = yt["undated"] if year is None else str(year)
+    papers = sorted([p for p in PAPERS if p["year"] == year], key=prestige_key)
+    lib = [it for it in DATA.get("full_pdf_library", []) if it.get("year") == year]
+    n_papers, n_pdfs = len(papers), len(lib)
+
+    canonical = year_page_url(LANG, key)
+    en_url, zh_url = year_page_url("en", key), year_page_url("zh", key)
+    home = ZH_URL if LANG == "zh" else EN_URL
+    other = zh_url if LANG == "en" else en_url
+    css = SITE_URL + ("zh/assets/style.css" if LANG == "zh" else "assets/style.css")
+    lang_attr = "zh-CN" if LANG == "zh" else "en"
+    own_locale = "zh_CN" if LANG == "zh" else "en_US"
+
+    nav = "\n".join(
+        '      <a class="yp-nav-link%s" href="%s">%s</a>'
+        % (" is-current" if k == key else "",
+           esc(year_page_url(LANG, k)),
+           esc(yt["undated_short"] if k == "undated" else k))
+        for k in year_keys()
+    )
+    paper_rows = "\n".join(render_year_paper(p, i + 1) for i, p in enumerate(papers))
+    pdf_rows = "\n".join(
+        '        <li><a href="%s" target="_blank" rel="noopener">%s'
+        '<span class="yp-dl">PDF \u2193</span></a></li>'
+        % (esc(abs_pdf_url(it["file"])), esc(it["title"]))
+        for it in lib
+    )
+    no_papers = "" if n_papers else '<p class="muted">%s</p>' % esc(yt["no_papers"])
+
+    # Undated group reads differently: it is not "papers published in {year}".
+    if year is None:
+        title_txt = yt["undated_h1"]
+        desc_txt = yt["undated_desc"]
+        h_papers = yt["undated_papers_h"]
+        h_pdfs = yt["undated_pdfs_h"].format(m=n_pdfs)
+    else:
+        title_txt = yt["title"].format(year=label)
+        desc_txt = yt["desc"].format(n=n_papers, year=label)
+        h_papers = yt["h_papers"].format(year=label)
+        h_pdfs = yt["h_pdfs"].format(m=n_pdfs, year=label)
+
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": title_txt,
+        "description": desc_txt,
+        "url": canonical,
+        "inLanguage": lang_attr,
+        "isPartOf": {"@type": "WebSite", "url": SITE_URL, "name": PROFILE["name"]},
+        "about": {"@type": "Person", "name": PROFILE["name"],
+                  "affiliation": PROFILE["affiliation"]},
+        "mainEntity": {
+            "@type": "ItemList",
+            "numberOfItems": n_papers,
+            "itemListElement": [
+                {"@type": "ListItem", "position": i + 1,
+                 "item": dict(
+                     {"@type": "ScholarlyArticle", "headline": p["title"],
+                      "author": p["authors"]},
+                     **({"datePublished": str(year)} if year else {}),
+                     **({"url": abs_pdf_url(p["local"])} if p.get("local") else {}),
+                 )}
+                for i, p in enumerate(papers)
+            ],
+        },
+    }
+    jsonld = json.dumps(schema, ensure_ascii=False).replace("<", "\\u003c")
+    return f'''<!DOCTYPE html>
+<html lang="{lang_attr}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{esc(title_txt)} | {esc(P["name"])}</title>
+  <meta name="description" content="{esc(desc_txt)}">
+  <link rel="canonical" href="{esc(canonical)}">
+  <link rel="alternate" hreflang="en" href="{esc(en_url)}">
+  <link rel="alternate" hreflang="zh-Hans" href="{esc(zh_url)}">
+  <link rel="alternate" hreflang="x-default" href="{esc(en_url)}">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{esc(title_txt)}">
+  <meta property="og:url" content="{esc(canonical)}">
+  <meta property="og:locale" content="{own_locale}">
+  <meta property="og:site_name" content="{esc(P["name"])} | Sichuan University">
+  <link rel="stylesheet" href="{esc(css)}">
+  <script type="application/ld+json">{jsonld}</script>
+</head>
+<body class="yp-body">
+<div class="wrap yp-wrap">
+  <header class="yp-header">
+    <nav class="yp-topnav">
+      <a href="{esc(home)}">\u2190 {esc(yt["back"])}</a>
+      <span class="yp-sep">|</span>
+      <a href="{esc(other)}">{esc(yt["other_lang"])}</a>
+    </nav>
+    <h1>{esc(title_txt)}</h1>
+    <p class="yp-meta">{yt["meta"].format(n=n_papers, m=n_pdfs)}</p>
+    <nav class="yp-nav" aria-label="{esc(yt["nav"])}">
+{nav}
+    </nav>
+  </header>
+
+  <section class="card yp-section">
+    <h2>{esc(h_papers)}</h2>
+    {no_papers}
+    <ol class="papers">
+{paper_rows}
+    </ol>
+  </section>
+
+  <section class="card yp-section">
+    <h2>{esc(h_pdfs)}</h2>
+    <p class="muted">{esc(yt["pdf_hint"])}</p>
+    <ul class="yp-pdfs">
+{pdf_rows}
+    </ul>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap"><span>&copy; {esc(P["name"])}</span></div>
+  </footer>
+</div>
+</body>
+</html>
+'''
+
+
+def write_year_pages():
+    ydir = OUT / "years"
+    ydir.mkdir(parents=True, exist_ok=True)
+    keys = year_keys()
+    for k in keys:
+        (ydir / (k + ".html")).write_text(render_year_page(k), encoding="utf-8")
+    return len(keys)
 
 
 def render_list(items, tag="li"):
@@ -660,8 +896,10 @@ def main():
             if src.exists():
                 shutil.copy2(src, OUT / "assets" / name)
     (OUT / "index.html").write_text(doc, encoding="utf-8")
+    n_year_pages = write_year_pages()
     print(f"Wrote {OUT / 'index.html'}: {LANG}, {total} publications, {n_years} year groups, "
-          f"{n_local} self-hosted PDF links, {n_lib} files in the PDF repository.")
+          f"{n_local} self-hosted PDF links, {n_lib} files in the PDF repository, "
+          f"{n_year_pages} year archive pages.")
 
 
 if __name__ == "__main__":

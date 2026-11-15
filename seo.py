@@ -53,6 +53,18 @@ def main():
     # never drift apart. Add a URL here and both files pick it up.
     files = DATA.get("full_pdf_library", [])
     entries = [(EN_URL, "1.0", True), (ZH_URL, "0.9", True)]
+
+    # Every per-year archive page, in both languages. These are the pages that
+    # give each PDF a static, crawlable link, so they matter most for indexing.
+    papers = DATA.get("publications", [])
+    years = sorted({p["year"] for p in papers if p.get("year") is not None}, reverse=True)
+    year_keys = [str(y) for y in years] + ["undated"]
+    for key in year_keys:
+        en_year = SITE + "years/" + key + ".html"
+        zh_year = SITE + "zh/years/" + key + ".html"
+        entries.append((en_year, "0.7", False))
+        entries.append((zh_year, "0.7", False))
+
     entries += [(pdf_url(item["file"]), "0.6", False) for item in files]
 
     # sitemaps.org schema is an ordered sequence: loc, lastmod, changefreq,
@@ -92,8 +104,8 @@ def main():
     (ROOT / "sitemap-simple.xml").write_text(simple, encoding="utf-8")
 
     print("Wrote robots.txt, sitemap.xml, sitemap-simple.xml: "
-          "%d HTML pages + %d PDFs = %d URLs (base %s)"
-          % (2, len(files), len(entries), SITE))
+          "%d homepages + %d year pages + %d PDFs = %d URLs (base %s)"
+          % (2, len(year_keys) * 2, len(files), len(entries), SITE))
 
 
 if __name__ == "__main__":

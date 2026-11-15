@@ -87,7 +87,17 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
   box-shadow: var(--shadow);
   padding: 26px 22px;
   position: sticky; top: 88px;
+  /* Short viewports: keep the sidebar sticky but let its own content scroll,
+     otherwise everything below the fold is unreachable. */
+  max-height: calc(100vh - 104px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
 }
+.sidebar::-webkit-scrollbar { width: 6px; }
+.sidebar::-webkit-scrollbar-track { background: transparent; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
 .avatar {
   width: 108px; height: 108px; border-radius: 50%;
   object-fit: cover; display: block; margin: 0 auto 18px;
@@ -157,7 +167,7 @@ img.avatar {
 .muted { color: var(--muted); font-size: 13px; }
 
 .stats {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(112px, 1fr)); gap: 12px;
   margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--line);
 }
 .stat { text-align: center; }
@@ -299,9 +309,14 @@ img.avatar {
 /* ---------- responsive ---------- */
 @media (max-width: 900px) {
   .layout { grid-template-columns: 1fr; }
-  .sidebar { position: static; }
+  .sidebar { position: static; max-height: none; overflow: visible; }
   .avatar { width: 92px; height: 92px; }
   .two-col { grid-template-columns: 1fr; gap: 8px; }
+}
+/* On short desktop viewports the sticky column cannot fit at all: let it
+   flow with the page so every item below the fold stays reachable. */
+@media (max-height: 760px) and (min-width: 901px) {
+  .sidebar { position: static; max-height: none; overflow: visible; }
 }
 @media (max-width: 620px) {
   .wrap { padding: 0 16px; }
@@ -317,7 +332,7 @@ img.avatar {
   .topbar, .toolbar, .paper-actions, .footer, .skip-link { display: none !important; }
   body { background: #fff; }
   .layout { display: block; padding: 0; }
-  .sidebar { position: static; box-shadow: none; margin-bottom: 16px; }
+  .sidebar { position: static; max-height: none; overflow: visible; box-shadow: none; margin-bottom: 16px; }
   .card { box-shadow: none; border: 0; padding: 12px 0; page-break-inside: avoid; }
   .paper.is-hidden, .year-group.is-hidden { display: block !important; }
 }

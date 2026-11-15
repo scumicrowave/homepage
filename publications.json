@@ -16,7 +16,7 @@
     "bio": [
       "Dr. Changjun Liu received the B.S. degree in Applied Physics from Hebei University, China, in 1994, and the M.S. degree in Radio Physics (1997) and Ph.D. degree in Biomedical Engineering (2000) from Sichuan University, China. He was a post-doctoral researcher at Seoul National University, Korea (2001–2002) and a visiting scholar at Ulm University, Germany (2006–2007).",
       "Since 1997 he has been with Sichuan University, where he became an Associate Professor in 2000, a full Professor in 2004, and a Ph.D. supervisor in 2005. He currently serves as Vice Dean of the School of Electronics and Information Engineering, Sichuan University.",
-      "He has authored two books and more than 200 articles, and holds over ten patents. His group works on microwave and millimeter-wave wireless power transmission from S-band to X-band, over distances from meters to kilometers, including wireless power transmission inside closed cavities and high-efficiency microwave rectification with wide dynamic power ranges."
+      "He has authored two books and more than 200 articles; his work has been cited 4,698 times on Google Scholar (h-index 37). His group works on microwave and millimeter-wave wireless power transmission from S-band to X-band, over distances from meters to kilometers, including wireless power transmission inside closed cavities and high-efficiency microwave rectification with wide dynamic power ranges."
     ],
     "interests": [
       "Microwave & millimeter-wave wireless power transmission (MWPT)",
@@ -58,12 +58,12 @@
         "IEEE Xplore publications"
       ],
       [
-        "2,043",
+        "2,049",
         "IEEE Xplore citations"
       ],
       [
-        "10+",
-        "Granted patents"
+        "4,698",
+        "Google Scholar citations"
       ]
     ],
     "links": [
@@ -2003,7 +2003,7 @@
     "bio": [
       "刘长军博士 1994 年获河北大学应用物理专业学士学位，1997 年、2000 年先后在四川大学获无线电物理硕士与生物医学工程博士学位。2001—2002 年在韩国汉城国立大学从事博士后研究，2006—2007 年赴德国乌尔姆大学任访问学者。",
       "自 1997 年起任教于四川大学，2000 年晋升副教授，2004 年晋升教授，2005 年遴选为博士生导师。现任四川大学电子信息学院副院长。",
-      "已出版专著 2 部，发表论文 200 余篇，获授权专利 10 余项。课题组主要从事 S 波段至 X 波段的微波与毫米波无线电能传输研究，传输距离覆盖米级至公里级，包括封闭腔体内的无线电能传输以及宽动态功率范围下的高效率微波整流。"
+      "已出版专著 2 部，发表论文 200 余篇，Google 学术引用 4,698 次（h 指数 37）。课题组主要从事 S 波段至 X 波段的微波与毫米波无线电能传输研究，传输距离覆盖米级至公里级，包括封闭腔体内的无线电能传输以及宽动态功率范围下的高效率微波整流。"
     ],
     "interests": [
       "微波与毫米波无线电能传输（MWPT）",
@@ -2045,12 +2045,12 @@
         "IEEE Xplore 收录论文"
       ],
       [
-        "2,043",
+        "2,049",
         "IEEE Xplore 引用次数"
       ],
       [
-        "10+",
-        "授权专利"
+        "4,698",
+        "Google 学术引用次数"
       ]
     ],
     "links": [

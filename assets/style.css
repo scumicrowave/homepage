@@ -101,7 +101,6 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 .avatar {
   width: 108px; height: 108px; border-radius: 50%;
   object-fit: cover; display: block; margin: 0 auto 18px;
-  border: 1px solid var(--line);
 }
 .avatar-mono {
   display: grid; place-items: center;
@@ -109,12 +108,12 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
   color: #fff; font: 400 40px/1 var(--serif); letter-spacing: .04em;
   border: none;
 }
-/* The supplied portrait is a dark circle on a white square; border-radius
-   trims the white corners, and a dark backdrop avoids a white flash on load. */
+/* The portrait is a white-background headshot on a white card: keep the
+   circular crop, but draw no border, ring or shadow around it. */
 img.avatar {
-  background: #262626;
-  border: 1px solid rgba(28, 36, 48, .10);
-  box-shadow: 0 2px 10px rgba(18, 32, 45, .12);
+  background: var(--card);
+  border: 0;
+  box-shadow: none;
 }
 .name { font: 600 25px/1.25 var(--serif); margin: 0 0 4px; text-align: center; }
 .role {

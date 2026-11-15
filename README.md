@@ -308,7 +308,7 @@ Google's sitemap "ping" endpoint has been retired and the Indexing API only acce
 
 ## Content sources
 
-Profile and publication list compiled from the existing Google Sites homepage, IEEE Xplore author profile, IEEE MTT-S profile, Sichuan University EIE faculty page and Baidu Baike. Live metrics: Google Scholar (4,698 citations, h-index 37, i10-index 112) and IEEE Xplore (138 publications / 2,049 citations), read 2026-11-15. The 116 PDFs come from the exported Google Drive folder `Public research articles` supplied as a local zip.
+Profile and publication list compiled from the existing Google Sites homepage, IEEE Xplore author profile, IEEE MTT-S profile, Sichuan University EIE faculty page and Baidu Baike. Google Scholar blocked automated retrieval, so citation counts come from IEEE Xplore (138 publications / 2,043 citations). The 116 PDFs come from the exported Google Drive folder `Public research articles` supplied as a local zip.
 
 For the auto-added PDF entries, venue / volume / issue / pages / year / full author lists / DOIs were filled from the **CrossRef** REST API (strict title matching, `>= 0.90`), with **OpenAlex** and **Semantic Scholar** used for three conference papers absent from CrossRef (2013 ISAP, 43rd EuMC). Where a database record conflicted with the article itself, the PDF header/footer in the cached `_pdf_text.json` extraction took precedence — e.g. `IEEE Transactions on Plasma Science, vol. 44, no. 8, August 2016` and `Proceedings of the 43rd European Microwave Conference`. No PDF was re-parsed during this pass.
 

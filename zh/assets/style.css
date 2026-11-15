@@ -87,20 +87,11 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
   box-shadow: var(--shadow);
   padding: 26px 22px;
   position: sticky; top: 88px;
-  /* Short viewports: keep the sidebar sticky but let its own content scroll,
-     otherwise everything below the fold is unreachable. */
-  max-height: calc(100vh - 104px);
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  scrollbar-width: thin;
-  scrollbar-color: var(--line) transparent;
 }
-.sidebar::-webkit-scrollbar { width: 6px; }
-.sidebar::-webkit-scrollbar-track { background: transparent; }
-.sidebar::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
 .avatar {
   width: 108px; height: 108px; border-radius: 50%;
   object-fit: cover; display: block; margin: 0 auto 18px;
+  border: 1px solid var(--line);
 }
 .avatar-mono {
   display: grid; place-items: center;
@@ -108,11 +99,12 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
   color: #fff; font: 400 40px/1 var(--serif); letter-spacing: .04em;
   border: none;
 }
-/* Circular crop restored, but with no border, ring or shadow rendering.
-   The photo's white background is recoloured to the page background (--bg),
-   so the circular edge stays soft instead of a hard outlined disc. */
+/* The supplied portrait is a dark circle on a white square; border-radius
+   trims the white corners, and a dark backdrop avoids a white flash on load. */
 img.avatar {
-  background: var(--bg);
+  background: #262626;
+  border: 1px solid rgba(28, 36, 48, .10);
+  box-shadow: 0 2px 10px rgba(18, 32, 45, .12);
 }
 .name { font: 600 25px/1.25 var(--serif); margin: 0 0 4px; text-align: center; }
 .role {
@@ -307,14 +299,9 @@ img.avatar {
 /* ---------- responsive ---------- */
 @media (max-width: 900px) {
   .layout { grid-template-columns: 1fr; }
-  .sidebar { position: static; max-height: none; overflow: visible; }
+  .sidebar { position: static; }
   .avatar { width: 92px; height: 92px; }
   .two-col { grid-template-columns: 1fr; gap: 8px; }
-}
-/* Short viewports: drop sticky entirely so the whole sidebar scrolls with
-   the page; nothing is ever clipped out of reach. */
-@media (max-height: 760px) and (min-width: 901px) {
-  .sidebar { position: static; max-height: none; overflow: visible; }
 }
 @media (max-width: 620px) {
   .wrap { padding: 0 16px; }

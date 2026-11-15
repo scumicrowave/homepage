@@ -183,6 +183,31 @@ def pdf_target(paper):
     return DRIVE, T["btn_pdf_fallback"], T["tip_fallback"]
 
 
+def render_venue(paper):
+    """Render the citation line with IEEE journal names in pure black.
+
+    Only the journal title is emphasised; volume / issue / pages / year keep
+    the muted italic style of the surrounding citation. Conference names are
+    deliberately left untouched -- the request concerns IEEE *journals*.
+    """
+    venue = paper.get("venue") or ""
+    journal = (paper.get("journal") or "").strip()
+    ptype = (paper.get("type") or "journal").lower()
+    name = ""
+    if journal and "IEEE" in journal.upper() and venue.upper().startswith(journal.upper()):
+        name = journal
+    elif ptype in ("journal", "magazine"):
+        head = venue.split(",")[0].strip()
+        if "IEEE" in head.upper():
+            name = head
+    if not name:
+        return esc(venue)
+    return (
+        f'<span class="journal-black">{esc(name)}</span>'
+        f'{esc(venue[len(name):])}'
+    )
+
+
 def render_paper(paper, index):
     title = paper["title"]
     authors = paper["authors"]
@@ -226,7 +251,7 @@ def render_paper(paper, index):
         <div class="paper-head"><span class="idx">{index:02d}</span><span class="badge">{esc(ptype_label)}</span></div>
         <div class="paper-title">{star}{esc(title)}</div>
         <div class="paper-authors">{bold_author(authors)}</div>
-        <div class="paper-venue">{esc(venue)}</div>
+        <div class="paper-venue">{render_venue(paper)}</div>
         <div class="paper-actions">{''.join(links)}</div>
       </li>'''
 

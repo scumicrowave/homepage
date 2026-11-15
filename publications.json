@@ -45,8 +45,9 @@
       "2009 — Outstanding Young Academic Leader of Sichuan Province"
     ],
     "books": [
-      "Principles and Technologies of Microwave Wireless Power Transmission",
-      "RF Communication Circuit Design, Science Press, 2005; 2nd edition"
+      "K. Huang, X. Chen and C. Liu, Principles and Technologies of Microwave Wireless Power Transmission, Science Press, Dec. 2021, ISBN 978-7-03-069785-1.",
+      "C. Liu, K. Huang and L. Yan, RF Communication Circuit Design, Science Press, June 2005, ISBN 7-03-015988-8; 2nd ed. (C. Liu, K. Huang and H. Zhu), Science Press, Feb. 2017, ISBN 978-7-03-051251-2.",
+      "Book chapter: C. Liu and K. Huang, “Metamaterial Transmission Line and its Applications,” in Advanced Microwave and Millimeter Wave Technologies: Semiconductor Devices, Circuits and Systems, M. Mukherjee (Ed.), InTech, Mar. 2010, ISBN 978-953-307-031-5, DOI 10.5772/8770."
     ],
     "stats": [
       [
@@ -74,6 +75,10 @@
       [
         "Google Scholar",
         "https://scholar.google.com/citations?user=_6js4T4AAAAJ&hl=en"
+      ],
+      [
+        "LinkedIn",
+        "https://www.linkedin.com/in/changjun-liu/"
       ],
       [
         "IEEE Xplore",
@@ -1499,7 +1504,7 @@
       "year": 2016,
       "type": "journal",
       "authors": "Changjun Liu, Heping Huang, Zhengyu Liu, Feixiang Huo, Kama Huang",
-      "title": "Experimental Study on Microwave Power Combining Based on Injection-Locked 15-kW -S- -Band Continuous-Wave Magnetrons",
+      "title": "Experimental Study on Microwave Power Combining Based on Injection-Locked 15-kW S-Band Continuous-Wave Magnetrons",
       "venue": "IEEE Transactions on Plasma Science, vol. 44, no. 8, pp. 1291–1297, 2016",
       "local": "papers/Experimental Study on Microwave Power Combining Based on Injection-Locked 15-kW  -S- -Band Continuous-Wave Magnetrons.pdf",
       "doi": "10.1109/TPS.2016.2565564",
@@ -1548,7 +1553,7 @@
       "year": 2017,
       "type": "journal",
       "authors": "Heping Huang, Yu Wei, Xiaojie Chen, Kama Huang, Changjun Liu",
-      "title": "Simulation and Experiments of an -S- -Band 20-kW Power-Adjustable Phase-Locked Magnetron",
+      "title": "Simulation and Experiments of an S-Band 20-kW Power-Adjustable Phase-Locked Magnetron",
       "venue": "IEEE Transactions on Plasma Science, vol. 45, no. 5, pp. 791–797, 2017",
       "local": "papers/Simulation and Experiments of an -S- -Band 20-kW Power-Adjustable Phase-Locked Magnetron.pdf",
       "doi": "10.1109/tps.2017.2689502",
@@ -1882,7 +1887,7 @@
       "year": 2019,
       "type": "conference",
       "authors": "P. Wu, X. Chen, H. Lin, C. Liu",
-      "title": "High-Efficiency-Rectifier-with-Wide-Input-Power-Rage-Based-on-a-Small-Capacitor-in-Parallel-with-the-Diode",
+      "title": "High-Efficiency Rectifier with Wide Input Power Range Based on a Small Capacitor in Parallel with the Diode",
       "venue": "2019 IEEE MTT-S International Microwave Symposium (IMS), 1316-1319, 2019",
       "local": "papers/High-Efficiency-Rectifier-with-Wide-Input-Power-Rage-Based-on-a-Small-Capacitor-in-Parallel-with-the-Diode.pdf",
       "doi": "10.1109/mwsym.2019.8701073",
@@ -4035,7 +4040,7 @@
       "year": 2026,
       "type": "journal",
       "authors": "D. Zhu, H. He, Z. He, C. Liao, C. Liu",
-      "title": "compact-ultra-wideband-rectifier-for-environmental-energy-harvesting-based-on-coupled-structure",
+      "title": "Compact Ultra-Wideband Rectifier for Environmental Energy Harvesting Based on Coupled Structure",
       "venue": "International Journal of Microwave and Wireless Technologies, 1-9, 2026",
       "local": "papers/compact-ultra-wideband-rectifier-for-environmental-energy-harvesting-based-on-coupled-structure.pdf",
       "doi": "10.1017/s1759078726103663",
@@ -4648,7 +4653,7 @@
       "year_source": "publication"
     },
     {
-      "title": "Experimental Study on Microwave Power Combining Based on Injection-Locked 15-kW -S- -Band Continuous-Wave Magnetrons",
+      "title": "Experimental Study on Microwave Power Combining Based on Injection-Locked 15-kW S-Band Continuous-Wave Magnetrons",
       "file": "papers/Experimental Study on Microwave Power Combining Based on Injection-Locked 15-kW  -S- -Band Continuous-Wave Magnetrons.pdf",
       "year": null,
       "year_source": "unconfirmed",
@@ -4706,7 +4711,7 @@
       "year_source": "publication"
     },
     {
-      "title": "Simulation and Experiments of an -S- -Band 20-kW Power-Adjustable Phase-Locked Magnetron",
+      "title": "Simulation and Experiments of an S-Band 20-kW Power-Adjustable Phase-Locked Magnetron",
       "file": "papers/Simulation and Experiments of an -S- -Band 20-kW Power-Adjustable Phase-Locked Magnetron.pdf",
       "year": null,
       "year_source": "unconfirmed",
@@ -4901,7 +4906,7 @@
       "year_source": "filename"
     },
     {
-      "title": "High-Efficiency-Rectifier-with-Wide-Input-Power-Rage-Based-on-a-Small-Capacitor-in-Parallel-with-the-Diode",
+      "title": "High-Efficiency Rectifier with Wide Input Power Range Based on a Small Capacitor in Parallel with the Diode",
       "file": "papers/High-Efficiency-Rectifier-with-Wide-Input-Power-Rage-Based-on-a-Small-Capacitor-in-Parallel-with-the-Diode.pdf",
       "year": 2019,
       "year_source": "publication"
@@ -5453,7 +5458,7 @@
       "year_source": "filename"
     },
     {
-      "title": "Simulation and Experiments of an -S- -Band 20-kW Power-Adjustable Phase-Locked Magnetron",
+      "title": "Simulation and Experiments of an S-Band 20-kW Power-Adjustable Phase-Locked Magnetron",
       "file": "papers/Simulation_and_Experiments_of_an_S_-Band_20-kW_Power-Adjustable_Phase-Locked_Magnetron.pdf",
       "year": 2017,
       "year_source": "filename"
@@ -6419,7 +6424,7 @@
       "year_source": "filename"
     },
     {
-      "title": "compact-ultra-wideband-rectifier-for-environmental-energy-harvesting-based-on-coupled-structure",
+      "title": "Compact Ultra-Wideband Rectifier for Environmental Energy Harvesting Based on Coupled Structure",
       "file": "papers/compact-ultra-wideband-rectifier-for-environmental-energy-harvesting-based-on-coupled-structure.pdf",
       "year": 2026,
       "year_source": "filename"
@@ -6470,8 +6475,9 @@
       "2009 — 四川省优秀青年学术带头人"
     ],
     "books": [
-      "《微波无线能量传输原理与技术》",
-      "《射频通信电路设计》，科学出版社，2005；第 2 版"
+      "黄卡玛、陈星、刘长军编著，《微波无线能量传输原理与技术》，科学出版社，2021 年 12 月，ISBN 978-7-03-069785-1。",
+      "刘长军、黄卡玛、闫丽萍编著，《射频通信电路设计》，科学出版社，2005 年 6 月，ISBN 7-03-015988-8；第二版（刘长军、黄卡玛、朱铧丞），科学出版社，2017 年 2 月，ISBN 978-7-03-051251-2。",
+      "书籍章节：C. Liu、K. Huang，“Metamaterial Transmission Line and its Applications”，载于 Advanced Microwave and Millimeter Wave Technologies: Semiconductor Devices, Circuits and Systems，M. Mukherjee 主编，InTech，2010 年 3 月，ISBN 978-953-307-031-5，DOI 10.5772/8770。"
     ],
     "stats": [
       [
@@ -6499,6 +6505,10 @@
       [
         "Google 学术",
         "https://scholar.google.com/citations?user=_6js4T4AAAAJ&hl=en"
+      ],
+      [
+        "LinkedIn",
+        "https://www.linkedin.com/in/changjun-liu/"
       ],
       [
         "IEEE Xplore",

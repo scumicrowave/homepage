@@ -63,7 +63,8 @@ SKIP = {".git", ".workbuddy", "_matches.json", "_blob_cache.json", "deploy.log",
         ".DS_Store", "Thumbs.db", "_apply_enrich.py", "_enrich.py", "_pdf_text.json",
         "_baseline_126.json", "_publications_backup.json", "_verify_remote.json",
         "_apply_crossref.py", "_crossref_fetch.py", "_crossref_raw.json",
-        "_publications_before_crossref.json"}
+        "_publications_before_crossref.json", "_scholar_works.json",
+        "_publications_before_latest.json"}
 MESSAGE = "Sync deployment docs for bilingual GitHub Pages rollout"
 
 

@@ -879,9 +879,11 @@
       "type": "conference",
       "authors": "P. Wu, X. Chen, H. Lin, and C. Liu",
       "title": "High-Efficiency Rectifier with Wide Input Power Range Based on a Small Capacitor in Parallel with the Diode",
-      "venue": "2019 IEEE MTT-S International Microwave Symposium (IMS), Boston, MA, USA",
+      "venue": "2019 IEEE MTT-S International Microwave Symposium (IMS), Boston, MA, USA, pp. 1316-1319",
       "local": "papers/High-Efficiency Rectifier with Wide Input Power Rage Based on a Small Capacitor in Parallel with the Diode.pdf",
-      "doi": "10.1109/mwsym.2019.8701073"
+      "doi": "10.1109/mwsym.2019.8701073",
+      "pages": "1316-1319",
+      "journal": "IEEE MTT-S International Microwave Symposium digest"
     },
     {
       "year": 2018,
@@ -1882,18 +1884,6 @@
       "issue": "5",
       "pages": "969-972",
       "in_chinese": true
-    },
-    {
-      "year": 2019,
-      "type": "conference",
-      "authors": "P. Wu, X. Chen, H. Lin, C. Liu",
-      "title": "High-Efficiency Rectifier with Wide Input Power Range Based on a Small Capacitor in Parallel with the Diode",
-      "venue": "2019 IEEE MTT-S International Microwave Symposium (IMS), 1316-1319, 2019",
-      "local": "papers/High-Efficiency-Rectifier-with-Wide-Input-Power-Rage-Based-on-a-Small-Capacitor-in-Parallel-with-the-Diode.pdf",
-      "doi": "10.1109/mwsym.2019.8701073",
-      "pdf": "https://doi.org/10.1109/mwsym.2019.8701073",
-      "pages": "1316-1319",
-      "journal": "IEEE MTT-S International Microwave Symposium digest"
     },
     {
       "year": 2000,
@@ -4904,12 +4894,6 @@
       "file": "papers/Cell_deformation_and_increase_of_cytotoxicity_of_anticancer_drugs_due_to_low-intensity_transient_electromagnetic_pulses.pdf",
       "year": 2000,
       "year_source": "filename"
-    },
-    {
-      "title": "High-Efficiency Rectifier with Wide Input Power Range Based on a Small Capacitor in Parallel with the Diode",
-      "file": "papers/High-Efficiency-Rectifier-with-Wide-Input-Power-Rage-Based-on-a-Small-Capacitor-in-Parallel-with-the-Diode.pdf",
-      "year": 2019,
-      "year_source": "publication"
     },
     {
       "title": "Measurement of Near-Field Electromagnetic Emissions and Characterization Based on Equivalent Dipole Model in Time-Domain",

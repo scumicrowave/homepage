@@ -95,6 +95,33 @@ I18N = {
         "footer_updated": "Last updated",
         "footer_built": "Built as a static site for GitHub Pages.",
         "alt_version": "中文版 / Chinese",
+        # Single-paper detail page
+        "detail_back": "Back to publications",
+        "detail_output": "Research output",
+        "detail_output_journal": "Journal article",
+        "detail_output_conf": "Conference paper",
+        "detail_output_magazine": "Magazine article",
+        "detail_output_other": "Publication",
+        "detail_orig_lang": "Original language",
+        "detail_lang_val": "English",
+        "detail_lang_zh": "Chinese",
+        "detail_pages": "Pages (from-to)",
+        "detail_journal": "Journal",
+        "detail_volume": "Volume",
+        "detail_issue": "Issue number",
+        "detail_pubdate": "Publication date",
+        "detail_doi": "DOI",
+        "detail_status": "Publication status",
+        "detail_status_val": "Published",
+        "detail_type_label": "Publication type",
+        "detail_access": "Access to document",
+        "detail_cite": "Cite this",
+        "detail_cite_apa": "APA",
+        "detail_cite_bibtex": "BibTeX",
+        "detail_abstract_note": "Full text available via the download link below.",
+        "detail_scholar": "View on Google Scholar",
+        "detail_other": "Other links",
+        "detail_title_tip": "View full publication details",
     },
     "zh": {
         "lang": "zh-CN",
@@ -141,6 +168,33 @@ I18N = {
         "footer_updated": "最后更新",
         "footer_built": "静态站点 · GitHub Pages",
         "alt_version": "English version",
+        # 单篇论文详情页
+        "detail_back": "返回论文列表",
+        "detail_output": "研究成果",
+        "detail_output_journal": "期刊论文",
+        "detail_output_conf": "会议论文",
+        "detail_output_magazine": "杂志文章",
+        "detail_output_other": "出版物",
+        "detail_orig_lang": "原文语言",
+        "detail_lang_val": "英文",
+        "detail_lang_zh": "中文",
+        "detail_pages": "页码（起-止）",
+        "detail_journal": "期刊",
+        "detail_volume": "卷",
+        "detail_issue": "期",
+        "detail_pubdate": "发表日期",
+        "detail_doi": "DOI",
+        "detail_status": "发表状态",
+        "detail_status_val": "已发表",
+        "detail_type_label": "文献类型",
+        "detail_access": "获取全文",
+        "detail_cite": "引用格式",
+        "detail_cite_apa": "APA",
+        "detail_cite_bibtex": "BibTeX",
+        "detail_abstract_note": "全文请通过下方下载链接获取。",
+        "detail_scholar": "在 Google Scholar 中查看",
+        "detail_other": "其他链接",
+        "detail_title_tip": "查看论文详细信息",
     },
 }
 T = I18N[LANG]
@@ -253,7 +307,7 @@ def render_paper(paper, index):
 
     return f'''      <li class="paper" data-year="{paper['year']}" data-type="{esc(ptype)}" data-text="{esc(search_blob)}">
         <div class="paper-head"><span class="idx">{index:02d}</span><span class="badge">{esc(ptype_label)}</span></div>
-        <div class="paper-title">{star}{esc(title)}</div>
+        <div class="paper-title">{star}<a class="paper-link" href="{esc(detail_href(paper))}" title="{esc(T.get("detail_title_tip", "Publication details"))}">{esc(title)}</a></div>
         <div class="paper-authors">{bold_author(authors)}</div>
         <div class="paper-venue">{render_venue(paper)}</div>
         <div class="paper-actions">{''.join(links)}</div>
@@ -383,6 +437,100 @@ def abs_pdf_url(path):
     return SITE_URL + urllib.parse.quote(path, safe="/")
 
 
+# ---------------------------------------------------------------------------
+# Single-paper detail pages.  Each publication gets its own crawlable HTML page
+# with Google Scholar / citation meta tags, modelled on institutional research
+# portals (title, authors, research output metadata, DOI, full text, cite this).
+# ---------------------------------------------------------------------------
+def _base_slug(paper):
+    title = re.sub(r"\s*\(in Chinese\)\s*$", "", paper["title"])
+    slug = re.sub(r"[^a-z0-9]+", "-", title.lower()).strip("-")
+    slug = slug[:90].rstrip("-")
+    if not slug:
+        slug = "paper"
+    year = paper.get("year") or "nd"
+    return "%s-%s" % (year, slug)
+
+
+def paper_slug(paper):
+    """Stable, SEO-friendly, collision-free slug: <year>-<normalized title>[-n]."""
+    base = _base_slug(paper)
+    # Duplicate publication records share a title; give each a unique page.
+    dupes = [p for p in PAPERS if _base_slug(p) == base]
+    if len(dupes) > 1:
+        idx = dupes.index(paper)
+        if idx > 0:
+            return "%s-%d" % (base, idx + 1)
+    return base
+
+
+def detail_url(paper, lang="en"):
+    base = "pub/" if lang == "zh" else "publications/"
+    return SITE_URL + base + paper_slug(paper) + ".html"
+
+
+def detail_href(paper):
+    """Relative href used from the home page (en root / zh subdir)."""
+    base = "pub/" if LANG == "zh" else "publications/"
+    return base + paper_slug(paper) + ".html"
+
+
+def split_authors(authors):
+    """Normalise 'Z. He, L. Yan, and C. Liu' -> ['Z. He', 'L. Yan', 'C. Liu']."""
+    s = re.sub(r"\s+and\s+", ", ", authors)
+    return [a.strip() for a in s.split(",") if a.strip()]
+
+
+def cite_apa(paper):
+    authors = paper.get("authors", "")
+    year = paper.get("year", "")
+    title = re.sub(r"\s*\(in Chinese\)\s*$", "", paper["title"])
+    journal = paper.get("journal") or (paper.get("venue") or "").split(",")[0].strip()
+    vol = paper.get("volume") or ""
+    issue = paper.get("issue") or ""
+    pages = paper.get("pages") or ""
+    doi = paper.get("doi") or ""
+    bits = "%s (%s). %s" % (authors, year, title)
+    if journal:
+        bits += ". <em>%s</em>" % journal
+    if vol:
+        bits += ", <em>%s</em>" % vol
+    if issue:
+        bits += "(%s)" % issue
+    if pages:
+        bits += ", %s" % pages
+    bits += "."
+    if doi:
+        bits += " https://doi.org/%s" % doi
+    return bits
+
+
+def cite_bibtex(paper):
+    authors = " and ".join(split_authors(paper.get("authors", "")))
+    year = str(paper.get("year") or "")
+    title = re.sub(r"\s*\(in Chinese\)\s*$", "", paper["title"])
+    journal = paper.get("journal") or (paper.get("venue") or "").split(",")[0].strip()
+    key = re.sub(r"[^a-zA-Z]", "", paper.get("authors", "").split(",")[0])[:6].lower() + year
+    etype = "article" if paper.get("type", "journal") in ("journal", "magazine") else "inproceedings"
+    lines = ["@%s{%s," % (etype, key)]
+    lines.append("  author    = {%s}," % authors)
+    lines.append("  title     = {%s}," % title)
+    if journal:
+        lines.append("  journal   = {%s}," % journal)
+    if paper.get("volume"):
+        lines.append("  volume    = {%s}," % paper["volume"])
+    if paper.get("issue"):
+        lines.append("  number    = {%s}," % paper["issue"])
+    if paper.get("pages"):
+        lines.append("  pages     = {%s}," % paper["pages"])
+    if year:
+        lines.append("  year      = {%s}," % year)
+    if paper.get("doi"):
+        lines.append("  doi       = {%s}," % paper["doi"])
+    lines.append("}")
+    return "\n".join(lines)
+
+
 def render_year_paper(p, idx):
     """A paper row for an archive page; PDF URLs are absolute (page lives in /years/)."""
     ptype = p.get("type", "journal")
@@ -404,9 +552,10 @@ def render_year_paper(p, idx):
         '<span class="star" aria-label="Selected publication">\u2605</span> '
         if p.get("selected") else ""
     )
+    detail_href_year = "../" + ("pub/" if LANG == "zh" else "publications/") + paper_slug(p) + ".html"
     return f'''      <li class="paper">
         <div class="paper-head"><span class="idx">{idx:02d}</span><span class="badge">{esc(label)}</span></div>
-        <div class="paper-title">{star}{esc(p["title"])}</div>
+        <div class="paper-title">{star}<a class="paper-link" href="{esc(detail_href_year)}">{esc(p["title"])}</a></div>
         <div class="paper-authors">{bold_author(p["authors"])}</div>
         <div class="paper-venue">{render_venue(p)}</div>
         <div class="paper-actions">{''.join(links)}</div>
@@ -550,6 +699,224 @@ def write_year_pages():
     for k in keys:
         (ydir / (k + ".html")).write_text(render_year_page(k), encoding="utf-8")
     return len(keys)
+
+
+def render_detail_page(paper):
+    """A single, self-contained, crawlable page for one publication."""
+    title_display = paper["title"]  # keeps the "(in Chinese)" marker for readers
+    title = re.sub(r"\s*\(in Chinese\)\s*$", "", paper["title"])  # clean, for citations/SEO
+    in_chinese = bool(paper.get("in_chinese")) or title_display != title
+    ptype = (paper.get("type") or "journal").lower()
+    if ptype == "conference":
+        output_label = T["detail_output_conf"]
+    elif ptype == "magazine":
+        output_label = T["detail_output_magazine"]
+    elif ptype == "journal":
+        output_label = T["detail_output_journal"]
+    else:
+        output_label = T["detail_output_other"]
+    type_label = T["types"].get(ptype, ptype.title())
+    star_mark = ("\u2605 " if paper.get("selected") else "")
+
+    journal = (paper.get("journal") or (paper.get("venue") or "").split(",")[0].strip())
+    vol = paper.get("volume") or ""
+    issue = paper.get("issue") or ""
+    pages = paper.get("pages") or ""
+    doi = paper.get("doi") or ""
+    year = paper.get("year") or ""
+    authors = paper.get("authors", "")
+    author_list = split_authors(authors)
+
+    canonical = detail_url(paper, LANG)
+    en_url = detail_url(paper, "en")
+    zh_url = detail_url(paper, "zh")
+    home = ZH_URL if LANG == "zh" else EN_URL
+    lang_attr = "zh-CN" if LANG == "zh" else "en"
+    own_locale = "zh_CN" if LANG == "zh" else "en_US"
+    css = SITE_URL + ("zh/assets/style.css" if LANG == "zh" else "assets/style.css")
+    desc = "%s. %s. %s %s. %s" % (authors, title, journal, year, doi)
+    page_title_txt = "%s | %s | Sichuan University" % (title, P["name"])
+
+    # Primary full-text link (absolute, works from /publications/ directory)
+    if paper.get("local"):
+        pdf_url = abs_pdf_url(paper["local"])
+    elif paper.get("pdf"):
+        pdf_url = paper["pdf"]
+    else:
+        pdf_url = DRIVE
+
+    links_html = [
+        '<a class="btn btn-pdf" href="%s" target="_blank" rel="noopener">%s \u2193</a>'
+        % (esc(pdf_url), esc("PDF" if not paper.get("local") and not paper.get("pdf") else "PDF"))
+    ]
+    if doi:
+        links_html.append(
+            '<a class="btn btn-ghost" href="%s" target="_blank" rel="noopener">DOI \u2197</a>'
+            % esc("https://doi.org/" + doi))
+    links_html.append(
+        '<a class="btn btn-ghost" href="%s" target="_blank" rel="noopener">%s \u2197</a>'
+        % (esc(scholar_url(title)), esc(T["detail_scholar"])))
+    if paper.get("local") and paper.get("pdf"):
+        links_html.append(
+            '<a class="btn btn-ghost" href="%s" target="_blank" rel="noopener">%s \u2197</a>'
+            % (esc(paper["pdf"]), esc(T["btn_mirror"])))
+
+    # Metadata definition table
+    meta_rows = []
+    meta_rows.append((T["detail_output"], output_label + " \u203A " + type_label))
+    meta_rows.append((T["detail_orig_lang"], T["detail_lang_zh"] if in_chinese else T["detail_lang_val"]))
+    if journal:
+        meta_rows.append((T["detail_journal"], journal))
+    if vol:
+        meta_rows.append((T["detail_volume"], vol))
+    if issue:
+        meta_rows.append((T["detail_issue"], issue))
+    if pages:
+        meta_rows.append((T["detail_pages"], pages))
+    if year:
+        meta_rows.append((T["detail_pubdate"], str(year)))
+    if doi:
+        meta_rows.append((T["detail_doi"], '<a href="%s" target="_blank" rel="noopener">https://doi.org/%s</a>'
+                          % (esc("https://doi.org/" + doi), esc(doi))))
+    meta_rows.append((T["detail_status"], T["detail_status_val"]))
+    meta_html = "\n".join(
+        '        <div class="dt-row"><dt>%s</dt><dd>%s</dd></div>' % (esc(k), v if v.startswith("<a ") else esc(v))
+        for k, v in meta_rows
+    )
+
+    authors_html = ", ".join(
+        ("<strong>" + esc(a) + "</strong>") if OWNER_RE.search(a) else esc(a)
+        for a in author_list
+    )
+    apa = cite_apa(paper)
+    bibtex = cite_bibtex(paper)
+
+    # ---- Google Scholar / citation meta tags (the key to being indexed) ----
+    cite_meta = ['  <meta name="citation_title" content="%s">' % esc(title)]
+    for a in author_list:
+        cite_meta.append('  <meta name="citation_author" content="%s">' % esc(a))
+    if year:
+        cite_meta.append('  <meta name="citation_publication_date" content="%s">' % esc(year))
+    if journal:
+        cite_meta.append('  <meta name="citation_journal_title" content="%s">' % esc(journal))
+    if vol:
+        cite_meta.append('  <meta name="citation_volume" content="%s">' % esc(vol))
+    if issue:
+        cite_meta.append('  <meta name="citation_issue" content="%s">' % esc(issue))
+    if pages:
+        parts = re.split(r"[\u2013\u2014\-]", pages, maxsplit=1)
+        cite_meta.append('  <meta name="citation_firstpage" content="%s">' % esc(parts[0].strip()))
+        if len(parts) > 1:
+            cite_meta.append('  <meta name="citation_lastpage" content="%s">' % esc(parts[1].strip()))
+    if doi:
+        cite_meta.append('  <meta name="citation_doi" content="%s">' % esc(doi))
+    if paper.get("local"):
+        cite_meta.append('  <meta name="citation_pdf_url" content="%s">' % esc(abs_pdf_url(paper["local"])))
+    cite_meta.append('  <meta name="citation_language" content="%s">' % ("zh" if in_chinese else "en"))
+    cite_meta_html = "\n".join(cite_meta)
+
+    # ---- schema.org ScholarlyArticle JSON-LD ----
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "ScholarlyArticle",
+        "headline": title,
+        "author": [{"@type": "Person", "name": a} for a in author_list],
+        "datePublished": str(year) if year else None,
+        "inLanguage": "zh" if in_chinese else "en",
+        "url": canonical,
+        "isPartOf": {"@type": "WebSite", "url": SITE_URL, "name": P["name"]},
+        "publisher": {"@type": "CollegeOrUniversity", "name": P["affiliation"]},
+        "about": {"@type": "Person", "name": P["name"],
+                  "affiliation": P["affiliation"]},
+    }
+    if journal:
+        schema["periodical"] = {"@type": "Periodical", "name": journal}
+    if doi:
+        schema["identifier"] = {"@type": "PropertyValue", "propertyID": "doi", "value": doi}
+        schema["sameAs"] = "https://doi.org/" + doi
+    if paper.get("local"):
+        schema["fullTextUrl"] = abs_pdf_url(paper["local"])
+    schema = {k: v for k, v in schema.items() if v is not None}
+    jsonld = json.dumps(schema, ensure_ascii=False).replace("<", "\\u003c")
+
+    return f'''<!DOCTYPE html>
+<html lang="{lang_attr}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{esc(page_title_txt)}</title>
+  <meta name="description" content="{esc(desc)}">
+  <meta name="author" content="{esc(authors)}">
+  <link rel="canonical" href="{esc(canonical)}">
+  <link rel="alternate" hreflang="en" href="{esc(en_url)}">
+  <link rel="alternate" hreflang="zh-Hans" href="{esc(zh_url)}">
+  <link rel="alternate" hreflang="x-default" href="{esc(en_url)}">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{esc(title)}">
+  <meta property="og:url" content="{esc(canonical)}">
+  <meta property="og:locale" content="{own_locale}">
+  <meta property="og:site_name" content="{esc(P["name"])} | Sichuan University">
+  <meta property="og:description" content="{esc(desc)}">
+{cite_meta_html}
+  <link rel="stylesheet" href="{esc(css)}">
+  <script type="application/ld+json">{jsonld}</script>
+</head>
+<body class="dt-body">
+<div class="dt-wrap">
+  <nav class="dt-topnav">
+    <a href="{esc(home + '#publications')}">\u2190 {esc(T["detail_back"])}</a>
+    <span class="dt-sep">|</span>
+    <a href="{esc(zh_url if LANG == "en" else en_url)}">{esc(T["alt_version"])}</a>
+  </nav>
+
+  <article class="dt-card">
+    <div class="dt-badge">{esc(type_label)}</div>
+    <h1 class="dt-title">{star_mark}{esc(title_display)}</h1>
+    <p class="dt-authors">{authors_html}</p>
+    <p class="dt-aff">{esc(P["affiliation"])}</p>
+
+    <section class="dt-section">
+      <h2>{esc(T["detail_output"])}</h2>
+      <dl class="dt-meta">
+{meta_html}
+      </dl>
+    </section>
+
+    <section class="dt-section">
+      <h2>{esc(T["detail_access"])}</h2>
+      <p class="dt-note">{esc(T["detail_abstract_note"])}</p>
+      <div class="dt-actions">{''.join(links_html)}</div>
+    </section>
+
+    <section class="dt-section">
+      <h2>{esc(T["detail_cite"])}</h2>
+      <div class="dt-cite">
+        <h3>{esc(T["detail_cite_apa"])}</h3>
+        <p class="dt-cite-text">{apa}</p>
+        <h3>{esc(T["detail_cite_bibtex"])}</h3>
+        <pre class="dt-cite-code">{esc(bibtex)}</pre>
+      </div>
+    </section>
+  </article>
+
+  <footer class="dt-footer">
+    <a href="{esc(home + '#publications')}">\u2190 {esc(T["detail_back"])}</a>
+  </footer>
+</div>
+</body>
+</html>
+'''
+
+
+def write_detail_pages():
+    """Write one detail page per publication, in the current language."""
+    ddir = OUT / ("pub" if LANG == "zh" else "publications")
+    ddir.mkdir(parents=True, exist_ok=True)
+    for paper in PAPERS:
+        (ddir / (paper_slug(paper) + ".html")).write_text(
+            render_detail_page(paper), encoding="utf-8")
+    return len(PAPERS)
 
 
 def render_list(items, tag="li"):
@@ -842,7 +1209,6 @@ def main():
 {render_pdf_library()}
       </div>
       <p class="library-empty" id="library-empty" hidden>{esc(T["empty_repo"])}</p>
-      <p class="footnote">{esc(T["footnote_repo"])}</p>
     </section>
 
     <section id="service" class="card two-col">
@@ -897,9 +1263,10 @@ def main():
                 shutil.copy2(src, OUT / "assets" / name)
     (OUT / "index.html").write_text(doc, encoding="utf-8")
     n_year_pages = write_year_pages()
+    n_detail_pages = write_detail_pages()
     print(f"Wrote {OUT / 'index.html'}: {LANG}, {total} publications, {n_years} year groups, "
           f"{n_local} self-hosted PDF links, {n_lib} files in the PDF repository, "
-          f"{n_year_pages} year archive pages.")
+          f"{n_year_pages} year archive pages, {n_detail_pages} detail pages.")
 
 
 if __name__ == "__main__":

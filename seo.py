@@ -65,6 +65,30 @@ def main():
         entries.append((en_year, "0.7", False))
         entries.append((zh_year, "0.7", False))
 
+    # One crawlable page per publication (both languages), matching build.py's
+    # detail pages under /publications/<year>-<slug>.html and /pub/<year>-<slug>.html.
+    import re as _re
+
+    def base_slug(paper):
+        title = _re.sub(r"\s*\(in Chinese\)\s*$", "", paper["title"])
+        slug = _re.sub(r"[^a-z0-9]+", "-", title.lower()).strip("-")[:90].rstrip("-")
+        if not slug:
+            slug = "paper"
+        return "%s-%s" % (paper.get("year") or "nd", slug)
+
+    def slug_of(paper):
+        base = base_slug(paper)
+        dupes = [q for q in papers if base_slug(q) == base]
+        if len(dupes) > 1:
+            i = dupes.index(paper)
+            if i > 0:
+                return "%s-%d" % (base, i + 1)
+        return base
+
+    for paper in papers:
+        entries.append((SITE + "publications/" + slug_of(paper) + ".html", "0.8", False))
+        entries.append((SITE + "pub/" + slug_of(paper) + ".html", "0.7", False))
+
     entries += [(pdf_url(item["file"]), "0.6", False) for item in files]
 
     # sitemaps.org schema is an ordered sequence: loc, lastmod, changefreq,

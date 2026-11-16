@@ -4000,7 +4000,7 @@
       "year": 2010,
       "type": "journal",
       "authors": "Y. Li and C. Liu",
-      "title": "基于混合左右手和人工传输线的平面双定向耦合器",
+      "title": "Bi-directional Coupler Based on Composite Right/Left-Handed and Artificial Transmission Lines (in Chinese)",
       "venue": "High Power Laser and Particle Beams, vol. 22, no. 10, pp. 2403-2406, 2010",
       "local": "papers/基于混合左右手和人工传输线的平面双定向耦合器.pdf",
       "journal": "High Power Laser and Particle Beams",
@@ -4037,7 +4037,7 @@
       "year": 2010,
       "type": "journal",
       "authors": "W. Huang and C. Liu",
-      "title": "基于人工传输线的小型微带 Wilkinson 功分器",
+      "title": "Design of Miniaturized Microstrip Wilkinson Power Divider Based on Artificial Transmission Lines (in Chinese)",
       "venue": "High Power Laser and Particle Beams, vol. 22, no. 1, pp. 123-126, 2010",
       "local": "papers/基于人工传输线的小型微带Wilkinson 功分器.pdf",
       "journal": "High Power Laser and Particle Beams",
@@ -4075,7 +4075,7 @@
       "year": 2011,
       "type": "journal",
       "authors": "B. Zhang and C. Liu",
-      "title": "一种高效的 2.45 GHz 二极管阵列微波整流电路",
+      "title": "A High Efficiency 2.45 GHz Microwave Rectifier Based on Diode Array (in Chinese)",
       "venue": "High Power Laser and Particle Beams, vol. 23, no. 9, pp. 2443-2446, 2011",
       "local": "papers/一种高效的2.45 GHz 二极管阵列微波整流电路.pdf",
       "journal": "High Power Laser and Particle Beams",
@@ -4152,7 +4152,7 @@
       "year": 2013,
       "type": "journal",
       "authors": "X. Wu, W. Huang, F. Tong, and C. Liu",
-      "title": "基于人工传输线结构的小型化低通滤波器",
+      "title": "Novel Miniaturized Low-Pass Filters From Artificial Transmission Line Structures (in Chinese)",
       "venue": "High Power Laser and Particle Beams, vol. 25, no. 11, pp. 2919-2921, 2013",
       "local": "papers/基于人工传输线结构的小型化低通滤波器.pdf",
       "journal": "High Power Laser and Particle Beams",
@@ -4280,7 +4280,7 @@
       "year": 2016,
       "type": "journal",
       "authors": "Z. Yin, Y. Wei, Z. Liu, and C. Liu",
-      "title": "1 kW 注入锁定连续波磁控管微波相干合成实验研究",
+      "title": "Study on Coherent Power Combining System of 1 kW CW Inject-Locking Magnetrons (in Chinese)",
       "venue": "Applied Science and Technology, vol. 43, no. 5, pp. 20-23, 2016",
       "local": "papers/1 kW 注入锁定连续波磁控管微波相干合成实验研究.pdf",
       "journal": "Applied Science and Technology",
@@ -4293,7 +4293,7 @@
       "year": 2016,
       "type": "journal",
       "authors": "H. Zhang and C. Liu",
-      "title": "一种基于子阵分解的高效整流天线阵列",
+      "title": "A High-Efficiency Microwave Rectenna Array Based on Subarray Decomposition (in Chinese)",
       "venue": "Applied Science and Technology, vol. 43, no. 4, pp. 26-29, 2016",
       "local": "papers/一种基于子阵分解的高效整流天线阵列.pdf",
       "journal": "Applied Science and Technology",
@@ -4318,7 +4318,7 @@
       "year": 2016,
       "type": "journal",
       "authors": "F. Tan, H. Huang, and C. Liu",
-      "title": "一种六边形缝隙宽带微波天线设计",
+      "title": "Design of a Novel Hexagon Slot Microwave Antenna (in Chinese)",
       "venue": "Journal of Terahertz Science and Electronic Information Technology, vol. 14, no. 2, pp. 245-248, 2016",
       "local": "papers/一种六边形缝隙宽带微波天线设计.pdf",
       "journal": "Journal of Terahertz Science and Electronic Information Technology",
@@ -6172,7 +6172,7 @@
       "year_source": "filename"
     },
     {
-      "title": "基于混合左右手和人工传输线的平面双定向耦合器",
+      "title": "Bi-directional Coupler Based on Composite Right/Left-Handed and Artificial Transmission Lines",
       "file": "papers/基于混合左右手和人工传输线的平面双定向耦合器.pdf",
       "year": 2010,
       "year_source": "publication"
@@ -6190,7 +6190,7 @@
       "year_source": "publication"
     },
     {
-      "title": "基于人工传输线的小型微带 Wilkinson 功分器",
+      "title": "Design of Miniaturized Microstrip Wilkinson Power Divider Based on Artificial Transmission Lines",
       "file": "papers/基于人工传输线的小型微带Wilkinson 功分器.pdf",
       "year": 2010,
       "year_source": "publication"
@@ -6208,7 +6208,7 @@
       "year_source": "publication"
     },
     {
-      "title": "一种高效的 2.45 GHz 二极管阵列微波整流电路",
+      "title": "A High Efficiency 2.45 GHz Microwave Rectifier Based on Diode Array",
       "file": "papers/一种高效的2.45 GHz 二极管阵列微波整流电路.pdf",
       "year": 2011,
       "year_source": "publication"
@@ -6244,7 +6244,7 @@
       "year_source": "publication"
     },
     {
-      "title": "基于人工传输线结构的小型化低通滤波器",
+      "title": "Novel Miniaturized Low-Pass Filters From Artificial Transmission Line Structures",
       "file": "papers/基于人工传输线结构的小型化低通滤波器.pdf",
       "year": 2013,
       "year_source": "publication"
@@ -6304,13 +6304,13 @@
       "year_source": "publication"
     },
     {
-      "title": "1 kW 注入锁定连续波磁控管微波相干合成实验研究",
+      "title": "Study on Coherent Power Combining System of 1 kW CW Inject-Locking Magnetrons",
       "file": "papers/1 kW 注入锁定连续波磁控管微波相干合成实验研究.pdf",
       "year": 2016,
       "year_source": "publication"
     },
     {
-      "title": "一种基于子阵分解的高效整流天线阵列",
+      "title": "A High-Efficiency Microwave Rectenna Array Based on Subarray Decomposition",
       "file": "papers/一种基于子阵分解的高效整流天线阵列.pdf",
       "year": 2016,
       "year_source": "publication"
@@ -6322,7 +6322,7 @@
       "year_source": "publication"
     },
     {
-      "title": "一种六边形缝隙宽带微波天线设计",
+      "title": "Design of a Novel Hexagon Slot Microwave Antenna",
       "file": "papers/一种六边形缝隙宽带微波天线设计.pdf",
       "year": 2016,
       "year_source": "publication"

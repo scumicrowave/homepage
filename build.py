@@ -465,8 +465,8 @@ def paper_slug(paper):
 
 
 def detail_url(paper, lang="en"):
-    base = "pub/" if lang == "zh" else "publications/"
-    return SITE_URL + base + paper_slug(paper) + ".html"
+    prefix = ZH_URL if lang == "zh" else EN_URL
+    return prefix + ("pub/" if lang == "zh" else "publications/") + paper_slug(paper) + ".html"
 
 
 def detail_href(paper):

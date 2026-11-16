@@ -87,7 +87,7 @@ def main():
 
     for paper in papers:
         entries.append((SITE + "publications/" + slug_of(paper) + ".html", "0.8", False))
-        entries.append((SITE + "pub/" + slug_of(paper) + ".html", "0.7", False))
+        entries.append((SITE + "zh/pub/" + slug_of(paper) + ".html", "0.7", False))
 
     entries += [(pdf_url(item["file"]), "0.6", False) for item in files]
 

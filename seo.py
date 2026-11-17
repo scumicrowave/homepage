@@ -17,6 +17,7 @@ and the Sitemap: directive in robots.txt follow the new domain automatically.
 """
 import json
 import urllib.parse
+from datetime import datetime
 from html import escape
 from pathlib import Path
 
@@ -25,6 +26,19 @@ DATA = json.loads((ROOT / "publications.json").read_text(encoding="utf-8"))
 SITE = DATA["profile"]["site_url"].rstrip("/") + "/"
 EN_URL = SITE
 ZH_URL = SITE + "zh/"
+
+# <lastmod> for every URL. There are no per-paper modification dates in the
+# data, so use the most recent mtime of the files whose changes actually mean
+# "the site content changed". This stays stable across no-op re-runs and bumps
+# automatically the next time content is rebuilt. Fall back to today.
+try:
+    _content = [ROOT / f for f in ("index.html", "zh/index.html",
+                                   "publications.json", "build.py")]
+    LASTMOD = datetime.fromtimestamp(
+        max(p.stat().st_mtime for p in _content if p.exists())
+    ).strftime("%Y-%m-%d")
+except (ValueError, OSError):
+    LASTMOD = datetime.now().strftime("%Y-%m-%d")
 
 
 def pdf_url(path):
@@ -99,6 +113,7 @@ def main():
         block = (
             "  <url>\n"
             "    <loc>%s</loc>\n" % escape(loc, quote=True)
+            + "    <lastmod>%s</lastmod>\n" % LASTMOD
             + "    <priority>%s</priority>\n" % priority
         )
         if has_hreflang:
@@ -120,7 +135,8 @@ def main():
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
         + "".join(
-            "  <url>\n    <loc>%s</loc>\n  </url>\n" % escape(loc, quote=True)
+            "  <url>\n    <loc>%s</loc>\n    <lastmod>%s</lastmod>\n  </url>\n"
+            % (escape(loc, quote=True), LASTMOD)
             for loc, _, _ in entries
         )
         + "</urlset>\n"

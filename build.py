@@ -119,6 +119,8 @@ I18N = {
         "detail_cite_apa": "APA",
         "detail_cite_bibtex": "BibTeX",
         "detail_abstract_note": "Full text available via the download link below.",
+        "detail_abstract": "Abstract",
+        "detail_keywords": "Keywords",
         "detail_scholar": "View on Google Scholar",
         "detail_other": "Other links",
         "detail_title_tip": "View full publication details",
@@ -192,6 +194,8 @@ I18N = {
         "detail_cite_apa": "APA",
         "detail_cite_bibtex": "BibTeX",
         "detail_abstract_note": "全文请通过下方下载链接获取。",
+        "detail_abstract": "摘要",
+        "detail_keywords": "关键词",
         "detail_scholar": "在 Google Scholar 中查看",
         "detail_other": "其他链接",
         "detail_title_tip": "查看论文详细信息",
@@ -505,6 +509,36 @@ def cite_apa(paper):
     return bits
 
 
+def cite_ieee(paper):
+    """IEEE reference style: A. Author, B. Author, "Title," Journal, vol. x, no. y, pp. a-b, Year.
+    Authors are already stored as 'Z. He, H. He, and C. Liu' (IEEE-style initials)."""
+    authors = re.sub(r"\s+and\s+", ", ", paper.get("authors", "")).replace(", and ", ", ")
+    authors = re.sub(r",\s*,", ",", authors)
+    title = re.sub(r"\s*\(in Chinese\)\s*$", "", paper["title"])
+    journal = paper.get("journal") or (paper.get("venue") or "").split(",")[0].strip()
+    vol = paper.get("volume") or ""
+    issue = paper.get("issue") or ""
+    pages = paper.get("pages") or ""
+    doi = paper.get("doi") or ""
+    year = paper.get("year") or ""
+    bits = "%s, \"%s\"" % (authors, title)
+    if journal:
+        bits += ", <em>%s</em>" % journal
+    if vol:
+        bits += ", vol. %s" % vol
+    if issue:
+        bits += ", no. %s" % issue
+    if pages:
+        pages = pages.replace("\u2013", "-").replace("\u2014", "-")
+        bits += ", pp. %s" % pages
+    if year:
+        bits += ", %s" % year
+    bits += "."
+    if doi:
+        bits += " doi: %s." % doi
+    return bits
+
+
 def cite_bibtex(paper):
     authors = " and ".join(split_authors(paper.get("authors", "")))
     year = str(paper.get("year") or "")
@@ -705,7 +739,27 @@ def render_detail_page(paper):
     """A single, self-contained, crawlable page for one publication."""
     title_display = paper["title"]  # keeps the "(in Chinese)" marker for readers
     title = re.sub(r"\s*\(in Chinese\)\s*$", "", paper["title"])  # clean, for citations/SEO
-    in_chinese = bool(paper.get("in_chinese")) or title_display != title
+    in_chinese = (bool(paper.get("in_chinese")) or title_display != title
+                  or bool(paper.get("title_zh")) or bool(paper.get("abstract_zh")))
+    # On the Chinese page, a Chinese-language paper shows its original Chinese
+    # title/authors/journal; everywhere else uses the English metadata.
+    show_zh = in_chinese and LANG == "zh" and paper.get("title_zh")
+    if show_zh:
+        head_title = paper["title_zh"]
+        head_authors = paper.get("authors_zh") or paper.get("authors", "")
+        head_journal = paper.get("journal_zh") or (paper.get("journal") or "")
+    else:
+        head_title = title_display
+        head_authors = ""
+        head_journal = ""
+    # Abstract & keywords: prefer Chinese on the Chinese page for zh papers.
+    if LANG == "zh" and paper.get("abstract_zh"):
+        abstract_text = paper["abstract_zh"]
+        keywords_text = paper.get("keywords_zh", "")
+    else:
+        abstract_text = paper.get("abstract_en", "")
+        keywords_text = paper.get("keywords_en", "")
+    # JSON-LD / Scholar meta use the clean English title regardless of display
     ptype = (paper.get("type") or "journal").lower()
     if ptype == "conference":
         output_label = T["detail_output_conf"]
@@ -765,7 +819,9 @@ def render_detail_page(paper):
     meta_rows = []
     meta_rows.append((T["detail_output"], output_label + " \u203A " + type_label))
     meta_rows.append((T["detail_orig_lang"], T["detail_lang_zh"] if in_chinese else T["detail_lang_val"]))
-    if journal:
+    if show_zh and head_journal:
+        meta_rows.append((T["detail_journal"], head_journal))
+    elif journal:
         meta_rows.append((T["detail_journal"], journal))
     if vol:
         meta_rows.append((T["detail_volume"], vol))
@@ -784,11 +840,33 @@ def render_detail_page(paper):
         for k, v in meta_rows
     )
 
+    display_author_list = split_authors(head_authors) if show_zh else author_list
     authors_html = ", ".join(
-        ("<strong>" + esc(a) + "</strong>") if OWNER_RE.search(a) else esc(a)
-        for a in author_list
+        ("<strong>" + esc(a) + "</strong>") if (OWNER_RE.search(a) or (show_zh and "刘长军" in a)) else esc(a)
+        for a in display_author_list
     )
-    apa = cite_apa(paper)
+
+    # Abstract & keywords section (only when data is available)
+    abstract_html = ""
+    if abstract_text:
+        kw_html = ""
+        if keywords_text:
+            kws = [k.strip() for k in re.split(r"[;,；，]", keywords_text) if k.strip()]
+            kw_html = '<p class="dt-keywords"><strong>%s:</strong> %s</p>' % (
+                esc(T["detail_keywords"]), esc(", ".join(kws)))
+        abstract_html = '''    <section class="dt-section dt-abstract">
+      <h2>{h}</h2>
+      <p class="dt-abstract-text">{body}</p>
+      {kw}
+    </section>
+'''.format(h=esc(T["detail_abstract"]), body=esc(abstract_text), kw=kw_html)
+    # English papers use IEEE style; Chinese-language papers keep APA.
+    if in_chinese:
+        primary_cite_label = T["detail_cite_apa"]
+        primary_cite = cite_apa(paper)
+    else:
+        primary_cite_label = "IEEE"
+        primary_cite = cite_ieee(paper)
     bibtex = cite_bibtex(paper)
 
     # ---- Google Scholar / citation meta tags (the key to being indexed) ----
@@ -872,7 +950,7 @@ def render_detail_page(paper):
 
   <article class="dt-card">
     <div class="dt-badge">{esc(type_label)}</div>
-    <h1 class="dt-title">{star_mark}{esc(title_display)}</h1>
+    <h1 class="dt-title">{star_mark}{esc(head_title)}</h1>
     <p class="dt-authors">{authors_html}</p>
     <p class="dt-aff">{esc(P["affiliation"])}</p>
 
@@ -882,7 +960,7 @@ def render_detail_page(paper):
 {meta_html}
       </dl>
     </section>
-
+{abstract_html}
     <section class="dt-section">
       <h2>{esc(T["detail_access"])}</h2>
       <p class="dt-note">{esc(T["detail_abstract_note"])}</p>
@@ -892,8 +970,8 @@ def render_detail_page(paper):
     <section class="dt-section">
       <h2>{esc(T["detail_cite"])}</h2>
       <div class="dt-cite">
-        <h3>{esc(T["detail_cite_apa"])}</h3>
-        <p class="dt-cite-text">{apa}</p>
+        <h3>{esc(primary_cite_label)}</h3>
+        <p class="dt-cite-text">{primary_cite}</p>
         <h3>{esc(T["detail_cite_bibtex"])}</h3>
         <pre class="dt-cite-code">{esc(bibtex)}</pre>
       </div>
